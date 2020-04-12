@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Paaji+2|Pacifico&display=swap');
+
+:root{
+    --primaryColor: #F1935C;
+}
+
+body {
+    height: 100%;
+    overflow: hidden;
+    width: 100% !important;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .backRight {
+    position: absolute;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: #3498db url(/images/cook2.jpg);
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+  
+  .backLeft {
+    position: absolute;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: #e74c3c url(/images/cook3.jpg);
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+  
+  #back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -999;
+  }
+  
+  #slideBox {
+    width: 50%;
+    max-height: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin-left: 50%;
+    position: absolute;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+  .topLayer {
+    width: 200%;
+    height: 100%;
+    position: relative;
+    left: 0;
+    left: -100%;
+  }
+  
+  .left {
+    width: 50%;
+    height: 100%;
+    background: rgb(150, 134, 120);
+    left: 0;
+    position: absolute;
+  }
+  
+  .right {
+    width: 50%;
+    height: 100%;
+    background: #f9f9f9;
+    right: 0;
+    position: absolute;
+  }
+  
+  .content {
+    width: 100vw;
+    margin: 0 auto;
+    top: 0;
+    position: absolute;
+    left: 30%;
+    margin-left: -125px;
+  }
+
+  .title {
+    font-family: 'Pacifico', cursive;
+    color: var(--primaryColor);
+    font-weight: 300;
+    font-size: 100px;
+  }
+  
+  .content h2 {
+    font-family: 'Baloo Paaji 2', cursive;
+    color: #000;
+    font-weight: 300;
+    font-size: 50px;
+    margin-top: 70px;
+  }
+
+  .form-group {
+      display: flex;
+      flex-direction: column;
+  }
+
+  .forgot {
+    font-family: 'Baloo Paaji 2', cursive;
+    margin-top: 5px;
+    font-size: 15px;
+  }
+
+  a {
+    text-decoration: none;
+    color: #959595;
+  }
+
+  a:hover {
+    color: var(--primaryColor);
+  }
+  
+  button {
+    background: var(--primaryColor);
+    padding: 10px 16px;
+    width: auto;
+    font-weight: 600;
+    text-transform:  uppercase;
+    font-size: 14px;
+    color: #fff;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+    border-radius: 2px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.1);
+    border: 0;
+    outline: 0;
+    margin: 15px 15px 15px 0;
+    transition: all 0.25s;
+  }
+  
+  button:hover {
+    background: var(--primaryColor);
+    box-shadow: 0 4px 7px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.1);
+  }
+  .off {
+    background: none;
+    color: var(--primaryColor);
+    box-shadow: none;
+  }
+  
+  .right .off:hover {
+    background: #eee;
+    color: var(--primaryColor);
+    box-shadow: none;
+  }
+  .left .off:hover {
+    box-shadow: none;
+    color: var(--primaryColor);
+    background: #363A3D;
+  }
+  input {
+    border: 1px solid #959595;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #959595;
+    padding: 8px 0;
+    margin-top: 20px;
+    width: 350px;;
+    padding-left: 10px;
+  }

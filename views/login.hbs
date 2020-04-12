@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/stylesheets/login.css">
+    <title>EasyCooking</title>
+</head>
+<body>
+    <div id="back">
+  <div class="backRight"></div>
+  <div class="backLeft"></div>
+</div>
+
+<div id="slideBox">
+  <div class="topLayer">
+    <div class="left">
+      <div class="content">
+        <h1 class="title">Easy Cooking</h1>
+        <h2>Sign Up</h2>
+        <form method="post" onsubmit="return false;">
+          <div class="form-group">
+            <input type="text" placeholder="username" />
+            <input type="text" placeholder="Email"/>
+            <input type="text" placeholder="Password"/>
+            <input type="text" placeholder="Confirm Password"/>
+          </div>
+          <div class="form-group"></div>
+          <div class="form-group"></div>
+          <div class="form-group"></div>
+        </form>
+        <button id="goLeft" class="off">Login</button>
+        <button>Sign up</button>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="content">
+        <h1 class="title">Easy Cooking</h1>
+        <h2>Login</h2>
+        <form method="post" onsubmit="return false;">
+          <div class="form-group">
+            <input type="text" placeholder="Email"/>
+            <input type="text" placeholder="Password"/>
+            <span class="forgot"><a href="#"> I forgot my password</a></span>
+          </div>
+          <button id="goRight" class="off">Sign Up</button>
+          <button id="login" type="submit">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="/javascripts/login.js"></script>
+</body>
+</html>
