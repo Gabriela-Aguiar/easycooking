@@ -7,6 +7,18 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+//database information
+const mongoose = require('mongoose')
+const dbUrl = '//localhost/'
+const dbName = 'easyCooking'
+
+//add mongo database
+mongoose
+.connect(`mongodb:${dbUrl}${dbName}`, {useNewUrlParser: true})
+.then(_ => console.log(`Connected to Mongo! Database name: ${dbName}`))
+.catch(error => console.log('Error connecting to mong', error))
+
+
 var app = express();
 
 // view engine setup
