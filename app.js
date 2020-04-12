@@ -18,8 +18,13 @@ mongoose
     useNewUrlParser: true, 
     useUnifiedTopology: true
   } )
-  .then( _ => console.log( `Connected to Mongo! Database name: ${dbName}` ) )
-  .catch( error => console.log( 'Error connecting to mong', error ) )
+  mongoose.connection.on('connected', () => console.log(`Connected to Mongo! Database name: ${dbName}`))
+  process.on('SIGINT', () => {
+    mongoose.connection.close(() => {
+      console.log('Mongoose default connection disconnected through app termination');
+      process.exit(0);
+    })
+  })
 
 // view engine setup
 app.set( 'views', path.join( __dirname, 'views' ) );
