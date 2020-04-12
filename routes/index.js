@@ -1,5 +1,4 @@
 var express = require('express');
-var app = express()
 var router = express.Router();
 
 /* GET home page. */
@@ -21,7 +20,5 @@ router.get('/api-results', (req, res) => {
 
   res.render('apiResults')
 })
-
-
 
 module.exports = router;

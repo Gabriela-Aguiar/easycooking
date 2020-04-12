@@ -5,7 +5,7 @@ var cookieParser = require( 'cookie-parser' );
 var logger = require( 'morgan' );
 var app = express();
 var indexRouter = require( './routes/index' );
-var usersRouter = require( './routes/users' );
+var usersRouter = require( './Models/users' );
 
 //database information
 const mongoose = require( 'mongoose' )
