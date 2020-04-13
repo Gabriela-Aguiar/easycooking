@@ -7,12 +7,17 @@
     font-size: 10px;
 }
 
+.transparency {
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 80vh;
+    width: 100vw;
+}
+
 .principal {
     background-image: url('/images/cook.jpg');
     height: 80vh;
     background-position: top;
     background-size: cover;
-    opacity: 0.7;
 }
 
 nav {
@@ -35,11 +40,11 @@ nav {
     cursor: pointer;
     line-height: 16px;
     letter-spacing: 0.5px;
-    border-radius: 2px;
+    border-radius: 10px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.1);
     border: 0;
     outline: 0;
-    margin: 15px 15px 15px 0;
+    margin: 15px 15px 15px 15px;
     transition: all 0.25s;
 }
 
@@ -62,13 +67,46 @@ nav {
 
 .inpt-search {
     width: 300px;
-    height: 30px;
-    border-radius: 15px;
+    padding: 10px 15px;
+    outline: none;
+    border: none;
+    border-radius: 25px;
+    font-size: 18px;
+    color: #000 !important;
+}
+
+.searchButton{
+    margin-left: 15px;
+    background-color: var(--primaryColor);
+    color: #FFF;
+    font-size: 20px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none !important;
+    cursor: pointer;
+}
+
+.searchSpace{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFF;
+    border-radius: 25px;
+    margin-top: 50px;
 }
 
 .recipes-info {
     display: flex;
     flex-direction: column;
+    margin: 10px 0 10px 15px ;
+}
+
+.recipes-info h1 {
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .card-container {
