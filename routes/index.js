@@ -3,6 +3,10 @@ var router = express.Router();
 const token = process.env[ 'API_TOKEN' ]
 const apiUrl = `https://api.spoonacular.com/food/products/search?query=yogurt&apiKey=${token}`
 const User = require( '../Models/users' )
+const ensureLogin = require("connect-ensure-login");
+
+const passportRouter = express.Router();
+const passport = require("passport");
 
 //bcrypt to encrypt password
 const bcrypt = require( 'bcrypt' )
@@ -10,21 +14,26 @@ const bcryptSalt = 10
 
 /* GET home page. */
 router.get( '/', ( req, res, next ) => {
-  res.render( 'index',);
+  res.render( 'index', );
 } );
 
+//view for login and signup
 router.get( '/login', ( req, res ) => {
   res.render( 'login' )
 } )
 
-//USER auth
-router.post( '/signup', ( req, res ) => {
+//USER auth SIGNUP
+router.post( '/signup', ( req, res, next ) => {
   const {
     username,
     email,
     password
   } = req.body
 
+  // if (username === "" || password === "") {
+  //   res.render("/login", { message: "Indicate username and password" });
+  //   return;
+  // }
 
   User.findOne( {
       "username": username
@@ -37,52 +46,45 @@ router.post( '/signup', ( req, res ) => {
         }
         return
       }
+
       const salt = bcrypt.genSaltSync( bcryptSalt );
       const hashPass = bcrypt.hashSync( password, salt );
 
-      User.create( {
-          username,
-          email,
-          password: hashPass
+      const newUser = new User( {
+        username,
+        email,
+        password: hashPass
+      } )
+
+      newUser.save( ( err ) => {
+          if ( err ) {
+            res.render( 'login', {
+              message: "Something went wrong"
+            } )
+          } else {
+            res.redirect( '/home' )
+          }
         } )
-        .then( () => {
-          res.redirect( '/' )
-        } )
-        .catch( error => console.log( error ) )
-      console.log( req.body )
+        .catch( error => next( error ) )
     } )
 } )
 
-router.post('/login', (req, res) => {
-  const {
-    email,
-    password
-  } = req.body
-  console.log(email, password);
-  
-  User.findOne({'email': email})
-  .then(user => {
-    if(!user){
-      res.render('login', {
-        errorMessage: 'The username doesnt exist'
-      })
-      return;
-    }
-    if(bcrypt.compareSync(password, user.password)){
-      req.session.currentUser = user;
-      res.redirect('/')
-    } else {
-      res.render('login', {
-        errorMessage: 'Incorrect password'
-      })
-    }
-  })
-  .catch(error => console.log(error))
-})
+//USER auth LOGIN
+router.post( '/login', passport.authenticate("local", {
+  successRedirect: "/home", 
+  failureRedirect: "/login", 
+  failureFlash: true, 
+  passReqToCallback: true, 
+}))
 
-router.get( '/home', ( req, res, next ) => {
-  res.render( 'home');
-} );
+router.get("/home", ensureLogin.ensureLoggedIn(), (req, res) => {
+  res.render("home", { user: req.user });
+});
+
+router.get("/logout", (req, res) => {
+  req.logout();
+  res.redirect("/login");
+});
 
 //trying to get the results from the API
 router.get( '/api-results', ( req, res ) => {
