@@ -10,9 +10,7 @@ const bcryptSalt = 10
 
 /* GET home page. */
 router.get( '/', ( req, res, next ) => {
-  res.render( 'index', {
-    title: 'EasyCooking'
-  } );
+  res.render( 'index',);
 } );
 
 router.get( '/login', ( req, res ) => {
@@ -81,6 +79,11 @@ router.post('/login', (req, res) => {
   })
   .catch(error => console.log(error))
 })
+
+router.get( '/home', ( req, res, next ) => {
+  res.render( 'home');
+} );
+
 //trying to get the results from the API
 router.get( '/api-results', ( req, res ) => {
   res.render( 'apiResults' )

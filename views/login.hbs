@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/stylesheets/login.css">
     <link rel="stylesheet" href="/stylesheets/style.css">
-    <title>EasyCooking</title>
+    <title>EasyCooking Login</title>
 </head>
 <body>
     <div id="back">
@@ -22,16 +22,16 @@
         <h2>Sign Up</h2>
         <form method="POST" action="/signup">
           <div class="form-group">
-            <input type="text" name="username" placeholder="Username" required />
-            <input type="email" name="email" placeholder="Email" required/>
-            <input type="password" name="password" placeholder="Password" required/>
+            <input type="text" name="username" placeholder="Username" />
+            <input type="email" name="email" placeholder="Email" />
+            <input type="password" name="password" placeholder="Password" />
             {{!-- <input type="password" placeholder="Confirm Password" required/> --}}
           </div>
           <div class="form-group"></div>
           <div class="form-group"></div>
           <div class="form-group"></div>
         <button id="goLeft" class="off">Login</button>
-        <button type="submit">Sign up</button>
+        <button id="signUp">Sign up</button>
         </form>
       </div>
     </div>
@@ -42,12 +42,14 @@
         <h2>Login</h2>
         <form method="POST" action="/login">
           <div class="form-group">
-            <input type="email" placeholder="Email" name="email" required/>
-            <input type="password" placeholder="Password" name="password" required/>
+            <input type="email" placeholder="Email" name="email" id="emailLogin"/>
+            <span class="errorMsg noShow" id="eEmailLogin">Email is required</span>
+            <input type="password" placeholder="Password" name="password" id="passLogin"/>
+            <span class="errorMsg noShow" id='ePassLogin'>Password is required</span>
             <span class="forgot"><a href="#"> I forgot my password</a></span>
           </div>
           <button id="goRight" class="off">Sign Up</button>
-          <button id="login" type="submit">Login</button>
+          <button id="login">Login</button>
         </form>
       </div>
     </div>

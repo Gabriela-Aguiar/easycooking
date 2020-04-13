@@ -124,6 +124,7 @@ body {
     text-transform:  uppercase;
     font-size: 14px;
     color: #fff;
+    cursor: pointer;
     line-height: 16px;
     letter-spacing: 0.5px;
     border-radius: 2px;
@@ -163,4 +164,16 @@ body {
     margin-top: 20px;
     width: 350px;;
     padding-left: 10px;
+  }
+
+  .error{
+    border: 1px solid red;
+  }
+
+  .errorMsg{
+    color: red;
+  }
+
+  .noShow{
+    display: none;
   }
