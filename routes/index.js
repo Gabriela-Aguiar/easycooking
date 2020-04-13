@@ -12,13 +12,7 @@ router.get('/login', (req, res) => {
   res.render('login')
 })
 
-
 //trying to get the results from the API
-// let data = {
-//   layout: false
-// }
-// res.render('teams', data);
-
 router.get('/api-results', (req, res) => {
   res.render('apiResults')
 })
