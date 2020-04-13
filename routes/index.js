@@ -17,7 +17,6 @@ router.get('/login', (req, res) => {
 // res.render('teams', data);
 
 router.get('/api-results', (req, res) => {
-
   res.render('apiResults')
 })
 
