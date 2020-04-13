@@ -27,19 +27,32 @@ router.post( '/signup', ( req, res ) => {
     password
   } = req.body
 
-  const salt = bcrypt.genSaltSync( bcryptSalt );
-  const hashPass = bcrypt.hashSync( password, salt );
 
-  User.create( {
-      username,
-      email,
-      password: hashPass
+  User.findOne( {
+      "username": username
     } )
-    .then( () => {
-      res.redirect( '/' )
+    .then( user => {
+      if ( user !== null ) {
+        //TO-DO - enviar uma msg de erro na tela e redirecionar para outra tela
+        res.render( "login" ), {
+          errorMsg: "The username already exists!"
+        }
+        return
+      }
+      const salt = bcrypt.genSaltSync( bcryptSalt );
+      const hashPass = bcrypt.hashSync( password, salt );
+
+      User.create( {
+          username,
+          email,
+          password: hashPass
+        } )
+        .then( () => {
+          res.redirect( '/' )
+        } )
+        .catch( error => console.log( error ) )
+      console.log( req.body )
     } )
-    .catch( error => console.log( error ) )
-  console.log( req.body )
 } )
 
 //trying to get the results from the API
