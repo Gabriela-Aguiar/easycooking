@@ -9,6 +9,8 @@ var logger = require( 'morgan' );
 var app = express();
 var indexRouter = require( './routes/index' );
 var usersRouter = require( './Models/users' );
+const session    = require("express-session");
+const MongoStore = require("connect-mongo")(session);
 
 //database information
 const mongoose = require( 'mongoose' )
@@ -17,18 +19,26 @@ const dbName = 'easyCooking'
 
 //add mongo database
 mongoose
-  .connect( `mongodb:${dbUrl}${dbName}`, {
-    useNewUrlParser: true, 
-    useUnifiedTopology: true
-  } )
-  mongoose.connection.on('connected', () => console.log(`Connected to Mongo! Database name: ${dbName}`))
-  process.on('SIGINT', () => {
-    mongoose.connection.close(() => {
-      console.log('Mongoose default connection disconnected through app termination');
-      process.exit(0);
-    })
+.connect( `mongodb:${dbUrl}${dbName}`, {
+  useNewUrlParser: true, 
+  useUnifiedTopology: true
+} )
+mongoose.connection.on('connected', () => console.log(`Connected to Mongo! Database name: ${dbName}`))
+process.on('SIGINT', () => {
+  mongoose.connection.close(() => {
+    console.log('Mongoose default connection disconnected through app termination');
+    process.exit(0);
   })
+})
 
+app.use(session({
+  secret: "basic-auth-secret",
+  cookie: { maxAge: 60000 },
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  })
+}));
 // view engine setup
 app.set( 'views', path.join( __dirname, 'views' ) );
 app.set( 'view engine', 'hbs' );
@@ -62,5 +72,6 @@ app.use( function ( err, req, res, next ) {
   res.status( err.status || 500 );
   res.render( 'error' );
 } );
+
 
 module.exports = app;

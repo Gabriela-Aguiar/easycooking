@@ -55,9 +55,34 @@ router.post( '/signup', ( req, res ) => {
     } )
 } )
 
+router.post('/login', (req, res) => {
+  const {
+    email,
+    password
+  } = req.body
+  console.log(email, password);
+  
+  User.findOne({'email': email})
+  .then(user => {
+    if(!user){
+      res.render('login', {
+        errorMessage: 'The username doesnt exist'
+      })
+      return;
+    }
+    if(bcrypt.compareSync(password, user.password)){
+      req.session.currentUser = user;
+      res.redirect('/')
+    } else {
+      res.render('login', {
+        errorMessage: 'Incorrect password'
+      })
+    }
+  })
+  .catch(error => console.log(error))
+})
 //trying to get the results from the API
 router.get( '/api-results', ( req, res ) => {
   res.render( 'apiResults' )
 } )
-
 module.exports = router;
