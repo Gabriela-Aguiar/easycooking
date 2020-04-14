@@ -1,21 +1,21 @@
 require('dotenv').config();
 const bodyParser = require('body-parser');
-var createError = require( 'http-errors' );
-var express = require( 'express' );
-var path = require( 'path' );
+const createError = require( 'http-errors' );
+const express = require( 'express' );
+const path = require( 'path' );
 const hbs = require('hbs');
-var cookieParser = require( 'cookie-parser' );
-var logger = require( 'morgan' );
-var app = express();
-var indexRouter = require( './routes/index' );
-const recipesRouter = require('./routes/recipes')
+const cookieParser = require( 'cookie-parser' );
+const logger = require( 'morgan' );
+const app = express();
+const indexRouter = require( './routes/index.routes' );
+const recipesRouter = require('./routes/recipes.routes')
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const bcrypt = require("bcrypt"); 
 const passport = require("passport"); 
 const LocalStrategy = require("passport-local").Strategy;
 const flash = require("connect-flash");
-
+const auth = require('./routes/auth.routes')
 const User = require( './Models/users' )
 
 //database information
@@ -100,6 +100,9 @@ app.use( express.static( path.join( __dirname, 'public' ) ) );
 
 app.use( '/', indexRouter );
 app.use('/recipes', recipesRouter);
+app.use('/', auth)
+
+
 // catch 404 and forward to error handler
 app.use( function ( req, res, next ) {
   next( createError( 404 ) );
