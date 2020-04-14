@@ -23,22 +23,20 @@ router.post( '/signup', ( req, res, next ) => {
         password
     } = req.body
 
-    // if (username === "" || password === "") {
-    //   res.render("/login", { message: "Indicate username and password" });
-    //   return;
-    // }
+    if (username === "" || password === "") {
+        res.render('login', { message: "Indicate username and password" });
+        return;
+      }
 
     User.findOne( {
             "username": username
         } )
+
         .then( user => {
-            if ( user !== null ) {
-                //TO-DO - enviar uma msg de erro na tela e redirecionar para outra tela
-                res.render( "login" ), {
-                    errorMsg: "The username already exists!"
-                }
-                return
-            }
+            if (user !== null) {
+                res.render("login", { message: "The username already exists" });
+                return;
+              }
 
             const salt = bcrypt.genSaltSync( bcryptSalt );
             const hashPass = bcrypt.hashSync( password, salt );
