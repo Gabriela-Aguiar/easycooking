@@ -1,6 +1,6 @@
 const input   = document.getElementById('input');
-const add = document.getElementById('add');
-const search  = document.getElementById('search-btn');
+const add     = document.getElementById('add');
+const search  = document.getElementById('search');
 const tags    = document.getElementById('tags');
 const items   = [];
 
@@ -14,6 +14,7 @@ add.addEventListener('click', text => {
       splitText[0] = splitText[0].toUpperCase();
       splitText = splitText.join('');
       span.classList.add('tag');  
+      span.setAttribute('name', newIngredient)
       span.innerHTML = splitText  ;
       del.classList.add('delete');
       del.innerHTML = 'x';
@@ -33,8 +34,9 @@ add.addEventListener('click', text => {
       items.push(newIngredient)
       input.value = ''
     }
+    return items
   })
-  
+
   function checkIfNumber(text){
     const tSplit = text.split('');
     let can = true;
@@ -57,3 +59,9 @@ add.addEventListener('click', text => {
     }
     return exist;
   }
+
+search.addEventListener('click', () => {
+  console.log(items);
+})
+
+module.exports = items;
