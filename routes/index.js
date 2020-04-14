@@ -86,6 +86,10 @@ router.get("/logout", (req, res) => {
   res.redirect("/login");
 });
 
+router.get('/allrecipes', (req, res) => {
+  res.render('allrecipes')
+})
+
 //trying to get the results from the API
 router.get( '/api-results', ( req, res ) => {
   res.render( 'apiResults' )

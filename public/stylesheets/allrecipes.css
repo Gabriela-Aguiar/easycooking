@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Paaji+2|Pacifico&display=swap');
+:root{
+    --primaryColor: #F1935C;
+}
+
+.html{
+    font-size: 10px;
+}
+
+nav {
+    background-image: url('/images/cook4.jpg');
+    height: 20vh;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.transparency {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 20vh;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-btn {
+    background: var(--primaryColor);
+    padding: 10px 16px;
+    width: auto;
+    font-weight: 600;
+    text-transform:  uppercase;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.1);
+    border: 0;
+    outline: 0;
+    margin: 15px 15px 15px 0px;
+    height: 25%;
+}
+
+.recipes-body {
+    display: flex;
+    margin-top: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.categories {
+    margin-left: 50px;
+}
+
+.categoriesList {
+    list-style-type: none;
+    padding-top: 10px;
+}
+
+.categoriesList li {
+    padding-top: 30px;
+}
+
+.recipes {
+    margin-left: 200px;
+    width: 900px;
+}
+
+.recipes-card {
+    display: flex;
+    justify-content: space-around;
+}
+
+.card{
+    width: 100px;
+    height: 100px;
+    background-color: rebeccapurple;
+    margin: 20px 0 20px 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover {
+   color: var(--primaryColor);
+}
