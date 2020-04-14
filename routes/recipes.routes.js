@@ -3,7 +3,6 @@ const axios = require('axios');
  
 const Recipe = require('../Models/recipeSchema')
 
-
 router.get('/hack', ( req,res ) => {
     axios.get('https://api.spoonacular.com/recipes/search?query=cheese&number=100&apiKey=c56a2c3dc10f4cd48c4c94ddb1d371c0')
     .then( resp => {
