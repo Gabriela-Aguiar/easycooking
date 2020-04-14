@@ -1,13 +1,12 @@
 require('dotenv').config();
 const bodyParser = require('body-parser');
-var createError = require( 'http-errors' );
-var express = require( 'express' );
-var path = require( 'path' );
+const createError = require( 'http-errors' );
+const express = require( 'express' );
+const path = require( 'path' );
 const hbs = require('hbs');
-var cookieParser = require( 'cookie-parser' );
-var logger = require( 'morgan' );
-var app = express();
-var indexRouter = require( './routes/index' );
+const cookieParser = require( 'cookie-parser' );
+const logger = require( 'morgan' );
+const app = express();
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const bcrypt = require("bcrypt"); 
@@ -44,6 +43,7 @@ app.use(session({
     ttl: 24 * 60 * 60 // 1 day
   })
 }));
+
 // view engine setup
 app.set( 'views', path.join( __dirname, 'views' ) );
 app.set( 'view engine', 'hbs' );
@@ -97,7 +97,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use( cookieParser() );
 app.use( express.static( path.join( __dirname, 'public' ) ) );
 
+const indexRouter = require( './routes/index.routes' );
 app.use( '/', indexRouter );
+
+const auth = require('./routes/auth.routes')
+app.use('/', auth)
 
 // catch 404 and forward to error handler
 app.use( function ( req, res, next ) {
