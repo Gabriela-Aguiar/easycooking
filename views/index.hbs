@@ -23,9 +23,14 @@
             <div class="search">
                 <h1>Easy Cooking</h1>
                 <div class="searchSpace">
-                    <input type="text" placeholder="What ingredients do you have?" class="inpt-search">
-                    <button class="searchButton"> + </button>
+                    <input type="text" placeholder="What ingredients do you have?" class="inpt-search" id="input">
+                    <button class="addButton" id="add"> + </button>
                 </div>
+                <div class="tags" id="tags"></div>
+                <div class="noMostrar exist" id="exist">
+                    This item is already on the list
+                </div>
+                <button class="search-btn" id="search">Search</button>
             </div>
         </div>
     </div>
@@ -55,5 +60,8 @@
              </div>
              <hr>
     </div>
+    <script src="/javascripts/index.js"></script>
 </body>
 </html>
+
+
