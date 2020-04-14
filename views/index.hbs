@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
     <title>EasyCooking</title>
 </head>
+
 <body>
     <div class="principal">
         <div class="transparency">
@@ -30,8 +32,8 @@
                 <div class="noMostrar exist" id="exist">
                     This item is already on the list
                 </div>
-                <form action="/hack" method="POST">
-                    <input type="text" name="ingredients">
+                <form action="/teste" method="GET" id="search-form">
+
                     <button class="search-btn" id="search">Search</button>
                 </form>
             </div>
@@ -39,32 +41,31 @@
     </div>
     <div class="recipes-info">
         <h1>Most searched recipes</h1>
-            <div class="card-container">
-                <div class="recipe-card"></div>
-                <div class="recipe-card"></div>
-                <div class="recipe-card"></div>
-                <div class="recipe-card"></div>
-            </div>
-            <hr>
+        <div class="card-container">
+            <div class="recipe-card"></div>
+            <div class="recipe-card"></div>
+            <div class="recipe-card"></div>
+            <div class="recipe-card"></div>
+        </div>
+        <hr>
         <h1>Recently added recipes</h1>
-            <div class="card-container">
-                <div class="recipe-card"></div>
-                <div class="recipe-card"></div>
-                <div class="recipe-card"></div>
-                <div class="recipe-card"></div>
-            </div>
-            <hr>
+        <div class="card-container">
+            <div class="recipe-card"></div>
+            <div class="recipe-card"></div>
+            <div class="recipe-card"></div>
+            <div class="recipe-card"></div>
+        </div>
+        <hr>
         <h1>Recipes with best qualification</h1>
-            <div class="card-container">
-                <div class="recipe-card"></div>
-                <div class="recipe-card"></div>
-                <div class="recipe-card"></div>
-                <div class="recipe-card"></div>
-             </div>
-             <hr>
+        <div class="card-container">
+            <div class="recipe-card"></div>
+            <div class="recipe-card"></div>
+            <div class="recipe-card"></div>
+            <div class="recipe-card"></div>
+        </div>
+        <hr>
     </div>
     <script src="/javascripts/index.js"></script>
 </body>
+
 </html>
-
-

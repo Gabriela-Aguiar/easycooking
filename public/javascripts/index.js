@@ -2,6 +2,7 @@ const input   = document.getElementById('input');
 const add     = document.getElementById('add');
 const search  = document.getElementById('search');
 const tags    = document.getElementById('tags');
+const searchForm = document.getElementById('search-form')
 const items   = [];
 
 add.addEventListener('click', text => {
@@ -10,12 +11,21 @@ add.addEventListener('click', text => {
     if( newIngredient !== '' && checkIfNumber(newIngredient) && checkIfExists(newIngredient)){
       const span = document.createElement('span');
       const del = document.createElement('span');
+      const inputIngredient = document.createElement('input')
+
       let splitText = newIngredient.split('');
       splitText[0] = splitText[0].toUpperCase();
       splitText = splitText.join('');
       span.classList.add('tag');  
       span.setAttribute('name', newIngredient)
+      span.setAttribute('value', newIngredient)
       span.innerHTML = splitText  ;
+
+      inputIngredient.setAttribute('name', 'ingredients')
+      inputIngredient.setAttribute('type', 'text')
+      inputIngredient.setAttribute('type', 'hidden')
+      inputIngredient.setAttribute('value', newIngredient)
+
       del.classList.add('delete');
       del.innerHTML = 'x';
       del.setAttribute('id', 'x-'+ newIngredient)
@@ -31,10 +41,10 @@ add.addEventListener('click', text => {
       })
       span.appendChild(del);
       tags.appendChild(span)
+      searchForm.appendChild(inputIngredient)
       items.push(newIngredient)
       input.value = ''
     }
-    return items
   })
 
   function checkIfNumber(text){
