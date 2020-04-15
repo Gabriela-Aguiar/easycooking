@@ -12,7 +12,7 @@ const bcryptSalt = 10
 
 //view for login and signup
 router.get( '/login', ( req, res ) => {
-    res.render( 'login' )
+    res.render( 'login' , {messageLogin: req.flash().error})
 } )
 
 //USER auth SIGNUP
@@ -63,7 +63,7 @@ router.post( '/signup', ( req, res, next ) => {
 //USER auth LOGIN
 router.post( '/login', passport.authenticate( "local", {
     successRedirect: "/home",
-    failureRedirect: "/",
+    failureRedirect: "/login",
     failureFlash: true,
     passReqToCallback: true,
 } ) )
