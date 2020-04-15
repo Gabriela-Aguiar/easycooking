@@ -133,6 +133,11 @@ form:hover .fa{
     padding-top: 30px;
 }
 
+.categoriesList a{
+    display: flex;
+    align-items: center;
+}
+
 .recipes {
     margin-left: 200px;
     width: 900px;
@@ -157,4 +162,9 @@ a {
 
 a:hover {
    color: var(--primaryColor);
+}
+
+.icon {
+    width: 20px;
+    margin-right: 10px;
 }
