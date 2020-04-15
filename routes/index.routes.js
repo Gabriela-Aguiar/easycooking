@@ -79,7 +79,7 @@ router.get( '/getrecipes', ( req, res ) => {
         } = recipe
 
         searchedId.push( id );
-        console.log( '---------->', searchedId )
+        // console.log( '---------->', searchedId )
 
         //check if id is already in the db
         if ( recipeIdsArr.includes( id ) ) return
@@ -118,6 +118,7 @@ router.get( '/recipe/:id', ( req, res ) => {
 
   axios.get( apiUrl )
     .then( resp => {
+      // console.log(resp)
       // let recipeByIdArr = [ resp.data ]
       // console.log( recipeByIdArr )
 
@@ -141,10 +142,8 @@ router.get( '/recipe/:id', ( req, res ) => {
       // console.log( '---------->', searchedId )
 
       //check if id is already in the db
-      if ( recipeIdsArr.includes( id ) ) return
-
-      getRecipeById
-        .create( {
+      if ( recipeIdsArr.includes( id ) ) {
+        let receita = {
           title,
           id,
           image,
@@ -152,21 +151,51 @@ router.get( '/recipe/:id', ( req, res ) => {
           servings,
           summary,
           aggregateLikes,
-          extendedIngredients: [ {
-            name: name,
-            amount: amount,
-            unit: unit
-          } ]
+          name,
+          amount,
+          unit
+        }
+        
+        res.render( 'recipeById', {
+          receita
         } )
-        .then( receita => {
-          console.log( '****************', receita )
-          res.render( 'recipeById', {
-            receita
+      } else {
+
+        console.log( `cheguei até aqui antes de criar no banco de dados` )
+
+        getRecipeById
+          .create( {
+            title,
+            id,
+            image,
+            readyInMinutes,
+            servings,
+            summary,
+            aggregateLikes,
+            extendedIngredients: [ {
+              name: name,
+              amount: amount,
+              unit: unit
+            } ]
           } )
-        } )
-        .catch( error => {
-          console.log( error )
-        } )
+          .then( receita => {
+            recipeIdsArr.push( id )
+            console.log( `cheguei até aqui depois de criar no banco de dados` )
+
+            console.log( '****************', receita )
+            res.render( 'recipeById', {
+              receita
+            } )
+          } )
+          .catch( error => {
+            console.log( `cai no primeiro catch socorro` )
+            console.log( error )
+          } )
+      }
+    } )
+    .catch( error => {
+      console.log( `cai no segundo catch socorro` )
+      console.log( error )
     } )
 } )
 
