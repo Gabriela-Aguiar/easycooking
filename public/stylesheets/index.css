@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Baloo+Paaji+2|Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 :root{
     --primaryColor: #F1935C;
+}
+
+* {
+    font-family: 'Open Sans', sans-serif;
 }
 
 .html{
@@ -72,7 +78,7 @@ nav {
     border: none;
     border-radius: 25px;
     font-size: 18px;
-    color: #000 !important;
+    color: #000;
 }
 
 .addButton{
@@ -171,10 +177,6 @@ nav {
     display: flex;
     flex-direction: column;
     margin: 10px 0 10px 15px ;
-}
-
-.recipes-info h1 {
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 .card-container {

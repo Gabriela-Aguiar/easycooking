@@ -22,15 +22,19 @@ add.addEventListener('click', text => {
       span.innerHTML = splitText  ;
 
       inputIngredient.setAttribute('name', 'ingredients')
-      inputIngredient.setAttribute('type', 'text')
       inputIngredient.setAttribute('type', 'hidden')
       inputIngredient.setAttribute('value', newIngredient)
+      inputIngredient.setAttribute('id', 'i-'+newIngredient)
 
       del.classList.add('delete');
       del.innerHTML = 'x';
       del.setAttribute('id', 'x-'+ newIngredient)
       del.addEventListener('click', elem => {
         let close = elem.target.id;
+        let idInput = close.split('-');
+        idInput = idInput[1];
+        let getInput = document.getElementById('i-'+ idInput);
+        searchForm.removeChild(getInput);
         let parentClose = document.getElementById(close).parentElement;
         tags.removeChild(parentClose)
         items.forEach( (item,index) => {
@@ -70,8 +74,6 @@ add.addEventListener('click', text => {
     return exist;
   }
 
-search.addEventListener('click', () => {
-  console.log(items);
-})
-
-module.exports = items;
+// search.addEventListener('click', () => {
+//   console.log(items);
+// })

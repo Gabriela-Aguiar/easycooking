@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="stylesheets/style.css">
     <link rel="stylesheet" href="stylesheets/allrecipes.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <title>EasyCooking AllRecipes</title>
 </head>
 <body>
@@ -17,11 +18,15 @@
     </nav>
     <div class="recipes-body">
         <div class="categories">
-            <label for="ingredients">Search by ingredient</label>
+            <label for="ingredients" class="search-ingredient">Search by ingredient</label>
             <br>
-            <input type="text">
+            <form action="">
+            <input type="search">
+            <i class="fa fa-search"></i>
+            </form>
             <h1>Categories</h1>
             <ul class="categoriesList">
+                <li><a href="#">20 minutes or less</a></li>
                 <li><a href="#">Breakfast</a></li>
                 <li><a href="#">Cakes</a></li>
                 <li><a href="#">Chicken</a></li>
