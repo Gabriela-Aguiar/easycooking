@@ -20,6 +20,13 @@
 }
 
 .principal {
+    background-image: url('/images/EasyCooking.gif');
+    height: 80vh;
+    background-position: top;
+    background-size: cover;
+}
+
+.principal-home {
     background-image: url('/images/cook.jpg');
     height: 80vh;
     background-position: top;
