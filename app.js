@@ -99,7 +99,7 @@ app.use( cookieParser() );
 app.use( express.static( path.join( __dirname, 'public' ) ) );
 
 app.use( '/', indexRouter );
-app.use('/recipes', recipesRouter);
+app.use('/', recipesRouter);
 app.use('/', auth)
 
 
