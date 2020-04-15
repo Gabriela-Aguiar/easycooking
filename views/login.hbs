@@ -30,7 +30,7 @@
               {{!-- <input type="password" placeholder="Confirm Password" required/> --}}
             </div>
             {{#if message}}
-            <div class="error-message">{{ message }}</div>
+            <div id="error-msg-signup" class="error-message">{{ message }}</div>
             {{/if}}
             <div class="form-group"></div>
             <div class="form-group"></div>
@@ -48,17 +48,17 @@
           <form method="POST" action="/login">
             <div class="form-group">
               <input type="text" placeholder="Username" name="username" id="usernameLogin" />
-              <span class="errorMsg noShow" id="eEmailLogin">Email is required</span>
+              {{!-- <span class="errorMsg noShow" id="eEmailLogin">Email is required</span> --}}
               <input type="password" placeholder="Password" name="password" id="passLogin" />
-              <span class="errorMsg noShow" id='ePassLogin'>Password is required</span>
+              {{!-- <span class="errorMsg noShow" id='ePassLogin'>Password is required</span> --}}
               <span class="forgot"><a href="#"> I forgot my password</a></span>
             </div>
-            {{!-- {{#if messageLogin}}
-            <div class="error-message">{{ messageLogin }}</div>
-            {{/if}} --}}
             <button id="login">Login</button>
           </form>
           <button id="goRight" class="off">Sign Up</button>
+          {{#if messageLogin}}
+          <div class="error-message">{{ messageLogin }}</div>
+          {{/if}}
         </div>
       </div>
     </div>
