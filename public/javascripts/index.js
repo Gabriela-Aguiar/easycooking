@@ -74,6 +74,16 @@ add.addEventListener('click', text => {
     return exist;
   }
 
+  window.onload = function() {
+    document.getElementById('input').onkeypress = function searchKeyPress(event) {
+       if (event.keyCode == 13) {
+           document.getElementById('add').click();
+       }
+   };
+
+   document.getElementById('add').onclick = doSomething;
+}
+
 // search.addEventListener('click', () => {
 //   console.log(items);
 // })
