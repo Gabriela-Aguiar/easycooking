@@ -43,7 +43,7 @@ router.get( '/teste', ( req, res ) => {
         recipeIdsArr.push( id )
         console.log( 'receita criada com sucesso' );
       } )
-      res.render( 'all' )
+      res.render( 'searchResults' )
     } )
     .catch( err => console.log( err ) )
 } )
@@ -83,7 +83,7 @@ router.get( '/getrecipes', ( req, res ) => {
           } ]
         } )
         .then( resp => {
-          res.render( 'all', resp )
+          res.render( 'searchResults', resp )
         } )
     } )
     .catch( err => console.log( err ) )

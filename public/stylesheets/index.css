@@ -1,225 +1,177 @@
 @import url('https://fonts.googleapis.com/css?family=Baloo+Paaji+2|Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css');
+
+* {
+    margin: 0;
+}
+
+body{
+    font-size: 10px;
+}
+
 
 :root{
     --primaryColor: #F1935C;
 }
 
-* {
-    font-family: 'Open Sans', sans-serif;
+nav {
+    background-color: #fff;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    width: 100%;
 }
 
-.html{
-    font-size: 10px;
+nav a {
+    text-decoration: none;
+    color: var(--primaryColor);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+}
+
+a:hover {
+    color: #777;
+}
+
+.sign-btn {
+    background: var(--primaryColor);
+    padding: 7px 10px;
+    width: auto;
+    text-transform:  uppercase;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer; 
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.1);
+    border: 0;
+    outline: 0;
+}
+
+.sign-btn:hover {
+    transform: scale(1.1);
+}
+
+.btn-text {
+    color: #fff;
+    font-size: 17px;
+}
+
+.principal {
+    background-image: url('/images/EasyCooking.gif');
+    height: 80vh;
+    background-position: top;
+    background-size: cover;
 }
 
 .transparency {
     background-color: rgba(0, 0, 0, 0.6);
     height: 80vh;
     width: 100vw;
-}
-
-.principal {
-    background-image: url('/images/cook.jpg');
-    height: 80vh;
-    background-position: top;
-    background-size: cover;
-}
-
-nav {
     display: flex;
-    justify-content: space-between;
+	flex-direction: column;
+	justify-content: center;
 }
 
-.options {
+.text {
     display: flex;
-}
-
-.nav-btn {
-    background: var(--primaryColor);
-    padding: 10px 16px;
-    width: auto;
-    font-weight: 600;
-    text-transform:  uppercase;
-    font-size: 14px;
+	flex-direction: column;
+	align-items: center;
     color: #fff;
-    cursor: pointer;
-    line-height: 16px;
-    letter-spacing: 0.5px;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.1);
-    border: 0;
-    outline: 0;
-    margin: 15px 15px 5px 15px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2rem;
 }
 
-.nav-btn:hover {
-    transform: scale(1.1);
-  }
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-  
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: var(--primaryColor);
-    width: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    border-radius: 5px;
-    padding: 12px 16px;
-    z-index: 1;
-    margin-left: 20px;
+.text p {
+    max-width: 40%;
+    padding-top: 50px;
+    text-align: center;
 }
 
-.dropdown-content p {
-    padding: 10px 0;
-}
-
-.dropdown-content a {
-    text-decoration: none;
-    color: #fff;
-}
-
-.dropdown-content a:hover {
-    color: #000;
-}
-  
-.dropdown:hover .dropdown-content {
-    display: block;
-  }
-
-.search {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.search h1 {
-    font-size: 10rem;
+.title {
     font-family: 'Pacifico', cursive;
-    color: #fff;
+    font-size: 7rem;
     text-shadow: 5px 5px 5px var(--primaryColor);
 }
 
-.inpt-search {
-    width: 300px;
-    padding: 10px 15px;
-    outline: none;
-    border: none;
-    border-radius: 25px;
-    font-size: 18px;
-    color: #000;
-}
-
-.addButton{
-    margin-left: 15px;
-    background-color: var(--primaryColor);
-    color: #FFF;
-    font-size: 20px;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    outline: none !important;
-    cursor: pointer;
-}
-
-.searchSpace{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #FFF;
-    border-radius: 25px;
-    margin-top: 50px;
-}
-
-.exist{
-    border: 1px solid red;
-    background-color: rgb(244, 181, 181);
-    color: red;
-    font-size: 14px;
-    text-align: center;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 20%;
-    position: relative;
-    top: 15px;
-    padding: 4px 10px;
-    border-radius: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.tags{
-    width: 900px;
-    height: 50px;
-    margin-top: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-  
-.tag{
-    border-radius: 25px;
-    padding: 5px 5px;
-    background-color: #4DF78E;
-    margin: 0px 15px;
-    font-size: 15px;
-    cursor: pointer;
-    font-family: Arial, Helvetica, sans-serif;
-}
-  
-.delete{
-    margin-left: 15px;
-}
-  
-.search-btn{
-    background: var(--primaryColor);
-    padding: 10px 16px;
-    width: auto;
-    font-weight: 600;
-    text-transform:  uppercase;
-    font-size: 14px;
-    color: #fff;
-    cursor: pointer;
-    line-height: 16px;
-    letter-spacing: 0.5px;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.1);
-    border: 0;
-    outline: 0;
-    margin: 15px 15px 15px 15px;
-    margin-top: 50px;
-}
-
-.search-btn:hover {
-    transform: scale(1.1);
-}
-  
-.noMostrar{
-    display: none;
-}
-
-.recipes-info {
+.div-all {
     display: flex;
     flex-direction: column;
-    margin: 10px 0 10px 15px ;
+    align-items: center;
+    background-image: url('/images/waves.png');
+    background-position: top;
+    background-repeat: no-repeat;
+    background-color: #F1F2F3;
 }
 
-.card-container {
+.title-how {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 50px;
+    font-size: 4rem;
+}
+
+.works {
+    height: 50vh;
     display: flex;
-    justify-content: space-around;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
 }
 
-.recipe-card {
-    background-color: salmon;
-    width: 100px;
-    height: 100px;
+.card {
+    width: 16%;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+    padding: 0 10px;
 }
+
+.card:hover {
+    box-shadow: 0 2px 6px rgba(241, 147, 92, 0.726), 0 3px 6px rgba(0,0,0,0.1);
+    transform: scale(1.2);
+}
+
+.img-fridge {
+    width: 100px;
+}
+
+.img-recipe {
+    width: 100px;
+}
+
+.img-spaghetti {
+    width: 100px;
+}
+
+.card-title {
+    font-size: 1rem;
+    margin-top: 20px;
+}
+
+.card-text {
+    margin-top: 5px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.find-btn {
+    background-color: #fff;
+    color: #000;
+    border: 3px solid var(--primaryColor);
+    padding: 7px 10px;
+    width: auto;
+    text-transform: uppercase;
+    margin-bottom: 80px;
+}
+
+.find-btn:hover {
+    background-color: var(--primaryColor);
+    color: #fff;
+    transition: 0.2s linear;
+    transform: scale(1.1);
+}
+

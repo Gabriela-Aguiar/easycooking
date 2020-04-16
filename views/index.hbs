@@ -1,70 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/stylesheets/index.css">
+    <link rel="stylesheet" href="stylesheets/index.css">
     <link rel="stylesheet" href="/stylesheets/style.css">
-    <title>EasyCooking</title>
+    <title>Document</title>
 </head>
-
 <body>
+    <nav>
+        <a href="/">Easy Cooking</a>
+        <a href="/about">About Us</a>
+        <a href="/allrecipes">Explore Recipes</a>
+        <a href="/home">Search by Ingredient</a>
+        <button class="sign-btn"><a href="/login" class="btn-text">Sign Up</a></button>
+    </nav>
     <div class="principal">
         <div class="transparency">
-            <nav>
-                <div class="recipes">
-                    <a href="/allrecipes"><button class="nav-btn">See all recipes</button></a>
-                </div>
-                <div class="options">
-                    <a href="/login"><button class="nav-btn">Login</button></a>
-                    <a href="/login"><button class="nav-btn">Sign Up</button></a>
-                </div>
-            </nav>
-            <div class="search">
-                <h1>Easy Cooking</h1>
-                <div class="searchSpace">
-                    <input type="text" placeholder="What ingredients do you have?" class="inpt-search" id="input">
-                    <button class="addButton" id="add"> + </button>
-                </div>
-                <div class="tags" id="tags"></div>
-                <div class="noMostrar exist" id="exist">
-                    This item is already on the list
-                </div>
-                <form action="/getrecipes" method="GET" id="search-form">
-                    <button class="search-btn" id="search">Search</button>
-                </form>
+            <div class="text">
+                <h1 class="title">Easy Cooking</h1>
+                <p>Stop wasting your time while thinking what to cook.
+                    We can help you to create your own recipes from products which are in your fridge right now!
+                </p>
             </div>
         </div>
     </div>
-    <div class="recipes-info">
-        <h1>Most searched recipes</h1>
-        <div class="card-container">
-            <div class="recipe-card"></div>
-            <div class="recipe-card"></div>
-            <div class="recipe-card"></div>
-            <div class="recipe-card"></div>
+    <div class="div-all">
+        <h1 class="title-how">How it works?</h1>
+        <div class="works">
+            <div class="card">
+                <div class="img"><img src="/images/groceriesIcon.png" alt="" class="img-fridge"></div>
+                <div class="card-title"><h2>Look in your fridge</h2></div>
+                <div class="card-text"><p>Check what do you have in your fridge. While from 1 to 10 words in search field and you find the recipes with these ingredients.</p></div>
+            </div>
+            <div class="card">
+                <div class="img"><img src="/images/recipeIcon1.png" alt="" class="img-recipe"></div>
+                <div class="card-title"><h2>Choose a recipe</h2></div>
+                <div class="card-text"><p>Choose the best one for you. We want you to make the process of cooking easier for you.</p></div>
+            </div>
+            <div class="card">
+                <div class="img"><img src="/images/wine.png" alt="" class="img-spaghetti"></div>
+                <div class="card-title"><h2>Enjoy your dish!</h2></div>
+                <div class="card-text">
+                    <p>After registration you will have your personal space where you can add recipes. Then, you can enjoy your dish!</p>
+                </div>
+            </div>
         </div>
-        <hr>
-        <h1>Recently added recipes</h1>
-        <div class="card-container">
-            <div class="recipe-card"></div>
-            <div class="recipe-card"></div>
-            <div class="recipe-card"></div>
-            <div class="recipe-card"></div>
-        </div>
-        <hr>
-        <h1>Recipes with best qualification</h1>
-        <div class="card-container">
-            <div class="recipe-card"></div>
-            <div class="recipe-card"></div>
-            <div class="recipe-card"></div>
-            <div class="recipe-card"></div>
-        </div>
-        <hr>
+        <button class="find-btn">Find a recipe</button>
     </div>
-    <script src="/javascripts/index.js"></script>
+<footer>
+    <h1>Easy Cooking</h1>
+    <div>
+        <h2>Contact</h2>
+        <div class="contact">
+            <div class="gabriela">
+                <p>Gabriela</p>
+                <a href="https://www.linkedin.com/in/gabyaguiar/"><i class="fa fa-linkedin socialMedia"></i></a>
+                <a href="https://github.com/Gabriela-Aguiar/easycooking"><i class="fa fa-github socialMedia"></i></a>
+            </div>
+            <div class="pedro">
+                <p>Pedro</p>
+                <a href="https://www.linkedin.com/in/pedrovsiqueira/"><i class="fa fa-linkedin socialMedia"></i></a>
+                <a href="https://github.com/pedrovsiqueira/easycooking"><i class="fa fa-github socialMedia"></i></a>
+            </div>  
+        </div>
+    </div>
+    <div class="links">
+        <h2>Links</h2>
+        <p><a href="/">Easy Cooking</a></p>
+        <p><a href="/about">About Us</a></p>
+        <p><a href="/allrecipes">Explore recipes</a></p>
+        <p><a href="/login">Sign up</a></p>
+    </div>
+</footer>
+<div class="copy">
+    <p> &copy 2020 Copyright: Gabriela Aguiar e Pedro Siqueira</p>
+</div>
 </body>
-
 </html>

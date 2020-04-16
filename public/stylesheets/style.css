@@ -1,4 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Paaji+2|Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css');
+
 * {
   margin: 0;
   padding: 0;
+}
+
+:root{
+    --primaryColor: #F1935C;
+}
+
+footer {
+    height: 20vh;
+    width: 100%;
+    background-color: var(--primaryColor);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+footer h1 {
+    font-family: 'Pacifico', cursive;
+    color: #fff;
+    font-size: 3rem;
+}
+
+footer h2 {
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+    font-size: 1.5rem;
+    /* border-bottom: solid 1px #fff; */
+    text-align: center;
+}
+
+footer p {
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+footer a {
+    text-decoration: none;
+    color: #fff;
+}
+
+a:hover {
+    color: #777;
+}
+
+.contact {
+    display: flex;
+    padding-top: 10px;
+}
+
+.gabriela {
+    border-right: 1px solid #fff;
+    text-align: center;
+    margin-right: 10px;
+    padding-right: 10px;
+}
+
+.pedro {
+    text-align: center;
+}
+
+.socialMedia {
+    margin-top: 5px;
+    font-size: 1.2rem;
+    width: 20px;
+}
+
+.links p {
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.copy {
+    height: 3vh;
+    width: 100%;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+    background-color: #F5A86F;
+    font-size: 0.8rem;
 }

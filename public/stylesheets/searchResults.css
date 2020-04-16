@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Paaji+2|Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+:root{
+    --primaryColor: #F1935C;
+}
+
+* {
+    margin: 0;
+}
+
+body{
+    font-size: 10px;
+}
+
+.div-photo {
+    background-image: url('/images/recipe1.jpg');
+    background-repeat:no-repeat;
+    background-size:cover;
+    height: 70vh;
+}
+
+.transparency1 {
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 70vh;
+    width: 100vw;
+    display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.title {
+    font-family: 'Pacifico', cursive;
+    font-size: 7rem;
+    text-shadow: 5px 5px 5px var(--primaryColor);
+    text-align: center;
+    color: #fff;
+}
+
+.card-container-recipe {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.card {
+    width: 23vw;
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+    margin-bottom: 20px;
+    padding: 10px 0;
+    align-items: center;
+    border: 1px solid red;
+}
+
+.card-title {
+    font-size: 1rem;
+}
