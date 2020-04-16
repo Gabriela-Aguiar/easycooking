@@ -13,14 +13,16 @@
         <div class="transparency">
             <nav>
                 <div class="recipes">
-                    <button class="nav-btn">See all recipes</button>
+                    <a href="/allrecipes"><button class="nav-btn">See all recipes</button></a>
                 </div>
                 <div class="options">
                     <a href="/login"><button class="nav-btn">My recipes</button></a>
-                    <a href="/login"><button class="nav-btn">My account</button></a>
-                    <form action="/logout">
-                        <button class="nav-btn">Logout</button>
-                    </form>
+                    <div class="dropdown">
+                        <a href="/login"><button class="nav-btn">My account</button></a>
+                        <div class="dropdown-content">
+                        <p><a href="/#">See account</a></p>
+                        <p><a href="/logout">Logout</a></p>
+                    </div>
                 </div>
             </nav>
             <div class="search">
@@ -33,7 +35,9 @@
                 <div class="noMostrar exist" id="exist">
                     This item is already on the list
                 </div>
-                <button class="search-btn" id="search">Search</button>
+                <form action="/getrecipes" method="GET" id="search-form">
+                    <button class="search-btn" id="search">Search</button>
+                </form>
             </div>
         </div>
     </div>
