@@ -26,8 +26,6 @@ router.get( '/allrecipes', ( req, res ) => {
 
 router.get( '/teste', ( req, res ) => {
   let ingredient = req.query.ingredients
-
-  // console.log( ingredient )
   const apiUrl = `https://api.spoonacular.com/recipes/search?query=${ingredient[0]}&query=${ingredient[1]}&query=${ingredient[2]}${apiUrlFinal}`
   console.log( apiUrl )
 
@@ -61,11 +59,7 @@ router.get( '/teste', ( req, res ) => {
 router.get( '/getrecipes', ( req, res ) => {
   let ingredient = req.query.ingredients;
   let searchedId = [];
-
-  // console.log( ingredient )
   const apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredient[0]},+${ingredient[1]},+${ingredient[2]}${apiUrlFinal}`
-
-  console.log( apiUrl )
 
   axios.get( apiUrl )
     .then( resp => {
@@ -79,7 +73,6 @@ router.get( '/getrecipes', ( req, res ) => {
         } = recipe
 
         searchedId.push( id );
-        // console.log( '---------->', searchedId )
 
         //check if id is already in the db
         if ( recipeIdsArr.includes( id ) ) return
@@ -91,7 +84,6 @@ router.get( '/getrecipes', ( req, res ) => {
           likes
         } )
         recipeIdsArr.push( id )
-        // console.log( 'receita criada com sucesso' );
       } )
       getRecipes.find( {
           $or: [ {
@@ -99,8 +91,6 @@ router.get( '/getrecipes', ( req, res ) => {
           } ]
         } )
         .then( resp => {
-          // console.log( resp )
-          // console.log( searchedId )
           res.render( 'all', resp )
         } )
     } )
@@ -110,17 +100,10 @@ router.get( '/getrecipes', ( req, res ) => {
 router.get( '/recipe/:id', ( req, res ) => {
   const id = req.params.id
 
-  // console.log( id )
   const apiUrl = `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false${apiUrlFinalRecipeById}`
-
-  // console.log( apiUrl )
-  // res.render( 'recipeById' )
 
   axios.get( apiUrl )
     .then( resp => {
-      // console.log(resp)
-      // let recipeByIdArr = [ resp.data ]
-      // console.log( recipeByIdArr )
 
       const {
         title,
@@ -137,9 +120,6 @@ router.get( '/recipe/:id', ( req, res ) => {
         amount,
         unit
       } = resp.data.extendedIngredients[ 0 ]
-
-      // searchedId.push( id );
-      // console.log( '---------->', searchedId )
 
       //check if id is already in the db
       if ( recipeIdsArr.includes( id ) ) {
@@ -160,9 +140,6 @@ router.get( '/recipe/:id', ( req, res ) => {
           receita
         } )
       } else {
-
-        console.log( `cheguei até aqui antes de criar no banco de dados` )
-
         getRecipeById
           .create( {
             title,
@@ -180,21 +157,16 @@ router.get( '/recipe/:id', ( req, res ) => {
           } )
           .then( receita => {
             recipeIdsArr.push( id )
-            console.log( `cheguei até aqui depois de criar no banco de dados` )
-
-            console.log( '****************', receita )
             res.render( 'recipeById', {
               receita
             } )
           } )
           .catch( error => {
-            console.log( `cai no primeiro catch socorro` )
             console.log( error )
           } )
       }
     } )
     .catch( error => {
-      console.log( `cai no segundo catch socorro` )
       console.log( error )
     } )
 } )
