@@ -27,17 +27,16 @@
               <input type="text" name="username" placeholder="Username" />
               <input type="email" name="email" placeholder="Email" />
               <input type="password" name="password" placeholder="Password" />
-              {{!-- <input type="password" placeholder="Confirm Password" required/> --}}
             </div>
-            {{#if message}}
-            <div id="error-msg-signup" class="error-message">{{ message }}</div>
-            {{/if}}
             <div class="form-group"></div>
             <div class="form-group"></div>
             <div class="form-group"></div>
             <button id="signUp">Sign up</button>
+            <a id="goLeft" class="off a-btn">Login</a>
+            {{#if message}}
+            <div id="error-msg-signup" class="error-message">{{ message }}</div>
+            {{/if}}
           </form>
-          <button id="goLeft" class="off">Login</button>
         </div>
       </div>
 
@@ -48,17 +47,15 @@
           <form method="POST" action="/login">
             <div class="form-group">
               <input type="text" placeholder="Username" name="username" id="usernameLogin" />
-              {{!-- <span class="errorMsg noShow" id="eEmailLogin">Email is required</span> --}}
               <input type="password" placeholder="Password" name="password" id="passLogin" />
-              {{!-- <span class="errorMsg noShow" id='ePassLogin'>Password is required</span> --}}
               <span class="forgot"><a href="#"> I forgot my password</a></span>
             </div>
             <button id="login">Login</button>
+            <a id="goRight" class="off a-btn">Sign Up</a>
+            {{#if messageLogin}}
+              <div class="error-message">{{ messageLogin }}</div>
+            {{/if}}
           </form>
-          <button id="goRight" class="off">Sign Up</button>
-          {{#if messageLogin}}
-          <div class="error-message">{{ messageLogin }}</div>
-          {{/if}}
         </div>
       </div>
     </div>
