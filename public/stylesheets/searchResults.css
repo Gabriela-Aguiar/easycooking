@@ -38,6 +38,13 @@ body{
     color: #fff;
 }
 
+.recipe-results{
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2.6rem;
+    color: var(--primaryColor);
+}
+
 .card-container-recipe {
     display: flex;
     flex-direction: row;
