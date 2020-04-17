@@ -25,7 +25,7 @@ const dbName = 'easyCooking'
 
 //add mongo database
 mongoose
-.connect( `mongodb:${dbUrl}${dbName}`, {
+.connect( process.env.MONGODB_URI, {
   useNewUrlParser: true, 
   useUnifiedTopology: true
 } )
