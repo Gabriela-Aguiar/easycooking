@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    {{#with receita}}
+    {{#with recipeObjectFromAPI}}
     <div>
         <h1>{{title}}</h1><br>
         {{id}}<br>
@@ -18,12 +18,11 @@
         Ready in: {{readyInMinutes}}<br>
         Servings: {{servings}}<br>
         Likes: {{this.aggregateLikes}}<br>
+        summary: {{this.summary}}<br>
 
-        {{#each extendedIngredients}}<br>
-        Ingredient name{{this.name}}<br>
-        Ingredient amount{{this.amount}}<br>
-        Ingredient unit{{this.unit}}<br>
-        {{/each}}
+        Ingredient name {{name}}<br>
+        Ingredient amount {{this.amount}}<br>
+        Ingredient unit {{unit}}<br>
 
         {{/with}}
     </div>

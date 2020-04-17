@@ -12,7 +12,8 @@ const getRecipeById = new mongoose.Schema( {
         required: true
     },
     id: {
-        type: String
+        type: String,
+        unique: true
     },
     summary: {
         type: String
@@ -36,4 +37,4 @@ const getRecipeById = new mongoose.Schema( {
 } )
 
 
-module.exports = mongoose.model( 'RecipeID', getRecipeById )
+module.exports = mongoose.model( 'RecipeID', getRecipeById)

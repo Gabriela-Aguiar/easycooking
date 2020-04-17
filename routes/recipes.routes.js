@@ -2,7 +2,7 @@ var express = require( 'express' );
 var router = express.Router();
 const token = process.env[ 'API_TOKEN' ]
 const apiUrl = `https://api.spoonacular.com/recipes/search?query=`
-const apiUrlFinal = `&number=10&apiKey=${token}`
+const apiUrlFinal = `&number=12&apiKey=${token}`
 const apiUrlFinalRecipeById = `&apiKey=${token}`
 const User = require( '../Models/users' )
 const axios = require( 'axios' );
@@ -50,7 +50,7 @@ router.get( '/teste', ( req, res ) => {
 
 router.get( '/getrecipes', ( req, res ) => {
   let ingredient = req.query.ingredients;
-  let searchedId = [];
+  let recipeList = [];
   const apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredient[0]},+${ingredient[1]},+${ingredient[2]}${apiUrlFinal}`
 
   axios.get( apiUrl )
@@ -64,33 +64,31 @@ router.get( '/getrecipes', ( req, res ) => {
           likes
         } = recipe
 
-        searchedId.push( id );
-
-        //check if id is already in the db
-        if ( recipeIdsArr.includes( id ) ) return
-
-        getRecipes.create( {
-          title,
-          image,
-          id,
-          likes
-        } )
-        recipeIdsArr.push( id )
+        recipeList.push( recipe )
       } )
-      getRecipes.find( {
-          $or: [ {
-            id: searchedId
-          } ]
+
+      getRecipes.insertMany( recipeList, {
+          ordered: false
         } )
-        .then( resp => {
-          res.render( 'searchResults', resp )
+        .then( recipe => {
+          console.log( 'cai no then' )
+          res.render( "searchResults", {
+            recipeList
+          } )
+        } )
+        .catch( _ => {
+          console.log( 'Cai no catch' )
+          res.render( 'searchResults', {
+            recipeList
+          } )
         } )
     } )
-    .catch( err => console.log( err ) )
 } )
+
 
 router.get( '/recipe/:id', ( req, res ) => {
   const id = req.params.id
+  let recipeObjectFromAPI = {}
 
   const apiUrl = `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false${apiUrlFinalRecipeById}`
 
@@ -113,9 +111,21 @@ router.get( '/recipe/:id', ( req, res ) => {
         unit
       } = resp.data.extendedIngredients[ 0 ]
 
-      //check if id is already in the db
-      if ( recipeIdsArr.includes( id ) ) {
-        let receita = {
+      recipeObjectFromAPI = {
+        title,
+        id,
+        image,
+        readyInMinutes,
+        servings,
+        summary,
+        aggregateLikes,
+        name,
+        amount,
+        unit
+      }
+
+      getRecipeById
+        .create( {
           title,
           id,
           image,
@@ -123,40 +133,21 @@ router.get( '/recipe/:id', ( req, res ) => {
           servings,
           summary,
           aggregateLikes,
-          name,
-          amount,
-          unit
-        }
-        
-        res.render( 'recipeById', {
-          receita
+          extendedIngredients: [ {
+            name: name,
+            amount: amount,
+            unit: unit
+          } ]
+        })
+        .then( receita => {
+          recipeIdsArr.push( id )
+          res.render( 'recipeById', {
+            recipeObjectFromAPI
+          } )
         } )
-      } else {
-        getRecipeById
-          .create( {
-            title,
-            id,
-            image,
-            readyInMinutes,
-            servings,
-            summary,
-            aggregateLikes,
-            extendedIngredients: [ {
-              name: name,
-              amount: amount,
-              unit: unit
-            } ]
-          } )
-          .then( receita => {
-            recipeIdsArr.push( id )
-            res.render( 'recipeById', {
-              receita
-            } )
-          } )
-          .catch( error => {
-            console.log( error )
-          } )
-      }
+        .catch( error => {
+          console.log( error )
+        } )
     } )
     .catch( error => {
       console.log( error )
