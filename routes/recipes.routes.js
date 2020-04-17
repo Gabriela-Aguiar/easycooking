@@ -146,7 +146,7 @@ router.get( '/recipe/:id', ( req, res ) => {
           } )
         } )
         .catch( error => {
-          console.log( error )
+          res.render('recipeById', {recipeObjectFromAPI})
         } )
     } )
     .catch( error => {
