@@ -47,26 +47,81 @@ body{
 }
 
 .card {
-    width: 21vw;
-    display: flex;
-    flex-direction: column;
-    margin-left: 15px;
-    align-items: center;
-    border: 1px solid #e1e1e1;
-    background-color: #F1F2F3;
-    margin-bottom: 40px;
-    padding-bottom: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.1);
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: 210px 120px 80px;
+    grid-template-areas: "image" "text" "stats";
+    border-radius: 18px;
+    background: white;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    font-family: roboto;
+    text-align: center;
+    transition: 0.5s ease;
+    cursor: pointer;
+    margin:30px;
 }
 
-.card-title {
+.card-container-recipe a {
+    text-decoration: none;
+    color: #000;
+}
+
+.card-image {
+    grid-area: image;
+    grid-area: image;
+    background: url("img1.jpg");
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+    width: 100%;
+}
+
+.card-text {
+    grid-area: text;
+    grid-area: text;
+    margin: 25px;
+}
+
+.card-text p {
+    color: grey;
+    font-size:15px;
+    font-weight: 300;
+}
+
+.card-text h2 {
+    margin-top:0px;
+    font-size:25px;
+}
+
+.card-like {
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+    align-items: flex-end;
+    align-content: flex-end;
+}
+
+.card:hover {
+    transform: scale(1.15);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+    color:var(--primaryColor)
+}
+
+.card fa-heart:hover {
+    color: red;
+}
+  
+
+
+/* .card-title {
     font-size: 1.2rem;
     text-align: center;
     font-family: 'Josefin Sans', sans-serif;
-    padding: 30px 0;
-}
+    padding: 30px 0; */
+/* } */
 
-img {
+/* img {
     width: 100%;
 }
 
@@ -94,4 +149,4 @@ img {
     border: 1px solid #F1935C;
     box-shadow: 5px 5px 5px var(--primaryColor);
     transform: scale(1.1);
-}
+} */

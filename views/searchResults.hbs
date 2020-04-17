@@ -31,12 +31,15 @@
     </div>
     <div class="card-container-recipe">
         {{#each recipeList}}
+        <a href="/recipe/{{id}}">
         <div class="card">
             <img src="{{image}}" class="card-image"/>
-            <p class="card-title">{{title}}</p>
-            <span class="card-like">Likes: {{likes}}</span>
-           <a href="/recipe/{{id}}"><button class="card-btn">View recipe</button></a> 
+            <div class="card-text">
+                <h2 class="card-title">{{title}}</h2>
+                <p class="card-like"><i class="fa fa-heart"> {{likes}}</i></p>
+             </div>
         </div>
+        </a>
         {{/each}}
     </div>
     <footer>

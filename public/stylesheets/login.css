@@ -200,3 +200,28 @@ body {
   font-size: 20px;
   color: red;
 }
+
+#arrow {
+  font-size: 30px;
+  position: absolute;
+  left: 5px;
+  top: 3px;
+}
+
+#arrow:hover {
+  color: var(--primaryColor);
+  transform: scale(1.1);
+}
+
+#arrow-left {
+  font-size: 30px;
+  position: absolute;
+  left: 10px;
+  top: 3px;
+  color: #000;
+}
+
+#arrow-left:hover {
+  color: var(--primaryColor);
+  transform: scale(1.1);
+}
