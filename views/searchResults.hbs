@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="stylesheets/style.css">
     <link rel="stylesheet" href="stylesheets/searchResults.css">
     <link rel="stylesheet" href="stylesheets/home.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
@@ -30,10 +32,10 @@
     <div class="card-container-recipe">
         {{#each this}}
         <div class="card">
-            <img src="{{image}}" style="width: 200px; height: 150px;" class="card-image"/>
+            <img src="{{image}}" class="card-image"/>
             <p class="card-title">{{title}}</p>
             <span class="card-like">Likes: {{likes}}</span>
-           <a href="/recipe/{{id}}"><button>See recipe</button></a> 
+           <a href="/recipe/{{id}}"><button class="card-btn">View recipe</button></a> 
         </div>
         {{/each}}
     </div>
@@ -65,5 +67,6 @@
     <div class="copy">
         <p> &copy 2020 Copyright: Gabriela Aguiar e Pedro Siqueira</p>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </body>
 </html>

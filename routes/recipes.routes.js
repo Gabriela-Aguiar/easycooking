@@ -45,7 +45,7 @@ router.get( '/teste', ( req, res ) => {
       } )
       res.render( 'searchResults' )
     } )
-    .catch( err => console.log( err ) )
+    .catch( err => console.log( '---- ', err ) )
 } )
 
 router.get( '/getrecipes', ( req, res ) => {
