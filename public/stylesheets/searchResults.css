@@ -43,6 +43,7 @@ body{
     font-family: 'Open Sans', sans-serif;
     font-size: 2.6rem;
     color: var(--primaryColor);
+    margin-top: 20px
 }
 
 .card-container-recipe {
@@ -50,7 +51,8 @@ body{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin-top: 50px;
+    margin-top: 150px;
+    margin-bottom: 50px;
 }
 
 .card {
