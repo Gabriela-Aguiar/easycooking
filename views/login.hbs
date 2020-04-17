@@ -33,6 +33,7 @@
             <div class="form-group"></div>
             <button id="signUp">Sign up</button>
             <a id="goLeft" class="off a-btn">Login</a>
+            <i class="fa fa-arrow-circle-left"></i>
             {{#if message}}
             <div id="error-msg-signup" class="error-message">{{ message }}</div>
             {{/if}}
@@ -53,9 +54,12 @@
             <button id="login">Login</button>
             <a id="goRight" class="off a-btn">Sign Up</a>
             {{#if messageLogin}}
-              <div class="error-message">{{ messageLogin }}</div>
+            <div class="error-message">{{ messageLogin }}</div>
             {{/if}}
           </form>
+        </div>
+        <div class="arrow-index">
+          <a href="/"><i class="fa fa-arrow-circle-left"></i></a>
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
-const mongoose = require('mongoose')
-const getrecipes = new mongoose.Schema({
+const mongoose = require( 'mongoose' )
+const getrecipes = new mongoose.Schema( {
     title: {
         type: String,
         required: true
@@ -8,14 +8,20 @@ const getrecipes = new mongoose.Schema({
         type: String,
     },
     id: {
-        type: String,
+        type: Number,
+        index: {
+            unique: true
+        }
     },
     likes: {
         type: Number
     }
-},{
-    timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
-})
+}, {
+    timestamps: {
+        createdAt: "created_at",
+        updatedAt: "updated_at"
+    }
+} )
 
 
-module.exports = mongoose.model('getRecipes', getrecipes)
+module.exports = mongoose.model( 'getRecipes', getrecipes )
