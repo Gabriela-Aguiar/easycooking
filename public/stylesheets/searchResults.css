@@ -121,6 +121,7 @@ body{
 
 .fa-heart:hover {
     color: red;
+    cursor: pointer;
 }
 
 .fa-heart:hover::after {

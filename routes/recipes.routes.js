@@ -69,15 +69,20 @@ router.get( '/getrecipes', ( req, res ) => {
         recipeList.push( recipe )
       } )
 
+      //buscar no banco e filtrar somente as que vão pro insertMany
+      // getRecipes.find()
+
       getRecipes.insertMany( recipeList, {
           ordered: false
         } )
         .then( recipe => {
+          console.log('página renderizada pelo then')
           res.render( "searchResults", {
             recipeList
           } )
         } )
         .catch( _ => {
+          console.log('página renderizada pelo catch')
           res.render( 'searchResults', {
             recipeList
           } )
@@ -92,7 +97,6 @@ router.get( '/recipe/:id', ( req, res ) => {
 
   const apiUrl = `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false${apiUrlFinalRecipeById}`
   // const apiUrlInstructions = `https://api.spoonacular.com/recipes/${id}/analyzedInstructions${apiUrlFinalRecipeById}`
-
 
   axios.get( apiUrl )
     .then( resp => {
