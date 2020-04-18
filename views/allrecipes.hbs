@@ -6,15 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="stylesheets/style.css">
     <link rel="stylesheet" href="stylesheets/allrecipes.css">
+    <link rel="stylesheet" href="stylesheets/nav.css">
     <title>EasyCooking AllRecipes</title>
 </head>
 <body>
-    <nav>
+    <div class="photo">
         <div class="transparency">
-            <button class="nav-btn">My Recipes</button>
-            <button class="nav-btn">My Account</button>
+            <nav>
+                <a href="/" class="nav-a">Easy Cooking</a>
+                <a href="/about" class="nav-a">About Us</a>
+                <a href="/allrecipes" class="nav-a">Explore Recipes</a>
+                <a href="#" class="nav-a">My Recipes</a>
+                <div class="dropdown">
+                    <a href="/#"><button class="nav-btn">My Account</button></a>
+                    <div class="dropdown-content">
+                    <p><a href="/#">See account</a></p>
+                    <p><a href="/logout">Logout</a></p>
+                </div>
+            </nav>
         </div>
-    </nav>
+    </div>
     <div class="recipes-body">
         <div class="categories">
             <label for="ingredients" class="search-ingredient">Search by ingredient</label>
@@ -30,6 +41,7 @@
                 <li><a href="#"><img src="/images/icons/pie.png" class="icon">Cakes</a></li>
                 <li><a href="#"><img src="/images/icons/thanksgiving.png" class="icon">Chicken</a></li>
                 <li><a href="#"><img src="/images/icons/bananasplit.png" class="icon">Dessert</a></li>
+                <li><a href="#"><img src="/images/icons/cocktail.png" class="icon">Drinks</a></li>
                 <li><a href="#"><img src="/images/icons/eggs.png" class="icon">Eggs</a></li>
                 <li><a href="#"><img src="/images/icons/fishfood.png" class="icon">Fish</a></li>
                 <li><a href="#"><img src="/images/icons/lettuce.png" class="icon">Healthy</a></li>

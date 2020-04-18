@@ -109,53 +109,25 @@ body{
 	justify-content: center;
     align-items: flex-end;
     align-content: flex-end;
+    margin-top: 30px;
 }
 
 .card:hover {
-    transform: scale(1.15);
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+    box-shadow: 5px 5px 15px rgba(139, 95, 53, 0.692);
     color:var(--primaryColor)
 }
 
-.card fa-heart:hover {
+.fa-heart:hover {
     color: red;
 }
-  
 
-
-/* .card-title {
-    font-size: 1.2rem;
-    text-align: center;
-    font-family: 'Josefin Sans', sans-serif;
-    padding: 30px 0; */
-/* } */
-
-/* img {
-    width: 100%;
-}
-
-.card-like {
-    font-family: 'Baloo Paaji 2', cursive;
-    font-size: 1rem;
-    margin-right: 200px;
+.fa-heart:hover::after {
+    content: 'Like Me!';
+    display: block;
+    color: var(--primaryColor);
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    margin: 10px;
 }
 
 
-.card-btn{
-    background: var(--primaryColor);
-    padding: 7px 10px;
-    width: auto;
-    text-transform:  uppercase;
-    border-radius: 4px;
-    color: #fff;
-    cursor: pointer; 
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.1);
-    border: 0;
-    outline: 0;
-}
-
-.card:hover {
-    border: 1px solid #F1935C;
-    box-shadow: 5px 5px 5px var(--primaryColor);
-    transform: scale(1.1);
-} */
