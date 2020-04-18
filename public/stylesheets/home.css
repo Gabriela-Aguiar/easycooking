@@ -143,20 +143,3 @@
 .noMostrar{
     display: none;
 }
-
-.recipes-info {
-    display: flex;
-    flex-direction: column;
-    margin: 10px 0 10px 15px ;
-}
-
-.card-container {
-    display: flex;
-    justify-content: space-around;
-}
-
-.recipe-card {
-    background-color: salmon;
-    width: 100px;
-    height: 100px;
-}
