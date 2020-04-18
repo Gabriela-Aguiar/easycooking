@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +9,10 @@
     <link rel="stylesheet" href="stylesheets/searchResults.css">
     <link rel="stylesheet" href="stylesheets/home.css">
     <link rel="stylesheet" href="/stylesheets/nav.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-  rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Document</title>
 </head>
+
 <body>
     <nav>
         <a href="/" class="nav-a">Easy Cooking</a>
@@ -21,10 +22,10 @@
         <div class="dropdown">
             <a href="/#"><button class="nav-btn">My Account</button></a>
             <div class="dropdown-content">
-            <p><a href="/#">See account</a></p>
-            <p><a href="/#">My Recipes</a></p>
-            <p><a href="/logout">Logout</a></p>
-        </div>
+                <p><a href="/#">See account</a></p>
+                <p><a href="/#">My Recipes</a></p>
+                <p><a href="/logout">Logout</a></p>
+            </div>
     </nav>
     <div class="div-photo">
         <div class="transparency1">
@@ -34,45 +35,55 @@
     </div>
     <div class="card-container-recipe">
         {{#each recipeList}}
-        <a href="/recipe/{{id}}">
         <div class="card">
-            <img src="{{image}}" class="card-image"/>
+            <a href="/recipe/{{id}}">
+                <img src="{{image}}" class="card-image" />
+            </a>
             <div class="card-text">
-                <h2 class="card-title">{{title}}</h2>
-                <p class="card-like"><i class="fa fa-heart"> {{likes}}</i></p>
-             </div>
+                <a href="/recipe/{{id}}">
+                    <h2 class="card-title">{{title}}</h2>
+                </a>
+                <form action="/updatelikes" method="POST" class="form-likes">
+                    <input type="hidden" value="{{id}}" name="id">
+                    <button class="border-none">
+                        <i class="fa fa-heart  card-like" aria-hidden="true"> {{likes}}</i>
+                    </button>
+                </form>
+
+            </div>
         </div>
-        </a>
         {{/each}}
     </div>
     <footer>
-    <h1>Easy Cooking</h1>
-    <div>
-        <h2>Contact</h2>
-        <div class="contact">
-            <div class="gabriela">
-                <p>Gabriela</p>
-                <a href="https://www.linkedin.com/in/gabyaguiar/"><i class="fa fa-linkedin socialMedia"></i></a>
-                <a href="https://github.com/Gabriela-Aguiar/easycooking"><i class="fa fa-github socialMedia"></i></a>
+        <h1>Easy Cooking</h1>
+        <div>
+            <h2>Contact</h2>
+            <div class="contact">
+                <div class="gabriela">
+                    <p>Gabriela</p>
+                    <a href="https://www.linkedin.com/in/gabyaguiar/"><i class="fa fa-linkedin socialMedia"></i></a>
+                    <a href="https://github.com/Gabriela-Aguiar/easycooking"><i
+                            class="fa fa-github socialMedia"></i></a>
+                </div>
+                <div class="pedro">
+                    <p>Pedro</p>
+                    <a href="https://www.linkedin.com/in/pedrovsiqueira/"><i class="fa fa-linkedin socialMedia"></i></a>
+                    <a href="https://github.com/pedrovsiqueira/easycooking"><i class="fa fa-github socialMedia"></i></a>
+                </div>
             </div>
-            <div class="pedro">
-                <p>Pedro</p>
-                <a href="https://www.linkedin.com/in/pedrovsiqueira/"><i class="fa fa-linkedin socialMedia"></i></a>
-                <a href="https://github.com/pedrovsiqueira/easycooking"><i class="fa fa-github socialMedia"></i></a>
-            </div>  
         </div>
-    </div>
-    <div class="links">
-        <h2>Links</h2>
-        <p><a href="/">Easy Cooking</a></p>
-        <p><a href="/about">About Us</a></p>
-        <p><a href="/allrecipes">Explore recipes</a></p>
-        <p><a href="/login">Sign up</a></p>
-    </div>
+        <div class="links">
+            <h2>Links</h2>
+            <p><a href="/">Easy Cooking</a></p>
+            <p><a href="/about">About Us</a></p>
+            <p><a href="/allrecipes">Explore recipes</a></p>
+            <p><a href="/login">Sign up</a></p>
+        </div>
     </footer>
     <div class="copy">
         <p> &copy 2020 Copyright: Gabriela Aguiar e Pedro Siqueira</p>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </body>
+
 </html>
