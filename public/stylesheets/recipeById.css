@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Paaji+2|Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+
+* {
+    margin: 0;
+}
+
+body{
+    font-size: 10px;
+}
+
+:root{
+    --primaryColor: #F1935C;
+}
+
+.recipe {
+    margin-top: 80px;
+}
+
+.recipe-title {
+    text-align: center;
+    color: var(--primaryColor);
+    font-size: 1.5rem;
+    font-family: 'Pacifico', cursive;
+}
+
+.recipe-card {
+    display: flex;
+    margin: 40px;
+    justify-content: center;
+}
+
+.recipe-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe-image {
+    width: 350px;
+}
+
+.recipe-details {
+    display: flex;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.8rem;
+    justify-content: space-around;
+}
+
+.recipe-summary {
+    max-width: 600px;
+    margin-left: 30px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+}
+
+.ingredients {
+    margin-top: 50px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    justify-content: center;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primaryColor);
+}

@@ -197,5 +197,16 @@ router.get('/my-recipes', ensureLogin.ensureLoggedIn(), (req, res) => {
   res.render('myRecipes')
 })
 
+router.get('/my-account/:user', (req, res) => {
+  console.log(req.params.user);
+  User
+  .findById(req.params.user)
+  .then(user => {
+    res.render('myAccount', {user})
+  })
+  .catch(error => console.log(error))
+  
+})
+
 
 module.exports = router;

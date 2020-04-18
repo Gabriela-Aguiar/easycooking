@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Paaji+2|Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
+    margin: 0;
+}
+
+body{
+    font-size: 10px;
+}
+
+:root{
+    --primaryColor: #F1935C;
+}
+
+.principal {
+    background-image: linear-gradient(to right, #F1935C , rgb(235, 113, 113));
+    height: 50vh;
+    width: 100vw;
+}
+
+.user-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px;
+}
+
+.image {
+    width: 200px;
+    height: 180px;
+    background-color: #ddd;
+    border-radius: 100px;
+    padding: 10px;
+}
+
+.username {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2rem;
+    margin-top: 30px;
+    color: #fff;
+}
+
+.user-information {
+    height: 50vh;
+    width: 100vw;
+    margin-top: 40px;
+    position: relative;
+    left: 40%;
+}
+
+.user-information p {
+    margin-top: 40px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5rem;
+    text-align: justify;
+    color: var(--primaryColor);
+}
+
+.btn {
+    background: var(--primaryColor);
+    padding: 7px 10px;
+    width: auto;
+    text-transform:  uppercase;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer; 
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.1);
+    border: 0;
+    outline: 0; 
+    position: relative;
+    top: 60px;
+    left: 100px;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}

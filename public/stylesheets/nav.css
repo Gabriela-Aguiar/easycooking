@@ -9,7 +9,6 @@ body{
     font-size: 10px;
 }
 
-
 :root{
     --primaryColor: #F1935C;
 }
@@ -20,7 +19,6 @@ nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    position: fixed;
     width: 100%;
     box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
 }
@@ -57,6 +55,7 @@ nav {
 .btn-text {
     color: #fff;
     font-size: 17px;
+    text-decoration: none;
 }
 
 .nav-btn {
@@ -83,19 +82,14 @@ nav {
 }
   
 .dropdown-content {
-    display: none;
+    visibility: hidden;
+    opacity:0;
     position: absolute;
-    background-color: var(--primaryColor);
-    width: auto;
+    left: 0;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     border-radius: 5px;
-    padding: 12px 16px;
     z-index: 1;
-    margin-left: 20px;
-}
-
-.dropdown-content p {
-    padding: 10px 0;
+    transition:visibility 0.5s linear,opacity 0.5s linear;
 }
 
 .dropdown-content a {
@@ -104,9 +98,35 @@ nav {
 }
 
 .dropdown-content a:hover {
-    color: #000;
+    color: #777;
 }
   
 .dropdown:hover .dropdown-content {
-    display: block;
+    visibility: visible;
+    opacity:1;
+}
+
+.dropdown:hover #first {
+    transition-delay: 0.2s;
+}
+
+.dropdown:hover #second {
+    transition-delay: 0.4s;
+}
+
+.dropdown:hover #third {
+    transition-delay: 0.6s;
+}
+
+.drop-btn {
+    background: var(--primaryColor);
+    padding: 7px 10px;
+    width: 120px;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+    font-size: 17px;
+    margin: 10px 0px;
 }

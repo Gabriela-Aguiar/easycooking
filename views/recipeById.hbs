@@ -5,28 +5,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/nav.css">
+    <link rel="stylesheet" href="/stylesheets/recipeById.css">
     <title>Document</title>
 </head>
 
 <body>
+    <div class="principal">
+        <div class="transparency">
+            <nav>
+                <a href="/" class="nav-a">Easy Cooking</a>
+                <a href="/about" class="nav-a">About Us</a>
+                <a href="/allrecipes" class="nav-a">Explore Recipes</a>
+                <a href="#" class="nav-a">My Recipes</a>
+                <div class="dropdown">
+                    <a href="/#"><button class="nav-btn">My Account</button></a>
+                    <div class="dropdown-content">
+                        <button class="drop-btn" id="first"><a href="/#">See account</a></button>
+                        <button class="drop-btn" id="second"><a href="/my-recipes">My Recipes</a></button>
+                        <button class="drop-btn" id="third"><a href="/logout">Logout</a></button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
     {{#with recipeObjectFromAPI}}
-    <div>
-        <h1>{{title}}</h1><br>
-        {{id}}<br>
-        <img src="{{image}}" style="width: 200px; height: 150px;" /><br>
-
-        Ready in: {{readyInMinutes}}<br>
-        Servings: {{servings}}<br>
-        Likes: {{this.aggregateLikes}}<br>
-        summary: {{{this.summary}}}<br>
-
-        Ingredient name {{name}}<br>
-        Ingredient amount {{this.amount}}<br>
-        Ingredient unit {{unit}}<br>
-
+    <div class="recipe">
+        <div class="recipe-title">
+            <h1>{{title}}</h1>
+        </div>
+        <div class="recipe-card">
+            <div class="recipe-info">
+            <img src="{{image}}" class="recipe-image">
+            <div class="recipe-details">
+                <p><i class="fa fa-clock">Ready in: {{readyInMinutes}}</i></p>
+                <p><i class="fa fa-chart-pie">Servings: {{servings}}</i></p>
+                <p><i class="fa fa-heart">Likes: {{this.aggregateLikes}}</i></p>
+            </div>
+            </div>
+            <div class="recipe-summary">
+                <p>{{{this.summary}}}</p>
+            </div>
+        </div>
+        <div class="ingredients">
+            {{id}}
+            <p>Ingredient name {{name}}</p>
+            <p>Ingredient amount {{this.amount}}</p>
+            <p>Ingredient unit {{unit}} </p>     
+        </div>
         {{/with}}
     </div>
-
+<footer>
+    <h1>Easy Cooking</h1>
+    <div>
+        <h2>Contact</h2>
+        <div class="contact">
+            <div class="gabriela">
+                <p>Gabriela</p>
+                <a href="https://www.linkedin.com/in/gabyaguiar/"><i class="fa fa-linkedin socialMedia"></i></a>
+                <a href="https://github.com/Gabriela-Aguiar/easycooking"><i class="fa fa-github socialMedia"></i></a>
+            </div>
+            <div class="pedro">
+                <p>Pedro</p>
+                <a href="https://www.linkedin.com/in/pedrovsiqueira/"><i class="fa fa-linkedin socialMedia"></i></a>
+                <a href="https://github.com/pedrovsiqueira/easycooking"><i class="fa fa-github socialMedia"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="links">
+        <h2>Links</h2>
+        <p><a href="/">Easy Cooking</a></p>
+        <p><a href="/about">About Us</a></p>
+        <p><a href="/allrecipes">Explore recipes</a></p>
+        <p><a href="/login">Sign up</a></p>
+    </div>
+</footer>
+<div class="copy">
+    <p> &copy 2020 Copyright: Gabriela Aguiar e Pedro Siqueira</p>
+</div>
 
 </body>
 

@@ -18,7 +18,7 @@ body {
     right: 0;
     width: 50%;
     height: 100%;
-    background: #3498db url(/images/cook2.jpg);
+    background: url(/images/cook2.jpg);
     background-size: cover;
     background-position: 50% 50%;
   }
@@ -165,6 +165,7 @@ body {
     margin-top: 20px;
     width: 350px;;
     padding-left: 10px;
+    outline-color: #F1935C;
   }
 
   .error{
