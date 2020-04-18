@@ -66,8 +66,8 @@ body{
     font-family: roboto;
     text-align: center;
     transition: 0.5s ease;
-    cursor: pointer;
     margin:30px;
+    position: relative;
 }
 
 .card-container-recipe a {
@@ -91,10 +91,17 @@ body{
     margin: 25px;
 }
 
-.card-text p {
+.card-text i {
     color: grey;
     font-size:15px;
     font-weight: 300;
+    padding: 10px;
+}
+
+.form-likes{
+    display: inline-block;
+    padding: 0px;
+    margin: 0px;
 }
 
 .card-text h2 {
@@ -102,23 +109,19 @@ body{
     font-size:25px;
 }
 
-.card-like {
-    display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: center;
-    align-items: flex-end;
-    align-content: flex-end;
-    margin-top: 30px;
+.card-text h2:hover{
+    color:var(--primaryColor);
 }
 
 .card:hover {
     box-shadow: 5px 5px 15px rgba(139, 95, 53, 0.692);
-    color:var(--primaryColor)
+    color:var(--primaryColor);
 }
+
 
 .fa-heart:hover {
     color: red;
+    cursor: pointer;
 }
 
 .fa-heart:hover::after {
@@ -128,6 +131,13 @@ body{
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
     margin: 10px;
+}
+
+.border-none{
+    border:none;
+    padding: 0;
+    text-decoration: none;
+    outline: none;
 }
 
 

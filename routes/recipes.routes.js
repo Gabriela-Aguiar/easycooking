@@ -9,6 +9,8 @@ const axios = require( 'axios' );
 const Recipe = require( '../Models/recipeSchema' )
 const getRecipes = require( '../Models/getRecipes' )
 const getRecipeById = require( '../Models/getRecipeById' )
+const ensureLogin = require( "connect-ensure-login" );
+
 
 let recipeIdsArr = []
 
@@ -67,17 +69,20 @@ router.get( '/getrecipes', ( req, res ) => {
         recipeList.push( recipe )
       } )
 
+      //buscar no banco e filtrar somente as que vão pro insertMany
+      // getRecipes.find()
+
       getRecipes.insertMany( recipeList, {
           ordered: false
         } )
         .then( recipe => {
-          console.log( 'cai no then' )
+          console.log('página renderizada pelo then')
           res.render( "searchResults", {
             recipeList
           } )
         } )
         .catch( _ => {
-          console.log( 'Cai no catch' )
+          console.log('página renderizada pelo catch')
           res.render( 'searchResults', {
             recipeList
           } )
@@ -91,6 +96,7 @@ router.get( '/recipe/:id', ( req, res ) => {
   let recipeObjectFromAPI = {}
 
   const apiUrl = `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false${apiUrlFinalRecipeById}`
+  // const apiUrlInstructions = `https://api.spoonacular.com/recipes/${id}/analyzedInstructions${apiUrlFinalRecipeById}`
 
   axios.get( apiUrl )
     .then( resp => {
@@ -138,7 +144,7 @@ router.get( '/recipe/:id', ( req, res ) => {
             amount: amount,
             unit: unit
           } ]
-        })
+        } )
         .then( receita => {
           recipeIdsArr.push( id )
           res.render( 'recipeById', {
@@ -146,12 +152,50 @@ router.get( '/recipe/:id', ( req, res ) => {
           } )
         } )
         .catch( error => {
-          res.render('recipeById', {recipeObjectFromAPI})
+          res.render( 'recipeById', {
+            recipeObjectFromAPI
+          } )
         } )
     } )
     .catch( error => {
       console.log( error )
     } )
 } )
+
+router.post( '/updatelikes', ( req, res ) => {
+  let {
+    id,
+  } = req.body
+  console.log( req.body )
+
+  getRecipes.find( {
+      id: id
+    } )
+    .then( receita => {
+      let {
+        likes
+      } = receita[ 0 ]
+
+      getRecipes.findOneAndUpdate( {
+          id: id
+        }, {
+          $set: {
+            likes: likes += 1
+          }
+        }, {
+          new: true
+        } )
+        .then( _ => {
+          res.redirect('/my-recipes')
+        } )
+        .catch( error => console.log( error ) )
+    } )
+    .catch( error => console.log( error ) )
+} )
+
+router.get('/my-recipes', ensureLogin.ensureLoggedIn(), (req, res) => {
+  res.render('myRecipes')
+})
+
 
 module.exports = router;
