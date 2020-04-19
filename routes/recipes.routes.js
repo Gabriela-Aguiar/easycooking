@@ -208,5 +208,9 @@ router.get('/my-account/:user', (req, res) => {
   
 })
 
+router.get('/resetPassword', (req, res) => {
+  res.render('resetPassword')
+})
+
 
 module.exports = router;
