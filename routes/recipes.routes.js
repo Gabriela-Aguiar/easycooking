@@ -159,6 +159,7 @@ router.get( '/recipe/:id', ( req, res ) => {
     } )
     .catch( error => {
       console.log( error )
+      res.redirect('/error')
     } )
 } )
 
