@@ -55,6 +55,7 @@ body{
     font-size: 1.5rem;
     text-align: justify;
     color: var(--primaryColor);
+    margin-right: 10px;
 }
 
 .btn {
@@ -76,3 +77,61 @@ body{
 .btn:hover {
     transform: scale(1.1);
 }
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: var(--primaryColor);;
+    background-image: none;
+  }
+
+  select::-ms-expand {
+    display: none;
+  }
+
+  .select {
+    position: relative;
+    display: flex;
+    width: 20em;
+    height: 3em;
+    line-height: 3;
+    background: var(--primaryColor);;
+    overflow: hidden;
+    border-radius: .25em;
+  }
+
+  select {
+    flex: 1;
+    padding: 0 .5em;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: rgb(241, 167, 124);
+    cursor: pointer;
+    pointer-events: none;
+    -webkit-transition: .25s all ease;
+    -o-transition: .25s all ease;
+    transition: .25s all ease;
+  }
+
+  .select:hover::after {
+  color: #fff;
+}
+
+.level {
+    display: flex;
+    align-items: flex-end;
+}
+

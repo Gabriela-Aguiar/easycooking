@@ -33,7 +33,18 @@
     <div class="user-information">
         <p>Name:</p>
         <p>Email: {{user.email}}</p>
-        <p>Level:</p>
+        <div class="level">
+            <p>Level: </p>
+            <div class="select">
+                <select name="level" id="level">
+                    <option value="level">Level</option>
+                    <option value="starter">Starter</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="expert">Expert</option>
+                    <option value="master-chef">Master Chef</option>
+                </select>
+            </div>
+        </div>
         <p>Recipes created:</p>
         <button class="btn">See my recipes</button>
     </div>
