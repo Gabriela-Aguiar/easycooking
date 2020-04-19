@@ -14,7 +14,7 @@ const userSchema = new Schema({
   urlImg: {
     type: String,
     default: "/images/chef.png"
-  }
+  },
 }, {
   timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
 })

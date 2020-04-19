@@ -1,4 +1,4 @@
-const template = ( username ) => {
+const resetTemplate = ( id ) => {
     return (
         `
         <!doctype html>
@@ -199,7 +199,7 @@ const template = ( username ) => {
                     
           <div
              style="font-family: 'Pacifico', cursive;;font-size:45px;font-weight:bold;line-height:1;text-align:left;color:#ffffff;"
-          >Welcome to Easy Cooking</div>
+          >Reset Password</div>
         
                   </td>
                 </tr>
@@ -271,7 +271,7 @@ const template = ( username ) => {
                     
           <div
              style="font-family: 'Open Sans', sans-serif;;font-size:22px;line-height:1;text-align:left;color:#ffffff;"
-          ><span style="color:#fff">Dear ${username}</span></div>
+          ><span style="color:#fff"></span></div>
         
                   </td>
                 </tr>
@@ -283,8 +283,7 @@ const template = ( username ) => {
                     
           <div
              style="font-family: 'Open Sans', sans-serif;font-size:15px;line-height:1;text-align:left;color:#ffffff;"
-          >We&apos;re really excited you&apos;ve decided to give us a try. 
-          Are you ready to start cooking delicous meals for you or the ones you love? So let&apos;s get started!</div>
+          ><a href='http://localhost:3000/resetPassword/${id}'><button>Reset your password</button></a></div>
         
                   </td>
                 </tr>
@@ -344,4 +343,4 @@ const template = ( username ) => {
     )
 }
 
-module.exports = template;
+module.exports = resetTemplate;

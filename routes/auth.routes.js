@@ -4,6 +4,7 @@ const User = require( '../Models/users' )
 const ensureLogin = require( "connect-ensure-login" );
 const nodemailer = require('nodemailer');
 const template = require('../templates/welcomeTemplate')
+const resetTemplate = require('../templates/resetTemplate')
 require('dotenv').config()
 
 //passport
@@ -85,7 +86,21 @@ router.get( "/logout", ( req, res ) => {
 
 router.get('/resetPassword', (req, res) => {
     res.render('resetPassword')
-  })
+})
+ 
+router.post('/resetPassword', (req, res) => {
+    // console.log(req.body.email);
+    const {email} = req.body
+    // console.log(email);
+    User
+    .find({email})
+    .then(user => {
+        console.log(user[0].email);
+        sendEmail(user[0].email, 'Reset Password', 'Reset your password', 'reset', user[0]._id);
+    })
+    .catch(err => console.log(err))
+    res.render('resetPassword')
+})
 
 
 router.get('/email', ( req,res ) => {
@@ -93,12 +108,49 @@ router.get('/email', ( req,res ) => {
     res.send( 'enviado' )
 })
 
+router.get('/resetpassword/:id', (req, res) => {
+    const {id} = req.params
+    res.render('userPassword', {id})
+})
+
+router.post('/resetpassword/:id', (req, res) => {
+    const {id} = req.params
+    const {
+        password, 
+        confirm
+    } = req.body 
+
+    if(password === confirm){
+        const salt = bcrypt.genSaltSync( bcryptSalt );
+        const hashPass = bcrypt.hashSync( password, salt );
+        User
+        .findOneAndUpdate(
+            {_id: id},
+            {
+                $set: {
+                    password: hashPass,
+                  }
+            },
+            {
+                new: true
+              }
+        )
+        .then(user => {
+            res.redirect('/login')
+        })
+        .catch(err => console.log(err))
+    } else {
+        res.send('error')
+    }
+})
+
 async function sendEmail( to, subject, text,html, username ){
     
     if( html === 'welcome' ){
         html = template(username)
     }else if( html === 'reset' ){
-        // html = reset()
+        console.log('-----------------reset');
+        html = resetTemplate(username)
     }
     let transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
