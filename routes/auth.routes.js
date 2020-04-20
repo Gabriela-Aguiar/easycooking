@@ -95,18 +95,18 @@ router.post('/resetPassword', (req, res) => {
     User
     .find({email})
     .then(user => {
-        console.log(user[0].email);
-        sendEmail(user[0].email, 'Reset Password', 'Reset your password', 'reset', user[0]._id);
+        console.log(user[0]);
+        sendEmail(user[0].email, 'Reset Password', 'Reset your password', 'reset', user[0]._id, user[0].username);
     })
     .catch(err => console.log(err))
     res.render('resetPassword')
 })
 
 
-router.get('/email', ( req,res ) => {
-    sendEmail('aguiar.gabi95@gmail.com', 'Welcome', 'Welcome to Easy Cooking', 'welcome', 'gabi')
-    res.send( 'enviado' )
-})
+// router.get('/email', ( req,res ) => {
+//     sendEmail('aguiar.gabi95@gmail.com', 'Reset your password', 'Reset your password', 'reset', 'gabi')
+//     res.send( 'enviado' )
+// })
 
 router.get('/resetpassword/:id', (req, res) => {
     const {id} = req.params
@@ -144,12 +144,12 @@ router.post('/resetpassword/:id', (req, res) => {
     }
 })
 
-async function sendEmail( to, subject, text,html, username ){
+async function sendEmail( to, subject, text,html, username, id  ){
     
     if( html === 'welcome' ){
         html = template(username)
     }else if( html === 'reset' ){
-        console.log('-----------------reset');
+        // console.log('-----------------reset');
         html = resetTemplate(username)
     }
     let transporter = nodemailer.createTransport({
