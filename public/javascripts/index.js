@@ -47,6 +47,9 @@ add.addEventListener('click', text => {
       tags.appendChild(span)
       searchForm.appendChild(inputIngredient)
       items.push(newIngredient)
+      if(items.length >=3){
+        searchForm.classList.remove('noMostrar')
+      }
       input.value = ''
     }
   })
@@ -81,8 +84,10 @@ add.addEventListener('click', text => {
        }
    };
 
-   document.getElementById('add').onclick = doSomething;
+  //  document.getElementById('add').onclick = doSomething;
 }
+
+
 
 // search.addEventListener('click', () => {
 //   console.log(items);

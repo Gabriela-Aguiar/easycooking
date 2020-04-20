@@ -99,7 +99,7 @@ router.post('/resetPassword', (req, res) => {
         sendEmail(user[0].email, 'Reset Password', 'Reset your password', 'reset', user[0]._id, user[0].username);
     })
     .catch(err => console.log(err))
-    res.render('resetPassword')
+    
 })
 
 
