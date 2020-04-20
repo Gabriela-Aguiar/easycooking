@@ -24,11 +24,15 @@ const getRecipeById = new mongoose.Schema( {
     aggregateLikes: {
         type: Number
     },
+    instructions: {
+        type: String
+    },
     extendedIngredients: [ {
         name: String,
         amount: Number,
         unit: String
-    } ]
+    } ],
+    
 }, {
     timestamps: {
         createdAt: "created_at",

@@ -80,7 +80,7 @@ router.get( '/getrecipes', ( req, res ) => {
 
           //se todas as receitas já existem no banco, só renderizar as receitas
           if ( recipesFromDB.length === recipeIdList.length ) {
-            console.log('CAI NO IFFFFFFFFFFFFFFFFFFFF')
+            console.log( 'CAI NO IFFFFFFFFFFFFFFFFFFFF' )
             res.render( "searchResults", {
               recipesFromDB
             } )
@@ -88,34 +88,34 @@ router.get( '/getrecipes', ( req, res ) => {
           //se as receitas não existem no bd 
           else {
             //pegar os ids que já existem no banco de dados
-            let recipesIdFromDB = recipesFromDB.map(elem => elem.id)
+            let recipesIdFromDB = recipesFromDB.map( elem => elem.id )
             let recipeListFiltered = []
 
             //filtrar os ids que não estão no banco para enviar pro insertmany
-            recipeListFiltered = recipeList.filter(recipeFiltered => {
-              return !recipesIdFromDB.includes(recipeFiltered.id)
-            })
+            recipeListFiltered = recipeList.filter( recipeFiltered => {
+              return !recipesIdFromDB.includes( recipeFiltered.id )
+            } )
             // console.log(recipeListFiltered)
 
             //inserir somente receitas que não existem no banco
             getRecipes.insertMany( recipeListFiltered, {
-              ordered: false
-            } )
-            .then( recipe => {
-              console.log('CAI NO ELSSSSEEEEEEEEEEEEEEEE')
+                ordered: false
+              } )
+              .then( recipe => {
+                console.log( 'CAI NO ELSSSSEEEEEEEEEEEEEEEE' )
 
-              //juntar receitas que existem no banco com as que foram inseridas
-              recipesFromDB = [...recipesFromDB, ...recipe]
-              
-              res.render( "searchResults", {
-                recipesFromDB
+                //juntar receitas que existem no banco com as que foram inseridas
+                recipesFromDB = [ ...recipesFromDB, ...recipe ]
+
+                res.render( "searchResults", {
+                  recipesFromDB
+                } )
               } )
-            } )
-            .catch( _ => {
-              res.render( 'searchResults', {
-                recipeList
+              .catch( _ => {
+                res.render( 'searchResults', {
+                  recipeList
+                } )
               } )
-            } )
           }
         } )
         .catch( error => console.log( 'error CATCH FIND' ) )
@@ -123,13 +123,12 @@ router.get( '/getrecipes', ( req, res ) => {
     .catch( error => console.log( 'error CATCH AXIOS' ) )
 } )
 
-
 router.get( '/recipe/:id', ( req, res ) => {
   const id = req.params.id
   let recipeObjectFromAPI = {}
+  let recipeObjectFromAPIArr = []
 
   const apiUrl = `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false${apiUrlFinalRecipeById}`
-  // const apiUrlInstructions = `https://api.spoonacular.com/recipes/${id}/analyzedInstructions${apiUrlFinalRecipeById}`
 
   axios.get( apiUrl )
     .then( resp => {
@@ -141,14 +140,31 @@ router.get( '/recipe/:id', ( req, res ) => {
         readyInMinutes,
         servings,
         summary,
-        aggregateLikes
+        aggregateLikes,
+        instructions
       } = resp.data
 
       const {
         name,
         amount,
         unit
-      } = resp.data.extendedIngredients[ 0 ]
+      } = resp.data.extendedIngredients
+
+      resp.data.extendedIngredients.forEach( ingredientsFromExtendedIngredients => {
+        const {
+          name,
+          amount,
+          unit
+        } = ingredientsFromExtendedIngredients
+
+        extendedIngredientsToDB = {
+          name,
+          amount,
+          unit
+        }
+
+        recipeObjectFromAPIArr.push( extendedIngredientsToDB )
+      } )
 
       recipeObjectFromAPI = {
         title,
@@ -158,9 +174,8 @@ router.get( '/recipe/:id', ( req, res ) => {
         servings,
         summary,
         aggregateLikes,
-        name,
-        amount,
-        unit
+        extendedIngredients: recipeObjectFromAPIArr,
+        instructions
       }
 
       getRecipeById
@@ -172,19 +187,18 @@ router.get( '/recipe/:id', ( req, res ) => {
           servings,
           summary,
           aggregateLikes,
-          extendedIngredients: [ {
-            name: name,
-            amount: amount,
-            unit: unit
-          } ]
+          extendedIngredients: recipeObjectFromAPIArr,
+          instructions
         } )
         .then( receita => {
+          console.log( name, amount, unit )
           recipeIdsArr.push( id )
           res.render( 'recipeById', {
             recipeObjectFromAPI
           } )
         } )
         .catch( error => {
+          console.log(extendedIngredientsToDB)
           res.render( 'recipeById', {
             recipeObjectFromAPI
           } )
