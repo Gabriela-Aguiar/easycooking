@@ -38,53 +38,62 @@
         </div>
         <div class="recipe-card">
             <div class="recipe-info">
-            <img src="{{image}}" class="recipe-image">
-            <div class="recipe-details">
-                <p><i class="fa fa-clock">Ready in: {{readyInMinutes}}</i></p>
-                <p><i class="fa fa-chart-pie">Servings: {{servings}}</i></p>
-                <p><i class="fa fa-heart">Likes: {{this.aggregateLikes}}</i></p>
-            </div>
+                <img src="{{image}}" class="recipe-image">
+                <div class="recipe-details">
+                    <p><i class="fa fa-clock">Ready in: {{readyInMinutes}}</i></p>
+                    <p><i class="fa fa-chart-pie">Servings: {{servings}}</i></p>
+                    <p><i class="fa fa-heart">Likes: {{this.aggregateLikes}}</i></p>
+                </div>
             </div>
             <div class="recipe-summary">
                 <p>{{{this.summary}}}</p>
             </div>
         </div>
         <div class="ingredients">
-            {{id}}
-            <p>Ingredient name {{name}}</p>
-            <p>Ingredient amount {{this.amount}}</p>
-            <p>Ingredient unit {{unit}} </p>     
+            <h1>ingredients</h1>
+
+            {{#each extendedIngredients}}
+            {{name}}
+            {{this.amount}}
+            {{unit}}
+            <hr>
+            {{/each}}
+
+            <hr>
+            <h1>instructions</h1>
+            {{instructions}}
         </div>
         {{/with}}
     </div>
-<footer>
-    <h1>Easy Cooking</h1>
-    <div>
-        <h2>Contact</h2>
-        <div class="contact">
-            <div class="gabriela">
-                <p>Gabriela</p>
-                <a href="https://www.linkedin.com/in/gabyaguiar/"><i class="fa fa-linkedin socialMedia"></i></a>
-                <a href="https://github.com/Gabriela-Aguiar/easycooking"><i class="fa fa-github socialMedia"></i></a>
-            </div>
-            <div class="pedro">
-                <p>Pedro</p>
-                <a href="https://www.linkedin.com/in/pedrovsiqueira/"><i class="fa fa-linkedin socialMedia"></i></a>
-                <a href="https://github.com/pedrovsiqueira/easycooking"><i class="fa fa-github socialMedia"></i></a>
+    <footer>
+        <h1>Easy Cooking</h1>
+        <div>
+            <h2>Contact</h2>
+            <div class="contact">
+                <div class="gabriela">
+                    <p>Gabriela</p>
+                    <a href="https://www.linkedin.com/in/gabyaguiar/"><i class="fa fa-linkedin socialMedia"></i></a>
+                    <a href="https://github.com/Gabriela-Aguiar/easycooking"><i
+                            class="fa fa-github socialMedia"></i></a>
+                </div>
+                <div class="pedro">
+                    <p>Pedro</p>
+                    <a href="https://www.linkedin.com/in/pedrovsiqueira/"><i class="fa fa-linkedin socialMedia"></i></a>
+                    <a href="https://github.com/pedrovsiqueira/easycooking"><i class="fa fa-github socialMedia"></i></a>
+                </div>
             </div>
         </div>
+        <div class="links">
+            <h2>Links</h2>
+            <p><a href="/">Easy Cooking</a></p>
+            <p><a href="/about">About Us</a></p>
+            <p><a href="/allrecipes">Explore recipes</a></p>
+            <p><a href="/login">Sign up</a></p>
+        </div>
+    </footer>
+    <div class="copy">
+        <p> &copy 2020 Copyright: Gabriela Aguiar e Pedro Siqueira</p>
     </div>
-    <div class="links">
-        <h2>Links</h2>
-        <p><a href="/">Easy Cooking</a></p>
-        <p><a href="/about">About Us</a></p>
-        <p><a href="/allrecipes">Explore recipes</a></p>
-        <p><a href="/login">Sign up</a></p>
-    </div>
-</footer>
-<div class="copy">
-    <p> &copy 2020 Copyright: Gabriela Aguiar e Pedro Siqueira</p>
-</div>
 
 </body>
 
