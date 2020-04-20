@@ -278,8 +278,7 @@ router.get( '/my-recipes', ( req, res ) => {
       instructions,
       extendedIngredients,
       owner: req.user._id
-    })
-    .then(recipes => {
+    }, () => {
       myRecipes
       .find({owner:req.user._id})
       .then(recipes => {
@@ -288,16 +287,6 @@ router.get( '/my-recipes', ( req, res ) => {
       })
       .catch(error => console.log(error))
     })
-    .catch(recipes => {
-      myRecipes
-      .find({owner:req.user._id})
-      .then(recipes => {
-        res.render('myRecipes', {recipes})
-        console.log('cai no catch');
-      })
-      .catch(error => console.log(error))
-    })
-
   })
   .catch(error => console.log(error))
 } )

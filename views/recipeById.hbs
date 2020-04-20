@@ -34,7 +34,7 @@
     {{#with recipeObjectFromAPI}}
     <div class="recipe-copy">
         <form action="/my-recipes" method="GET">
-        <input type="text" value="{{id}}" name="id">
+        <input type="hidden" value="{{id}}" name="id">
             <button class="recipeCopy-btn">Copy recipe</button>
         </form>
     </div>
