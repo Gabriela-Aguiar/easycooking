@@ -11,7 +11,6 @@ const getRecipes = require( '../Models/getRecipes' )
 const getRecipeById = require( '../Models/getRecipeById' )
 const ensureLogin = require( "connect-ensure-login" );
 
-
 let recipeIdsArr = []
 
 router.get( '/allrecipes', ( req, res ) => {
@@ -53,12 +52,12 @@ router.get( '/teste', ( req, res ) => {
 router.get( '/getrecipes', ( req, res ) => {
   let ingredient = req.query.ingredients;
   let recipeList = [];
+  let recipeIdList = []
   const apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredient[0]},+${ingredient[1]},+${ingredient[2]}${apiUrlFinal}`
 
   axios.get( apiUrl )
     .then( resp => {
       resp.data.forEach( recipe => {
-        console.log( recipe );
         const {
           title,
           image,
@@ -67,27 +66,61 @@ router.get( '/getrecipes', ( req, res ) => {
         } = recipe
 
         recipeList.push( recipe )
+        recipeIdList.push( id )
       } )
 
       //buscar no banco e filtrar somente as que vão pro insertMany
-      // getRecipes.find()
+      getRecipes.find( {
+          id: {
+            $in: recipeIdList
+          }
+        } )
+        .then( recipesFromDB => {
+          console.log( 'RECEITAS DO FIND', recipesFromDB.length )
 
-      getRecipes.insertMany( recipeList, {
-          ordered: false
+          //se todas as receitas já existem no banco, só renderizar as receitas
+          if ( recipesFromDB.length === recipeIdList.length ) {
+            console.log('CAI NO IFFFFFFFFFFFFFFFFFFFF')
+            res.render( "searchResults", {
+              recipesFromDB
+            } )
+          }
+          //se as receitas não existem no bd 
+          else {
+            //pegar os ids que já existem no banco de dados
+            let recipesIdFromDB = recipesFromDB.map(elem => elem.id)
+            let recipeListFiltered = []
+
+            //filtrar os ids que não estão no banco para enviar pro insertmany
+            recipeListFiltered = recipeList.filter(recipeFiltered => {
+              return !recipesIdFromDB.includes(recipeFiltered.id)
+            })
+            // console.log(recipeListFiltered)
+
+            //inserir somente receitas que não existem no banco
+            getRecipes.insertMany( recipeListFiltered, {
+              ordered: false
+            } )
+            .then( recipe => {
+              console.log('CAI NO ELSSSSEEEEEEEEEEEEEEEE')
+
+              //juntar receitas que existem no banco com as que foram inseridas
+              recipesFromDB = [...recipesFromDB, ...recipe]
+              
+              res.render( "searchResults", {
+                recipesFromDB
+              } )
+            } )
+            .catch( _ => {
+              res.render( 'searchResults', {
+                recipeList
+              } )
+            } )
+          }
         } )
-        .then( recipe => {
-          console.log('página renderizada pelo then')
-          res.render( "searchResults", {
-            recipeList
-          } )
-        } )
-        .catch( _ => {
-          console.log('página renderizada pelo catch')
-          res.render( 'searchResults', {
-            recipeList
-          } )
-        } )
+        .catch( error => console.log( 'error CATCH FIND' ) )
     } )
+    .catch( error => console.log( 'error CATCH AXIOS' ) )
 } )
 
 
@@ -159,7 +192,7 @@ router.get( '/recipe/:id', ( req, res ) => {
     } )
     .catch( error => {
       console.log( error )
-      res.redirect('/error')
+      res.redirect( '/error' )
     } )
 } )
 
@@ -187,27 +220,29 @@ router.post( '/updatelikes', ( req, res ) => {
           new: true
         } )
         .then( _ => {
-          res.redirect('/my-recipes')
+          res.redirect( '/my-recipes' )
         } )
         .catch( error => console.log( error ) )
     } )
     .catch( error => console.log( error ) )
 } )
 
-router.get('/my-recipes', ensureLogin.ensureLoggedIn(), (req, res) => {
-  res.render('myRecipes')
-})
+router.get( '/my-recipes', ensureLogin.ensureLoggedIn(), ( req, res ) => {
+  res.render( 'myRecipes' )
+} )
 
-router.get('/my-account/:user', (req, res) => {
-  console.log(req.params.user);
+router.get( '/my-account/:user', ( req, res ) => {
+  console.log( req.params.user );
   User
-  .findById(req.params.user)
-  .then(user => {
-    res.render('myAccount', {user})
-  })
-  .catch(error => console.log(error))
-  
-})
+    .findById( req.params.user )
+    .then( user => {
+      res.render( 'myAccount', {
+        user
+      } )
+    } )
+    .catch( error => console.log( error ) )
+
+} )
 
 
 
