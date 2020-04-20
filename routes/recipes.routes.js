@@ -9,7 +9,9 @@ const axios = require( 'axios' );
 const Recipe = require( '../Models/recipeSchema' )
 const getRecipes = require( '../Models/getRecipes' )
 const getRecipeById = require( '../Models/getRecipeById' )
+const myRecipes = require( '../Models/myRecipes' )
 const ensureLogin = require( "connect-ensure-login" );
+
 
 let recipeIdsArr = []
 
@@ -241,8 +243,63 @@ router.post( '/updatelikes', ( req, res ) => {
     .catch( error => console.log( error ) )
 } )
 
-router.get( '/my-recipes', ensureLogin.ensureLoggedIn(), ( req, res ) => {
-  res.render( 'myRecipes' )
+router.get( '/my-recipes', ( req, res ) => {
+  let recipeIdFromDb = []
+  let id = req.query.id
+  // console.log(id);
+  getRecipeById
+  .find({id:id})
+  .then(recipe => {
+    // console.log(recipe);
+    const {
+      title,
+      image,
+      readyInMinutes,
+      id,
+      summary,
+      servings,
+      aggregateLikes,
+      instructions,
+      extendedIngredients
+    } = recipe[0]
+    // console.log(title);
+    
+    recipeIdFromDb.push(id)
+
+    myRecipes
+    .create({
+      title,
+      image,
+      readyInMinutes,
+      id,
+      summary,
+      servings,
+      aggregateLikes,
+      instructions,
+      extendedIngredients,
+      owner: req.user._id
+    })
+    .then(recipes => {
+      myRecipes
+      .find({owner:req.user._id})
+      .then(recipes => {
+        res.render('myRecipes', {recipes})
+        console.log('cai no then');
+      })
+      .catch(error => console.log(error))
+    })
+    .catch(recipes => {
+      myRecipes
+      .find({owner:req.user._id})
+      .then(recipes => {
+        res.render('myRecipes', {recipes})
+        console.log('cai no catch');
+      })
+      .catch(error => console.log(error))
+    })
+
+  })
+  .catch(error => console.log(error))
 } )
 
 router.get( '/my-account/:user', ( req, res ) => {
