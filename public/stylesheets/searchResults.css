@@ -46,14 +46,6 @@ body{
     margin-top: 20px
 }
 
-.recipe-results::after {
-    content: '';
-    height: 4px;
-    width: 200px;
-    background: var(--primaryColor);
-    display: block;
-    margin: 10px auto;
-}
 
 .card-container-recipe {
     display: flex;

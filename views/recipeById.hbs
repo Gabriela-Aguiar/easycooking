@@ -19,7 +19,7 @@
                 <a href="/" class="nav-a">Easy Cooking</a>
                 <a href="/about" class="nav-a">About Us</a>
                 <a href="/allrecipes" class="nav-a">Explore Recipes</a>
-                <a href="#" class="nav-a">My Recipes</a>
+                <a href="/home" class="nav-a">Search by ingredient</a>
                 <div class="dropdown">
                     <button class="nav-btn">My Account</button>
                     <div class="dropdown-content">
@@ -31,6 +31,9 @@
             </nav>
         </div>
     </div>
+    <div class="recipe-copy">
+        <button class="recipeCopy-btn">Copy recipe</button>
+    </div>
     {{#with recipeObjectFromAPI}}
     <div class="recipe">
         <div class="recipe-title">
@@ -40,9 +43,9 @@
             <div class="recipe-info">
                 <img src="{{image}}" class="recipe-image">
                 <div class="recipe-details">
-                    <p><i class="fa fa-clock">Ready in: {{readyInMinutes}}</i></p>
-                    <p><i class="fa fa-chart-pie">Servings: {{servings}}</i></p>
-                    <p><i class="fa fa-heart">Likes: {{this.aggregateLikes}}</i></p>
+                    <p><i class="fa fa-clock" id="icon"> Ready in: {{readyInMinutes}}</i></p>
+                    <p><i class="fa fa-chart-pie" id="icon"> Servings: {{servings}}</i></p>
+                    <p><i class="fa fa-heart" id="icon"> Likes: {{this.aggregateLikes}}</i></p>
                 </div>
             </div>
             <div class="recipe-summary">
@@ -50,18 +53,18 @@
             </div>
         </div>
         <div class="ingredients">
-            <h1>ingredients</h1>
+            <h1>Ingredients</h1>
 
             {{#each extendedIngredients}}
-            {{name}}
-            {{this.amount}}
+            {{amount}}
             {{unit}}
-            <hr>
+            {{name}}
+            <br>
             {{/each}}
-
-            <hr>
-            <h1>instructions</h1>
-            {{instructions}}
+        </div>
+        <div class="instructions">
+            <h1>Instructions</h1>
+            <p class="instr-text">{{instructions}}</p>
         </div>
         {{/with}}
     </div>
@@ -70,6 +73,12 @@
         <div>
             <h2>Contact</h2>
             <div class="contact">
+                <style>
+                    @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css');
+                    .socialMedia {
+                        font-size: 20px
+                    }
+                </style>
                 <div class="gabriela">
                     <p>Gabriela</p>
                     <a href="https://www.linkedin.com/in/gabyaguiar/"><i class="fa fa-linkedin socialMedia"></i></a>
