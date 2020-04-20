@@ -1,5 +1,86 @@
-<h1>like gerado com sucesso</h1>
-{{#each recipes}}
-{{title}}
-<img src="{{image}}" alt="">
-{{/each}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/myRecipes.css">
+    <link rel="stylesheet" href="/stylesheets/nav.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" href="/images/whisk.png" type="image">
+    <title>Easy Cooking</title>
+</head>
+
+<body>
+    <nav>
+        <a href="/" class="nav-a">Easy Cooking</a>
+        <a href="/about" class="nav-a">About Us</a>
+        <a href="/allrecipes" class="nav-a">Explore Recipes</a>
+        <a href="/home" class="nav-a">Search by Ingredient</a>
+        <div class="dropdown">
+            <button class="nav-btn">My Account</button>
+            <div class="dropdown-content">
+                <button class="drop-btn" id="first"><a href="/my-account/{{user._id}}">See account</a></button>
+                <button class="drop-btn" id="second"><a href="/my-recipes">My Recipes</a></button>
+                <button class="drop-btn" id="third"><a href="/logout">Logout</a></button>
+            </div>
+        </div>
+    </nav>
+    <div class="div-photo">
+        <div class="transparency1">
+            <hi class="title">Easy Cooking</hi>
+        </div>
+        <h1 class="recipe-results">Saved Recipes</h1>
+    </div>
+    <div class="card-container-recipe">
+        {{#each recipes}}
+        <div class="card">
+            <img src="{{image}}" class="card-image" />
+            <div class="card-text">
+                <h2 class="card-title">{{title}}</h2>
+                <form action="/updatelikes" method="POST" class="form-likes">
+                    <input type="hidden" value="{{id}}" name="id">
+                    <a href="/recipe/{{id}}">
+                        <button type="submit" class="edit-recipe-btn">Edit Recipe</button>
+                    </a>
+                </form>
+
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <footer>
+        <h1>Easy Cooking</h1>
+        <div>
+            <h2>Contact</h2>
+            <div class="contact">
+                <div class="gabriela">
+                    <p>Gabriela</p>
+                    <a href="https://www.linkedin.com/in/gabyaguiar/"><i class="fa fa-linkedin socialMedia"></i></a>
+                    <a href="https://github.com/Gabriela-Aguiar/easycooking"><i
+                            class="fa fa-github socialMedia"></i></a>
+                </div>
+                <div class="pedro">
+                    <p>Pedro</p>
+                    <a href="https://www.linkedin.com/in/pedrovsiqueira/"><i class="fa fa-linkedin socialMedia"></i></a>
+                    <a href="https://github.com/pedrovsiqueira/easycooking"><i class="fa fa-github socialMedia"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="links">
+            <h2>Links</h2>
+            <p><a href="/">Easy Cooking</a></p>
+            <p><a href="/about">About Us</a></p>
+            <p><a href="/allrecipes">Explore recipes</a></p>
+            <p><a href="/login">Sign up</a></p>
+        </div>
+    </footer>
+    <div class="copy">
+        <p> &copy 2020 Copyright: Gabriela Aguiar e Pedro Siqueira</p>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</body>
+
+</html>
