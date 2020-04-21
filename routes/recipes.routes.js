@@ -244,15 +244,32 @@ router.post( '/updatelikes', ( req, res ) => {
 } )
 
 router.get( '/my-recipes', ( req, res ) => {
+  myRecipes
+    .find( {
+      owner: req.user._id
+    } )
+    .then( recipes => {
+      res.render( 'myRecipes', {
+        recipes
+      } )
+      console.log( 'cai no then' );
+    } )
+    .catch( error => console.log( error ) )
+} )
+
+
+router.get( '/recipes-copy', ( req, res ) => {
   let recipeIdFromDb = []
-  let {id} = req.query
-  // console.log(id);
-  // res.render('myRecipes')
-  // return
+  let {
+    id
+  } = req.query
+
   getRecipeById
-    .find()
+    .find( {
+      id: id
+    } )
     .then( recipe => {
-      console.log(recipe);
+      console.log( recipe );
       const {
         title,
         image,
@@ -310,28 +327,75 @@ router.get( '/my-account/:user', ( req, res ) => {
 } )
 
 
-router.post( '/edit-recipes', ( req, res ) => {
-  
-  const {
-    id,
-    summary,
-    instructions
-  } = req.body
+router.get( '/edit-recipes', ( req, res ) => {
+  // console.log( req.query.id )
 
-  // const {
-  //   name,
-  //   amount,
-  //   unit
-  // } = req.body.extendedIngredients
-
-  console.log(req.body);
-  myRecipes.find( {
-      id: id
+  myRecipes.findOne( {
+      id: req.query.id
     } )
     .then( recipe => {
-      res.render( 'editRecipes', {recipe: recipe[0]} )
+      res.render( 'editRecipes', {
+        recipe
+      } )
     } )
-    .catch( error => error )
+    .catch( error => console.log( error ) )
 } )
+
+router.post( '/edit-recipes', ( req, res ) => {
+
+  const extendedIngredients = []
+
+  const {
+    id
+  } = req.query
+
+  const {
+    summary,
+    instructions,
+    name,
+    unit,
+    amount
+  } = req.body
+
+
+  for ( i = 0; i < req.body.amount.length; i++ ) {
+    extendedIngredients.push( {
+      name: req.body.name[ i ],
+      amount: req.body.amount[ i ],
+      unit: req.body.unit[ i ]
+    } )
+  }
+
+  myRecipes.findOneAndUpdate( {
+      id: id,
+      owner: req.user._id
+    }, {
+      summary,
+      extendedIngredients,
+      instructions
+    }, {
+      new: true
+    } )
+    .then( recipe => {
+      res.render( 'editRecipes', {
+        recipe
+      } )
+    } )
+    .catch( error => console.log( error ) )
+} )
+
+router.get( '/remove-recipe/:id', ( req, res ) => {
+  const {
+    id
+  } = req.params
+
+  myRecipes.findOneAndRemove( {
+      id: id,
+      owner: req.user._id
+    } )
+    .then( res.render( 'myRecipes' ) )
+    .catch( console.log( `caí no catch` ) )
+} )
+
 
 module.exports = router;

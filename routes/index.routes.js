@@ -6,8 +6,5 @@ router.get( '/', ( req, res, next ) => {
   res.render( 'index', );
 } );
 
-router.get( '/index', ( req, res, next ) => {
-  res.render( 'index1', );
-} );
 
 module.exports = router;
