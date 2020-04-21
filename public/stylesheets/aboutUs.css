@@ -70,3 +70,48 @@ body{
     text-align: center;
     margin-top: 50px;
 }
+
+.us {
+    display: flex;
+    justify-content: space-around;
+}
+
+.profile {
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: 400px 160px 80px;
+    grid-template-areas: "image" "text" "stats";
+    border-radius: 18px;
+    background: white;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    font-family: roboto;
+    text-align: center;
+    transition: 0.5s ease;
+    margin:30px;
+    position: relative;
+}
+
+.card-title {
+    margin-top:0px;
+    font-size:25px;
+}
+
+.card-image {
+    grid-area: image;
+    grid-area: image;
+    background: url("img1.jpg");
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+    width: 100%;
+}
+
+.card-text {
+    grid-area: text;
+    grid-area: text;
+    margin: 25px;
+}
+
+img {
+    width: 200px;
+}

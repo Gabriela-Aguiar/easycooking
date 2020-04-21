@@ -311,10 +311,20 @@ router.get( '/my-account/:user', ( req, res ) => {
 
 
 router.post( '/edit-recipes', ( req, res ) => {
-  let {
+  
+  const {
     id,
+    summary,
+    instructions
   } = req.body
 
+  // const {
+  //   name,
+  //   amount,
+  //   unit
+  // } = req.body.extendedIngredients
+
+  console.log(req.body);
   myRecipes.find( {
       id: id
     } )

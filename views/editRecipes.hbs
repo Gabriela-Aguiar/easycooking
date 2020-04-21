@@ -60,14 +60,13 @@
             </div>
 
             <div id="London" class="w3-container city">
-                <form action="" method="POST">
+                <form action="/edit-recipes" method="POST">
+                <input type="hidden" value="{{id}}" name="id">
                     <br>
-                    <textarea name="summary" id="summary" cols="140" rows="10"></textarea>
+                    {{!-- <textarea name="summary" id="summary" cols="140" rows="10" value="{{summary}}" type="text"></textarea> --}}
+                    <input type="text" value="{{summary}}" id="summary" class="input-summary">
                     <br>
-                    <button>Save</button>
-                </form>
             </div>
-
             <div id="Paris" class="w3-container city">
                 <h1>Paris</h1>
                 <p>Paris is the capital of France.</p>
@@ -78,12 +77,10 @@
                 <br>
                 <textarea name="instructions" id="instructions" cols="140" rows="10"></textarea>
                 <br>
-                <button>Save</button>
             </div>
-
             <div class="w3-container w3-light-grey w3-padding">
-                <button class="w3-button w3-right w3-white w3-border"
-                    onclick="document.getElementById('id01').style.display='none'">Close</button>
+                    <button class="w3-button w3-right w3-white w3-border" onclick="document.getElementById('id01').style.display='none'">Save</button>
+                </form>
             </div>
         </div>
     </div>

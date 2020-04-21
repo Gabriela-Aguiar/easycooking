@@ -155,3 +155,10 @@ a {
     transform: scale(1.1);
     color: #000;
 }
+
+.input-summary {
+    height: 200px;
+    width: 200px;
+    font-size: 20px;
+    padding: 15px 0;
+}
