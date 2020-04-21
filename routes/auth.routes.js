@@ -102,7 +102,7 @@ router.post('/resetPassword', (req, res) => {
     
 })
 
-router.get ('/aboutUs', (req,res) => {
+router.get ('/about', (req,res) => {
     res.render('aboutUs')
 })
 

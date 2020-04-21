@@ -244,15 +244,30 @@ router.post( '/updatelikes', ( req, res ) => {
 } )
 
 router.get( '/my-recipes', ( req, res ) => {
+  myRecipes
+    .find( {
+      owner: req.user._id
+    } )
+    .then( recipes => {
+      res.render( 'myRecipes', {
+        recipes
+      } )
+      console.log( 'cai no then' );
+    } )
+    .catch( error => console.log( error ) )
+} )
+
+
+router.get( '/recipes-copy', ( req, res ) => {
   let recipeIdFromDb = []
   let {
     id
   } = req.query
-  // console.log(id);
-  // res.render('myRecipes')
-  // return
+
   getRecipeById
-    .find()
+    .find( {
+      id: id
+    } )
     .then( recipe => {
       console.log( recipe );
       const {
@@ -379,7 +394,7 @@ router.get( '/remove-recipe/:id', ( req, res ) => {
       owner: req.user._id
     } )
     .then( res.render( 'myRecipes' ) )
-    .catch(console.log(`caí no catch`))
+    .catch( console.log( `caí no catch` ) )
 } )
 
 
