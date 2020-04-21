@@ -30,26 +30,52 @@
     </nav>
     <div class="div-photo">
         <div class="transparency1">
-            <hi class="title">Easy Cooking</hi>
+            <h1 class="title">Easy Cooking</h1>
         </div>
-        <h1 class="recipe-results">Saved Recipes</h1>
     </div>
-    <div class="card-container-recipe">
-        {{#each recipes}}
-        <div class="card">
-            <img src="{{image}}" class="card-image" />
-            <div class="card-text">
-                <h2 class="card-title">{{title}}</h2>
-                <form action="/edit-recipes" method="POST">
-                    <input type="hidden" value="{{id}}" name="id">
-                    <a href="/edit-recipes/{{id}}">
-                        <button type="submit" class="edit-recipe-btn">Edit Recipe</button>
-                    </a>
-                </form>
-
+    <div class="container">
+        <div class="card-container-recipes">
+            <h1 class="recipe-results">Created Recipes</h1>
+            {{#each recipes}}
+            <div class="card">
+                <img src="{{image}}" class="card-image" />
+                <div class="card-text">
+                    <h2 class="card-title">{{title}}</h2>
+                    <form action="/edit-recipes" method="POST">
+                        <input type="hidden" value="{{id}}" name="id">
+                    </form>
+                </div>
             </div>
+            {{/each}}
         </div>
-        {{/each}}
+        <div class="card-container-recipes">
+            <h1 class="recipe-results">Saved Recipes</h1>
+            {{#each recipes}}
+            <div class="card">
+                <img src="{{image}}" class="card-image" />
+                <div class="card-text">
+                    <h2 class="card-title">{{title}}</h2>
+                    <form action="/edit-recipes" method="POST">
+                        <input type="hidden" value="{{id}}" name="id">
+                    </form>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        <div class="card-container-recipes">
+            <h1 class="recipe-results">Liked Recipes</h1>
+            {{#each recipes}}
+            <div class="card">
+                <img src="{{image}}" class="card-image" />
+                <div class="card-text">
+                    <h2 class="card-title">{{title}}</h2>
+                    <form action="/edit-recipes" method="POST">
+                        <input type="hidden" value="{{id}}" name="id">
+                    </form>
+                </div>
+            </div>
+            {{/each}}
+        </div>
     </div>
     <footer>
         <h1>Easy Cooking</h1>

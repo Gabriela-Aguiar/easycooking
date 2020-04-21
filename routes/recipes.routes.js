@@ -245,8 +245,8 @@ router.post( '/updatelikes', ( req, res ) => {
 
 router.get( '/my-recipes', ( req, res ) => {
   let recipeIdFromDb = []
-  let id = req.query.id
-  // console.log(id);
+  let id = req.query
+  console.log(req.query);
   getRecipeById
     .find( {
       id: id
