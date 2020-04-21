@@ -301,10 +301,6 @@ router.get( '/my-account/:user', ( req, res ) => {
       } )
     } )
     .catch( error => console.log( error ) )
-
 } )
-
-
-
 
 module.exports = router;
