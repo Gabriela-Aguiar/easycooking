@@ -40,9 +40,9 @@
             <img src="{{image}}" class="card-image" />
             <div class="card-text">
                 <h2 class="card-title">{{title}}</h2>
-                <form action="/updatelikes" method="POST" class="form-likes">
+                <form action="/edit-recipes" method="POST">
                     <input type="hidden" value="{{id}}" name="id">
-                    <a href="/recipe/{{id}}">
+                    <a href="/edit-recipes/{{id}}">
                         <button type="submit" class="edit-recipe-btn">Edit Recipe</button>
                     </a>
                 </form>

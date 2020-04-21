@@ -200,7 +200,7 @@ router.get( '/recipe/:id', ( req, res ) => {
           } )
         } )
         .catch( error => {
-          console.log(extendedIngredientsToDB)
+          console.log( extendedIngredientsToDB )
           res.render( 'recipeById', {
             recipeObjectFromAPI
           } )
@@ -248,47 +248,53 @@ router.get( '/my-recipes', ( req, res ) => {
   let id = req.query.id
   // console.log(id);
   getRecipeById
-  .find({id:id})
-  .then(recipe => {
-    // console.log(recipe);
-    const {
-      title,
-      image,
-      readyInMinutes,
-      id,
-      summary,
-      servings,
-      aggregateLikes,
-      instructions,
-      extendedIngredients
-    } = recipe[0]
-    // console.log(title);
-    
-    recipeIdFromDb.push(id)
+    .find( {
+      id: id
+    } )
+    .then( recipe => {
+      // console.log(recipe);
+      const {
+        title,
+        image,
+        readyInMinutes,
+        id,
+        summary,
+        servings,
+        aggregateLikes,
+        instructions,
+        extendedIngredients
+      } = recipe[ 0 ]
+      // console.log(title);
 
-    myRecipes
-    .create({
-      title,
-      image,
-      readyInMinutes,
-      id,
-      summary,
-      servings,
-      aggregateLikes,
-      instructions,
-      extendedIngredients,
-      owner: req.user._id
-    }, () => {
+      recipeIdFromDb.push( id )
+
       myRecipes
-      .find({owner:req.user._id})
-      .then(recipes => {
-        res.render('myRecipes', {recipes})
-        console.log('cai no then');
-      })
-      .catch(error => console.log(error))
-    })
-  })
-  .catch(error => console.log(error))
+        .create( {
+          title,
+          image,
+          readyInMinutes,
+          id,
+          summary,
+          servings,
+          aggregateLikes,
+          instructions,
+          extendedIngredients,
+          owner: req.user._id
+        }, () => {
+          myRecipes
+            .find( {
+              owner: req.user._id
+            } )
+            .then( recipes => {
+              res.render( 'myRecipes', {
+                recipes
+              } )
+              console.log( 'cai no then' );
+            } )
+            .catch( error => console.log( error ) )
+        } )
+    } )
+    .catch( error => console.log( error ) )
 } )
 
 router.get( '/my-account/:user', ( req, res ) => {
@@ -301,6 +307,21 @@ router.get( '/my-account/:user', ( req, res ) => {
       } )
     } )
     .catch( error => console.log( error ) )
+} )
+
+
+router.post( '/edit-recipes', ( req, res ) => {
+  let {
+    id,
+  } = req.body
+
+  myRecipes.find( {
+      id: id
+    } )
+    .then( recipe => {
+      res.render( 'editRecipes', {recipe: recipe[0]} )
+    } )
+    .catch( error => error )
 } )
 
 module.exports = router;
