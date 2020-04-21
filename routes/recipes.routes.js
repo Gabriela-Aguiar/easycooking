@@ -245,14 +245,14 @@ router.post( '/updatelikes', ( req, res ) => {
 
 router.get( '/my-recipes', ( req, res ) => {
   let recipeIdFromDb = []
-  let id = req.query
-  console.log(req.query);
+  let {id} = req.query
+  // console.log(id);
+  // res.render('myRecipes')
+  // return
   getRecipeById
-    .find( {
-      id: id
-    } )
+    .find()
     .then( recipe => {
-      // console.log(recipe);
+      console.log(recipe);
       const {
         title,
         image,
