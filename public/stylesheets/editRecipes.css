@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Paaji+2|Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css');
+
+
+* {
+    margin: 0;
+}
+
+body{
+    font-size: 10px;
+}
+
+:root{
+    --primaryColor: #F1935C;
+}
+
+.recipe-copy {
+    display: flex;
+    justify-content: flex-end;
+    width: 85%;
+    margin-top: 30px;
+}
+
+.recipeCopy-btn{
+    background: var(--primaryColor);
+    padding: 7px 10px;
+    width: auto;
+    text-transform:  uppercase;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer; 
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.1);
+    border: 0;
+    outline: 0;
+}
+
+.recipeCopy-btn:hover {
+    transform: scale(1.1);
+}
+
+.recipe {
+    margin-top: 30px;
+}
+
+.recipe-title {
+    text-align: center;
+    color: var(--primaryColor);
+    font-size: 1.5rem;
+    font-family: 'Pacifico', cursive;
+}
+
+.recipe-card {
+    display: flex;
+    margin: 40px;
+    justify-content: center;
+}
+
+
+.recipe-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe-image {
+    width: 350px;
+}
+
+.recipe-details {
+    display: flex;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.8rem;
+    justify-content: space-around;
+}
+
+.recipe-summary {
+    max-width: 600px;
+    margin-left: 30px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+}
+
+
+.ingredients {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+}
+
+.ingredients h1 {
+    color: var(--primaryColor);
+    margin-bottom: 20px;
+}
+
+.ingredients::before {
+    content: '';
+    height: 4px;
+    width: 70%;
+    background: var(--primaryColor);
+    display: block;
+    margin: 10px auto;
+}
+
+.instructions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 40px;
+}
+
+.instructions h1 {
+    color: var(--primaryColor);
+    margin-bottom: 20px;
+}
+
+.ingredients::after {
+    content: '';
+    height: 4px;
+    width: 70%;
+    background: var(--primaryColor);
+    display: block;
+    margin: 20px auto;
+}
+
+.instr-text {
+    text-align: justify;
+    max-width: 70%;
+}
+
+#icon {
+    font-size: 17px;
+    margin-top: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primaryColor);
+}
+
+.edit-main-section{
+    display: flex;
+    align-content: flex-end;
+    justify-content: flex-end;
+}
