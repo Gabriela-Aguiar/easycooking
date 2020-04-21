@@ -102,6 +102,10 @@ router.post('/resetPassword', (req, res) => {
     
 })
 
+router.get ('/aboutUs', (req,res) => {
+    res.render('aboutUs')
+})
+
 
 // router.get('/email', ( req,res ) => {
 //     sendEmail('aguiar.gabi95@gmail.com', 'Reset your password', 'Reset your password', 'reset', 'gabi')

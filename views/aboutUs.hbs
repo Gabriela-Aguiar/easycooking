@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="stylesheets/style.css">
-    <link rel="stylesheet" href="stylesheets/myRecipes.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="stylesheet" href="/stylesheets/nav.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/aboutUs.css">
     <link rel="icon" href="/images/whisk.png" type="image">
     <title>Easy Cooking</title>
 </head>
@@ -28,55 +27,16 @@
             </div>
         </div>
     </nav>
-    <div class="div-photo">
-        <div class="transparency1">
+    <div class="principal">
+        <div class="transparency">
             <h1 class="title">Easy Cooking</h1>
         </div>
     </div>
-    <div class="container">
-        <div class="card-container-recipes">
-            <h1 class="recipe-results">Created Recipes</h1>
-            {{#each recipes}}
-            <div class="card">
-                <img src="{{image}}" class="card-image" />
-                <div class="card-text">
-                    <h2 class="card-title">{{title}}</h2>
-                    <form action="/edit-recipes" method="POST">
-                        <input type="hidden" value="{{id}}" name="id">
-                       <button>Edit</button>
-                    </form>
-                </div>
-            </div>
-            {{/each}}
-        </div>
-        <div class="card-container-recipes">
-            <h1 class="recipe-results">Saved Recipes</h1>
-            {{#each recipes}}
-            <div class="card">
-                <img src="{{image}}" class="card-image" />
-                <div class="card-text">
-                    <h2 class="card-title">{{title}}</h2>
-                    <form action="/edit-recipes" method="POST">
-                        <input type="hidden" value="{{id}}" name="id">
-                    </form>
-                </div>
-            </div>
-            {{/each}}
-        </div>
-        <div class="card-container-recipes">
-            <h1 class="recipe-results">Liked Recipes</h1>
-            {{#each recipes}}
-            <div class="card">
-                <img src="{{image}}" class="card-image" />
-                <div class="card-text">
-                    <h2 class="card-title">{{title}}</h2>
-                    <form action="/edit-recipes" method="POST">
-                        <input type="hidden" value="{{id}}" name="id">
-                    </form>
-                </div>
-            </div>
-            {{/each}}
-        </div>
+    <div class="about-us">
+        <h1 class="about-title">About us</h1>
+    </div>
+    <div class="project">
+        <h1 class="project-title">About the Project</h1>
     </div>
     <footer>
         <h1>Easy Cooking</h1>
@@ -107,7 +67,6 @@
     <div class="copy">
         <p> &copy 2020 Copyright: Gabriela Aguiar e Pedro Siqueira</p>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </body>
 
 </html>

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="stylesheet" href="/stylesheets/nav.css">
     <link rel="stylesheet" href="/stylesheets/editRecipes.css">
@@ -32,59 +33,91 @@
         </div>
     </div>
     {{#with recipe}}
-    <div class="recipe-copy">
-        <form action="/my-recipes" method="GET">
-            <input type="hidden" value="{{id}}" name="id">
-            <button class="recipeCopy-btn">Copy recipe</button>
-        </form>
-    </div>
     <div class="recipe">
         <div class="recipe-title">
+            <style>
+                    h1 {text-align: center;
+                    color: var(--primaryColor);
+                    font-size: 50px;
+                    font-family: 'Pacifico', cursive;}
+            </style>
             <h1>{{this.title}}</h1>
-                            <div id="edit-main-section">
-                    <i class="fas fa-pencil-alt"></i>
-                </div>
+            <button onclick="document.getElementById('id01').style.display='block'" type="hidden"><i class="fas fa-pencil-alt" id="edit-summary"></i></button>
         </div>
-        
-        <div class="recipe-card">
-            
-            <div class="recipe-info">
-                
-                <img src="{{image}}" class="recipe-image">
-                
-                <div class="recipe-details">
-                    <p><i class="fa fa-clock" id="icon"> Ready in: {{readyInMinutes}}</i></p>
-                    <p><i class="fa fa-chart-pie" id="icon"> Servings: {{servings}}</i></p>
-                    <p><i class="fa fa-heart" id="icon"> Likes: {{this.aggregateLikes}}</i></p>
-                    
-                </div>
-            </div>
-            <div class="recipe-summary">
-                <p>{{{this.summary}}}</p>
+    </div>
+    <div id="id01" class="w3-modal">
+        <div class="w3-modal-content w3-card-4 w3-animate-zoom">
+            <header class="w3-container w3-blue">
+                <span onclick="document.getElementById('id01').style.display='none'"
+                    class="w3-button w3-blue w3-xlarge w3-display-topright">&times;</span>
+                <h2>Edit Recipe</h2>
+            </header>
 
+            <div class="w3-bar w3-border-bottom">
+                <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'London')">Summary</button>
+                <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'Paris')">Ingredients</button>
+                <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'Tokyo')">Instructions</button>
             </div>
 
+            <div id="London" class="w3-container city">
+                <form action="" method="POST">
+                    <br>
+                    <textarea name="summary" id="summary" cols="140" rows="10"></textarea>
+                    <br>
+                    <button>Save</button>
+                </form>
+            </div>
+
+            <div id="Paris" class="w3-container city">
+                <h1>Paris</h1>
+                <p>Paris is the capital of France.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+
+            <div id="Tokyo" class="w3-container city">
+                <br>
+                <textarea name="instructions" id="instructions" cols="140" rows="10"></textarea>
+                <br>
+                <button>Save</button>
+            </div>
+
+            <div class="w3-container w3-light-grey w3-padding">
+                <button class="w3-button w3-right w3-white w3-border"
+                    onclick="document.getElementById('id01').style.display='none'">Close</button>
+            </div>
+        </div>
+    </div>
+    <div class="recipe-card">
+        <div class="recipe-info">
+            <img src="{{image}}" class="recipe-image">
+            <div class="recipe-details">
+                <p><i class="fa fa-clock" id="icon"> Ready in: {{readyInMinutes}}</i></p>
+                <p><i class="fa fa-chart-pie" id="icon"> Servings: {{servings}}</i></p>
+                <p><i class="fa fa-heart" id="icon"> Likes: {{this.aggregateLikes}}</i></p>
+
+            </div>
+        </div>
+        <div class="recipe-summary">
+            <p>{{{this.summary}}}</p>
+
         </div>
 
-        <div class="ingredients">
-            <h1>Ingredients</h1>
+    </div>
 
-            {{#each extendedIngredients}}
-            {{amount}}
-            {{unit}}
-            {{name}}
-            <br>
-            {{/each}}
-        </div>
-        <i class="fas fa-pencil-alt"></i>
-
-        <div class="instructions">
-            <h1>Instructions</h1>
-            <p class="instr-text">{{instructions}}</p>
-        </div>
-        <i class="fas fa-pencil-alt"></i>
-
-        {{/with}}
+    <div class="ingredients">
+        <h1>Ingredients</h1>
+        {{#each extendedIngredients}}
+        {{amount}}
+        {{unit}}
+        {{name}}
+        <br>
+        {{/each}}
+    </div>
+    <div class="instructions">
+        <h1>Instructions</h1>
+        <p class="instr-text">{{instructions}}</p>
+    </div>
+    {{/with}}
     </div>
     <footer>
         <h1>Easy Cooking</h1>
@@ -122,7 +155,7 @@
     <div class="copy">
         <p> &copy 2020 Copyright: Gabriela Aguiar e Pedro Siqueira</p>
     </div>
-
+    <script src="/javascripts/editRecipe.js"></script>
 </body>
 
 </html>

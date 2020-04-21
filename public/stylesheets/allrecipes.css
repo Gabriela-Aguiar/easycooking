@@ -79,8 +79,12 @@ input{
     border-radius: 50%;
     color: var(--primaryColor);
     text-align: center;
-    font-size: 1.2em;
+    font-size: 1.5em;
     transition: all 1s;
+}
+
+.fa-search:before {
+    font-size: 1rem;
 }
 
 form:hover{
@@ -93,7 +97,7 @@ form:hover input{
 }
 
 form:hover .fa-search{
-    background: #fff;
+    background: rgba(0, 0, 0, 0);
     color: var(--primaryColor);
 }
 
@@ -140,6 +144,7 @@ form:hover .fa-search{
 a {
     text-decoration: none;
     color: #000;
+    font-size: 1.1rem;
 }
 
 a:hover {
