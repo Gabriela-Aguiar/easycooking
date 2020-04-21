@@ -36,13 +36,16 @@
     <div class="recipe">
         <div class="recipe-title">
             <style>
-                    h1 {text-align: center;
+                h1 {
+                    text-align: center;
                     color: var(--primaryColor);
                     font-size: 50px;
-                    font-family: 'Pacifico', cursive;}
+                    font-family: 'Pacifico', cursive;
+                }
             </style>
             <h1>{{this.title}}</h1>
-            <button onclick="document.getElementById('id01').style.display='block'" type="hidden"><i class="fas fa-pencil-alt" id="edit-summary"></i></button>
+            <button onclick="document.getElementById('id01').style.display='block'" type="hidden"><i
+                    class="fas fa-pencil-alt" id="edit-summary"></i></button>
         </div>
     </div>
     <div id="id01" class="w3-modal">
@@ -60,26 +63,30 @@
             </div>
 
             <div id="London" class="w3-container city">
-                <form action="/edit-recipes" method="POST">
-                <input type="hidden" value="{{id}}" name="id">
+                <form action="/edit-recipes?id={{id}}" method="POST">
+                <input type="hidden" value="{{id}}">
+                    {{!-- <input type="hidden" value="{{id}}" name="id"> --}}
                     <br>
                     {{!-- <textarea name="summary" id="summary" cols="140" rows="10" value="{{summary}}" type="text"></textarea> --}}
-                    <input type="text" value="{{summary}}" id="summary" class="input-summary">
+                    <input type="text" value="{{summary}}" name="summary" id="summary" class="input-summary">
                     <br>
             </div>
             <div id="Paris" class="w3-container city">
-                <h1>Paris</h1>
-                <p>Paris is the capital of France.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                {{#each extendedIngredients}}
+                <input type="text" value="{{amount}}" name="amount">
+                <input type="text" value="{{unit}}" name="unit">
+                <input type="text" value="{{name}}" name="name">
+                <br>
+                {{/each}}
             </div>
 
             <div id="Tokyo" class="w3-container city">
                 <br>
-                <textarea name="instructions" id="instructions" cols="140" rows="10"></textarea>
+                <input type="text" value="{{instructions}}" id="summary" name="instructions" class="input-summary">
                 <br>
             </div>
             <div class="w3-container w3-light-grey w3-padding">
-                    <button class="w3-button w3-right w3-white w3-border" onclick="document.getElementById('id01').style.display='none'">Save</button>
+                <button class="w3-button w3-right w3-white w3-border">Save</button>
                 </form>
             </div>
         </div>

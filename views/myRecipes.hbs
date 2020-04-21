@@ -41,42 +41,15 @@
                 <img src="{{image}}" class="card-image" />
                 <div class="card-text">
                     <h2 class="card-title">{{title}}</h2>
-                    <form action="/edit-recipes" method="POST">
-                        <input type="hidden" value="{{id}}" name="id">
-                       <button>Edit</button>
-                    </form>
+                    <a href="edit-recipes/{{title}}"></a>
+
+                    <a href="/edit-recipes/?id={{id}}"><button>Edit</button></a>
+                    <a href="/remove-recipe/{{id}}"><button>Delete</button></a>
                 </div>
             </div>
             {{/each}}
         </div>
-        <div class="card-container-recipes">
-            <h1 class="recipe-results">Saved Recipes</h1>
-            {{#each recipes}}
-            <div class="card">
-                <img src="{{image}}" class="card-image" />
-                <div class="card-text">
-                    <h2 class="card-title">{{title}}</h2>
-                    <form action="/edit-recipes" method="POST">
-                        <input type="hidden" value="{{id}}" name="id">
-                    </form>
-                </div>
-            </div>
-            {{/each}}
-        </div>
-        <div class="card-container-recipes">
-            <h1 class="recipe-results">Liked Recipes</h1>
-            {{#each recipes}}
-            <div class="card">
-                <img src="{{image}}" class="card-image" />
-                <div class="card-text">
-                    <h2 class="card-title">{{title}}</h2>
-                    <form action="/edit-recipes" method="POST">
-                        <input type="hidden" value="{{id}}" name="id">
-                    </form>
-                </div>
-            </div>
-            {{/each}}
-        </div>
+    </div>
     </div>
     <footer>
         <h1>Easy Cooking</h1>
