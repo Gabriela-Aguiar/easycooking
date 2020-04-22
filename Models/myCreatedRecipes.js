@@ -5,9 +5,12 @@ const myCreatedRecipesSchema = new mongoose.Schema( {
 	title: {
 		type: String,
 	},
-	image: {
+	imgName: {
 		type: String,
-    default: "/images/chef.png"
+	},
+	imgPath: {
+		type: String,
+		default: "/images/ingredients.jpg"
 	},
 	readyInMinutes: {
 		type: Number,
@@ -20,7 +23,7 @@ const myCreatedRecipesSchema = new mongoose.Schema( {
 	},
 	aggregateLikes: {
 		type: Number,
-    default: 0
+		default: 0
 	},
 	instructions: {
 		type: String

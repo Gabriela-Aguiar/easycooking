@@ -131,10 +131,12 @@ router.get( '/about', ( req, res ) => {
 
 router.get( '/resetpassword/:id', ( req, res ) => {
 	const {
-		id
+		id,
+		username
 	} = req.params
 	res.render( 'userPassword', {
-		id
+		id,
+		username
 	} )
 } )
 
@@ -142,7 +144,9 @@ router.post( '/resetpassword/:id', ( req, res ) => {
 	const {
 		id
 	} = req.params
+
 	const {
+		username,
 		password,
 		confirm
 	} = req.body

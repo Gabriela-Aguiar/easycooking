@@ -12,6 +12,8 @@ const getRecipeById = require( '../Models/getRecipeById' )
 const myRecipes = require( '../Models/myRecipes' )
 const ensureLogin = require( "connect-ensure-login" );
 const myCreatedRecipes = require( '../Models/myCreatedRecipes' )
+const uploadCloud = require( '../config/cloudinary' );
+
 
 
 let recipeIdsArr = []
@@ -350,9 +352,7 @@ router.get( '/recipes-copy', ( req, res ) => {
 							owner: req.user._id
 						} )
 						.then( recipes => {
-							res.render( 'myRecipes', {
-								recipes
-							} )
+							res.redirect( '/my-recipes' )
 							console.log( 'cai no then' );
 						} )
 						.catch( error => console.log( error ) )
@@ -448,9 +448,13 @@ router.get( '/add-recipe', ( req, res, next ) => {
 	res.render( "addRecipe" );
 } );
 
-router.post( '/add-recipe', ( req, res, next ) => {
+router.post( '/add-recipe', uploadCloud.single( 'photo' ), ( req, res, next ) => {
 
 	let extendedIngredients = []
+
+  const imgPath = req.file.url;
+  const imgName = req.file.originalname;
+
 
 	const {
 		title,
@@ -473,6 +477,8 @@ router.post( '/add-recipe', ( req, res, next ) => {
 
 	myCreatedRecipes.create( {
 			title,
+			imgPath,
+			imgName,
 			readyInMinutes,
 			summary,
 			servings,
@@ -481,7 +487,7 @@ router.post( '/add-recipe', ( req, res, next ) => {
 			owner: req.user._id
 		} )
 		.then( recipe => {
-			res.render( 'myRecipes' )
+			res.redirect( '/my-recipes' )
 			console.log( 'Receita criada com sucesso' )
 		} )
 		.catch( error => console.log( error ) )
