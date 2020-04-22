@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<form action="/add-recipe" method="POST" enctype="multipart/form-data">
+		<h3>Recipe title</h3>
+<label for="">Title:</label>
+		<input type="text" name="title" placeholder="Title of the recipe">
+		<br>
+		<h3>Recipe Summary</h3>
+		<textarea cols="70" rows="10" name="summary" placeholder="Type a summary of the recipe"></textarea>
+
+		<h3>Recipe details</h3>
+		<label for="">Ready in:</label>
+		<input type="number" name="readyInMinutes" placeholder="Minutes to cook"><br>
+		<label for="">Servings:</label>
+		<input type="number" name="servings" placeholder="Number of servings">
+
+
+		<br>
+		<h3>Recipe Ingredients</h3>
+		<label for="">Amount:</label>
+		<input type="number" name="amount" placeholder="Amount of ingredient">
+		<label for="">Unit:</label>
+		<input type="text" name="unit" placeholder="Unit in cup/spoon">
+		<label for="">Name:</label>
+		<input type="text" name="name" placeholder="Name of ingredient">
+		<br>
+		<label for="">Amount:</label>
+		<input type="number" name="amount" placeholder="Amount of ingredient">
+		<label for="">Unit:</label>
+		<input type="text" name="unit" placeholder="Unit in cup/spoon">
+		<label for="">Name:</label>
+		<input type="text" name="name" placeholder="Name of ingredient">
+		<br>
+		<label for="">Amount:</label>
+		<input type="number" name="amount" placeholder="Amount of ingredient">
+		<label for="">Unit:</label>
+		<input type="text" name="unit" placeholder="Unit in cup/spoon">
+		<label for="">Name:</label>
+		<input type="text" name="name" placeholder="Name of ingredient">
+		<br>
+		<label for="">Amount:</label>
+		<input type="number" name="amount" placeholder="Amount of ingredient">
+		<label for="">Unit:</label>
+		<input type="text" name="unit" placeholder="Unit in cup/spoon">
+		<label for="">Name:</label>
+		<input type="text" name="name" placeholder="Name of ingredient">
+		<br>
+		<h3>Recipe instructions</h3>
+		<textarea cols="70" rows="10" name="instructions" placeholder="Type the instructions of the recipe"></textarea><br>
+
+		<h3>Upload a photo of your dish</h3>
+		<input type="file" name="photo">
+
+		<button>Create Recipe</button>
+	</form>
+</body>
+
+</html>

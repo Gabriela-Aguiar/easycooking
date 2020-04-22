@@ -36,10 +36,10 @@
             <h1 class="title">Easy Cooking</h1>
         </div>
     </div>
-    <h1 class="myRecipes-title">My recipes</h1>
+    <h1 class="myRecipes-title">My copied recipes</h1>
     <div class="carousel-wrapper">
         <div class="carousel" data-flickity data-flickity-options='{ "wrapAround": true }'>
-            {{#each recipes}}
+            {{#each myRecipes}}
             <div class="carousel-cell" data-flickity-options='{ "wrapAround": true }'>
                 <h3>{{title}}</h3>
                 <img src="{{image}}" />
@@ -51,6 +51,22 @@
             {{/each}}
         </div>
     </div>
+    <h1 class="myRecipes-title">My created recipes</h1>
+    <div class="carousel-wrapper">
+        <div class="carousel" data-flickity data-flickity-options='{ "wrapAround": true }'>
+            {{#each myCreatedRecipes}}
+            <div class="carousel-cell" data-flickity-options='{ "wrapAround": true }'>
+                <h3>{{title}}</h3>
+                <img src="{{imgPath}}" />
+                <div class="button">
+                    <a href="/edit-recipes/?id={{id}}"><button class="edit-recipe-btn">Edit</button></a>
+                    <a href="/remove-recipe/{{id}}"><button class="edit-recipe-btn">Delete</button></a>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
     <footer>
         <h1>Easy Cooking</h1>
         <div>
