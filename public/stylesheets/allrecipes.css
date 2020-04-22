@@ -41,8 +41,8 @@
 
 #form-search{
     position: relative;
-    top: 4%;
-    left: 40%;
+    top: 2%;
+    left: 30%;
     transform: translate(-50%,-50%);
     transition: all 1s;
     width: 50px;
@@ -105,6 +105,7 @@
 .categories {
     margin-left: 50px;
     margin-bottom: 30px;
+    width: 500px;
 }
 
 .categories h1 {
@@ -125,17 +126,36 @@
     align-items: center;
 }
 
+.search-results{
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2.6rem;
+    color: var(--primaryColor);
+    margin-top: 20px
+}
+
+.search-results::after {
+    content: '';
+    height: 4px;
+    width: 20%;
+    background: var(--primaryColor);
+    display: block;
+    margin: 10px auto;
+}
+
 .card-container-recipe {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-around;
-    align-items: flex-start;
+    margin-bottom: 50px;
+    max-width: 80%;;
 }
 
 .card {
     display: grid;
     grid-template-columns: 300px;
-    grid-template-rows: 210px 160px 80px;
+    grid-template-rows: 200px 130px 80px;
     grid-template-areas: "image" "text" "stats";
     border-radius: 18px;
     background: white;
@@ -175,16 +195,9 @@
     padding: 10px;
 }
 
-.form-likes{
-    display: inline-block;
-    padding: 0px;
-    margin: 0px;
-}
-
 .card-text h2 {
     margin-top:0px;
     font-size:25px;
-    font-family: 'Josefin Slab', serif;
 }
 
 .card-text h2:hover{
@@ -194,21 +207,6 @@
 .card:hover {
     box-shadow: 5px 5px 15px rgba(139, 95, 53, 0.692);
     color:var(--primaryColor);
-}
-
-
-.fa-heart:hover {
-    color: red;
-    cursor: pointer;
-}
-
-.fa-heart:hover::after {
-    content: 'Like Me!';
-    display: block;
-    color: var(--primaryColor);
-    font-family: 'Open Sans', sans-serif;
-    font-weight: bold;
-    margin: 10px;
 }
 
 a {

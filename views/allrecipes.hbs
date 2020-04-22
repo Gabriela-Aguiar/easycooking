@@ -31,30 +31,22 @@
             </nav>
         </div>
     </div>
+    <h1 class="search-results">Your search results</h1>
     <div class="recipes-body">
         <div class="categories">
-            <label for="ingredients" class="search-ingredient">Search by ingredient</label>
-            <br>
-            <form action="" id="form-search">
-                <input type="search" id="input-search">
-                <i class="fa fa-search" id="search"></i>
-            </form>
             <h1>Categories</h1>
             <ul class="categoriesList">
-                <li><a href="#"><img src="/images/icons/tapas.png" class="icon"> 20 minutes or less</a></li>
-                <li><a href="#"><img src="/images/icons/pancake.png" class="icon">Breakfast</a></li>
-                <li><a href="#"><img src="/images/icons/pie.png" class="icon">Cakes</a></li>
-                <li><a href="/allrecipes?type=chicken"><img src="/images/icons/thanksgiving.png"
-                            class="icon">Chicken</a></li>
-                <li><a href="#"><img src="/images/icons/bananasplit.png" class="icon">Dessert</a></li>
+                <li><a href="/explore-recipes?type=cake"><img src="/images/icons/pie.png" class="icon">Cakes</a></li>
+                <li><a href="/explore-recipes?type=chicken"><img src="/images/icons/thanksgiving.png" class="icon">Chicken</a></li>
+                <li><a href="/explore-recipes?type=chocolate"><img src="/images/icons/bananasplit.png" class="icon">Dessert</a></li>
                 <li><a href="#"><img src="/images/icons/cocktail.png" class="icon">Drinks</a></li>
-                <li><a href="/allrecipes?type=egg"><img src="/images/icons/eggs.png" class="icon">Eggs</a></li>
-                <li><a href="/allrecipes?type=fish"><img src="/images/icons/fishfood.png" class="icon">Fish</a></li>
+                <li><a href="/explore-recipes?type=egg"><img src="/images/icons/eggs.png" class="icon">Eggs</a></li>
+                <li><a href="/explore-recipes?type=fish"><img src="/images/icons/fishfood.png" class="icon">Fish</a></li>
+                <li><a href="/explore-recipes?type=Burger"><img src="/images/icons/hamburger.png" class="icon">Hamburger</a></li>
                 <li><a href="#"><img src="/images/icons/lettuce.png" class="icon">Healthy</a></li>
-                <li><a href="/allrecipes?type=steak"><img src="/images/icons/steak.png" class="icon">Steak</a></li>
-                <li><a href="/allrecipes?type=pasta"><img src="/images/icons/spaghetti.png" class="icon">Pasta</a></li>
+                <li><a href="/explore-recipes?type=steak"><img src="/images/icons/steak.png" class="icon">Steak</a></li>
+                <li><a href="/explore-recipes?type=pasta"><img src="/images/icons/spaghetti.png" class="icon">Pasta</a></li>
                 <li><a href="#"><img src="/images/icons/pizza.png" class="icon">Pizza</a></li>
-                <li><a href="/allrecipes?type=hamburger"><img src="/images/icons/hamburger.png" class="icon">Hamburger</a></li>
                 <li><a href="#"><img src="/images/icons/vegansymbol.png" class="icon">Vegan</a></li>
                 <li><a href="#"><img src="/images/icons/naturalfood.png" class="icon">Vegetarian</a></li>
             </ul>
@@ -69,10 +61,6 @@
                     <a href="/recipe/{{id}}">
                         <h2 class="card-title">{{title}}</h2>
                     </a>
-                    <form action="/updatelikes" method="POST" class="form-likes">
-                        <input type="hidden" value="{{id}}" name="id">
-                            <i class="fa fa-heart  card-like" aria-hidden="true">{{likes}}</i>
-                    </form>
                 </div>
             </div>
             {{/each}}

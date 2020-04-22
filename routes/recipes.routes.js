@@ -2,7 +2,7 @@ var express = require( 'express' );
 var router = express.Router();
 const token = process.env[ 'API_TOKEN' ]
 const apiUrl = `https://api.spoonacular.com/recipes/search?query=`
-const apiUrlFinal = `&number=12&apiKey=${token}`
+const apiUrlFinal = `&number=100&apiKey=${token}`
 const apiUrlFinalRecipeById = `&apiKey=${token}`
 const User = require( '../Models/users' )
 const axios = require( 'axios' );
@@ -15,24 +15,27 @@ const ensureLogin = require( "connect-ensure-login" );
 
 let recipeIdsArr = []
 
-router.get( '/allrecipes', ( req, res ) => {
-  console.log(req.query);
+router.get('/allrecipes', (req, res) => {
+  res.render('allrecipes')
+})
+
+router.get( '/explore-recipes', ( req, res ) => {
+  // console.log(req.query);
   const resultado = [];
-  
-  if(req.query.type == undefined){
+  let ingredient = req.query.type.charAt(0).toUpperCase() + req.query.type.slice(1)
+
+  if(ingredient == undefined){
     res.render('allrecipes')
   }
-  getRecipeById
+  getRecipes
   .find()
   .then(results => {
       results.forEach(item => {
-        item.extendedIngredients.forEach(ing => {
-          if(ing.name == req.query.type) {
+        if(item.title.includes(ingredient)){
             resultado.push(item)
           }
         });
-      })
-      res.render( 'allrecipes', {resultado} )
+      res.render( 'allrecipes', {resultado: resultado.slice(0, 12)} )
   })
   .catch(error => console.log(error))
 } )
