@@ -92,7 +92,7 @@ router.get( '/teste', ( req, res ) => {
 		.catch( err => console.log( '---- ', err ) )
 } )
 
-router.get( '/getrecipes', ( req, res ) => {
+router.get( '/getrecipes',ensureLogin.ensureLoggedIn(), ( req, res ) => {
 	let ingredient = req.query.ingredients;
 	let recipeList = [];
 	let recipeIdList = []
@@ -165,7 +165,7 @@ router.get( '/getrecipes', ( req, res ) => {
 		.catch( error => console.log( 'error CATCH AXIOS' ) )
 } )
 
-router.get( '/recipe/:id', ( req, res ) => {
+router.get( '/recipe/:id',ensureLogin.ensureLoggedIn(), ( req, res ) => {
 	const id = req.params.id
 	let recipeObjectFromAPI = {}
 	let recipeObjectFromAPIArr = []
@@ -283,7 +283,7 @@ router.post( '/updatelikes', ( req, res ) => {
 		.catch( error => console.log( error ) )
 } )
 
-router.get( '/my-recipes', ( req, res ) => {
+router.get( '/my-recipes',ensureLogin.ensureLoggedIn(), ( req, res ) => {
 
 	myRecipes
 		.find( {
@@ -307,7 +307,7 @@ router.get( '/my-recipes', ( req, res ) => {
 } )
 
 
-router.get( '/recipes-copy', ( req, res ) => {
+router.get( '/recipes-copy',ensureLogin.ensureLoggedIn(), ( req, res ) => {
 	let recipeIdFromDb = []
 	let {
 		id
@@ -361,7 +361,7 @@ router.get( '/recipes-copy', ( req, res ) => {
 		.catch( error => console.log( error ) )
 } )
 
-router.get( '/my-account/:user', ( req, res ) => {
+router.get( '/my-account/:user', ensureLogin.ensureLoggedIn(), ( req, res ) => {
 	console.log( req.params.user );
 	User
 		.findById( req.params.user )
@@ -374,7 +374,7 @@ router.get( '/my-account/:user', ( req, res ) => {
 } )
 
 
-router.get( '/edit-recipes', ( req, res ) => {
+router.get( '/edit-recipes',ensureLogin.ensureLoggedIn(), ( req, res ) => {
 	// console.log( req.query.id )
 
 	myRecipes.findOne( {
@@ -431,7 +431,7 @@ router.post( '/edit-recipes', ( req, res ) => {
 		.catch( error => console.log( error ) )
 } )
 
-router.get( '/remove-recipe/:id', ( req, res ) => {
+router.get( '/remove-recipe/:id',ensureLogin.ensureLoggedIn(), ( req, res ) => {
 	const {
 		id
 	} = req.params
@@ -444,7 +444,7 @@ router.get( '/remove-recipe/:id', ( req, res ) => {
 		.catch( console.log( `caí no catch` ) )
 } )
 
-router.get( '/add-recipe', ( req, res, next ) => {
+router.get( '/add-recipe', ensureLogin.ensureLoggedIn(), ( req, res, next ) => {
 	res.render( "addRecipe" );
 } );
 
