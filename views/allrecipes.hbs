@@ -31,7 +31,11 @@
             </nav>
         </div>
     </div>
+    {{#if isMain}}
+    <h1 class="search-results">Delicious recipes</h1>
+    {{else}}
     <h1 class="search-results">Your search results</h1>
+    {{/if}}
     <div class="recipes-body">
         <div class="categories">
             <h1>Categories</h1>

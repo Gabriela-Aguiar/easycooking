@@ -16,7 +16,17 @@ const ensureLogin = require( "connect-ensure-login" );
 let recipeIdsArr = []
 
 router.get('/allrecipes', (req, res) => {
-  res.render('allrecipes')
+  const resultado = [];
+  getRecipes
+  .find()
+  .then(results => {
+    for(let i=0; i<= 12; i++){
+      const position = Math.floor(Math.random()*results.length)
+      resultado.push(results[position])
+    }
+    res.render('allrecipes', {resultado, isMain: true})
+  })
+  .catch(err => console.log(object))
 })
 
 router.get( '/explore-recipes', ( req, res ) => {
@@ -48,12 +58,14 @@ router.get( '/teste', ( req, res ) => {
 
   axios.get( apiUrl )
     .then( resp => {
-      resp.data.results.forEach( recipe => {
+      console.log(resp.data);
+      resp.data.recipes.forEach( recipe => {
         const {
           title,
+          readyInMinutes,
           image,
           id
-        } = recipe
+        } = resp.data
 
         //check if id is already in the db
         if ( recipeIdsArr.includes( id ) ) return
@@ -67,7 +79,7 @@ router.get( '/teste', ( req, res ) => {
         recipeIdsArr.push( id )
         console.log( 'receita criada com sucesso' );
       } )
-      res.render( 'test' )
+      res.render( 'teste' )
     } )
     .catch( err => console.log( '---- ', err ) )
 } )
