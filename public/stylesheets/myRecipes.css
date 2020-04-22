@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Baloo+Paaji+2|Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,600,700|Work+Sans:100,200,300,400,500,600');
+@import url("https://fonts.googleapis.com/css?family=Hind:400,700");
 
 :root{
     --primaryColor: #F1935C;
@@ -40,70 +41,107 @@ body{
     cursor: none;
 }
 
-.recipe-results{
-    text-align: justify;
+.myRecipes-title {
+    text-align: center;
     font-family: 'Open Sans', sans-serif;
-    font-size: 2.3rem;
+    font-size: 5rem;
     color: var(--primaryColor);
-    margin-top: 20px;
-    margin-bottom: 40px;
+    margin-top: 20px
 }
 
-.recipe-results::after {
+.myRecipes-title::after {
     content: '';
     height: 2px;
-    width: 70%;
+    width: 20%;
     background: var(--primaryColor);
     display: block;
+    margin: 10px auto;
 }
 
-.container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-bottom: 30px;
-}
-
-.card-container-recipes {
-    display: flex;
-    flex-direction: column;
-}
-
-.card {
-    display: flex;
-    flex-direction: row;
-    margin: 20px 0;
-    width: 400px;
-    height: 80px;
-    border-radius: 18px;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
-}
-
-.card:hover {
-    box-shadow: 5px 5px 15px rgba(139, 95, 53, 0.692);
-    color:var(--primaryColor);
-    cursor: pointer;
-}
-
-.card-title {
-    color: grey;
-    margin-left: 10px;
-    margin-top: 20px;
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  h3 {
     text-align: center;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: var(--primaryColor);
+  }
+
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    height: 70%;
+    overflow: hidden;
+  }
+  .carousel-wrapper .carousel {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    height: auto;
+  }
+
+  .carousel-wrapper .carousel .carousel-cell {
+    padding: 10px;
+    background-color: #FFFFFF;
+    width: 20%;
+    height: 350px;
+    min-width: 120px;
+    margin: 0 20px;
+    transition: transform 500ms ease;
+    border-radius: 18px;
+    background: white;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+  }
+  .carousel-wrapper .carousel .carousel-cell .more {
+    display: block;
+    opacity: 0;
+    margin: 5px 0 15px 0;
+    text-align: center;
+    font-size: 10px;
+    color: #CFCFCF;
+    text-decoration: none;
+    transition: opacity 300ms ease;
+  }
+  .carousel-wrapper .carousel .carousel-cell .more:hover, .carousel-wrapper .carousel .carousel-cell .more:active, .carousel-wrapper .carousel .carousel-cell .more:visited, .carousel-wrapper .carousel .carousel-cell .more:focus {
+    color: #CFCFCF;
+    text-decoration: none;
+  }
+  .carousel-wrapper .carousel .carousel-cell .price sup {
+    top: 2px;
+    position: absolute;
+  }
+  .carousel-wrapper .carousel .carousel-cell.is-selected {
+    transform: scale(1.2);
+  }
+
+  .carousel-wrapper .flickity-page-dots {
+    display: none;
+  }
+  .carousel-wrapper .flickity-viewport, .carousel-wrapper .flickity-slider {
+    overflow: visible;
+  }
+
+.button {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 15px;
+    left: 30%;
 }
 
-.card-title:hover{
-    color:var(--primaryColor);
-    cursor: pointer;
-}
-
-.card-image {
-    width: 100px;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-}
-
-/* .edit-recipe-btn{
+.edit-recipe-btn{
     margin-top: 10px;
     margin-left: 10px;
     background: var(--primaryColor);
@@ -116,5 +154,9 @@ body{
     box-shadow: 0 2px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.1);
     border: 0;
     outline: 0;
-} */
+}
+
+.edit-recipe-btn:hover {
+    transform: scale(1.1);
+}
 

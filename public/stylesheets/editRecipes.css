@@ -153,12 +153,40 @@ a {
 #edit-summary:hover {
     cursor: pointer;
     transform: scale(1.1);
-    color: #000;
+    color: var(--primaryColor);
 }
 
 .input-summary {
     height: 200px;
-    width: 200px;
-    font-size: 20px;
-    padding: 15px 0;
+
+}
+
+.orange-header {
+    background-color: var(--primaryColor);
+    color: #fff;
+}
+
+.x-btn {
+    margin-right: 15px;
+}
+
+.x-btn:hover {
+    cursor: pointer;
+}
+
+.save-btn {
+    background: var(--primaryColor);
+    padding: 7px 10px;
+    width: auto;
+    text-transform:  uppercase;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer; 
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.1);
+    border: 0;
+    outline: 0;
+}
+
+.save-btn:hover {
+    transform: scale(1.1);
 }

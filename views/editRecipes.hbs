@@ -44,15 +44,14 @@
                 }
             </style>
             <h1>{{this.title}}</h1>
-            <button onclick="document.getElementById('id01').style.display='block'" type="hidden"><i
-                    class="fas fa-pencil-alt" id="edit-summary"></i></button>
+            <button onclick="document.getElementById('id01').style.display='block'" type="hidden"><i class="fas fa-pencil-alt" id="edit-summary"></i></button>
         </div>
     </div>
     <div id="id01" class="w3-modal">
         <div class="w3-modal-content w3-card-4 w3-animate-zoom">
-            <header class="w3-container w3-blue">
+            <header class="w3-container orange-header">
                 <span onclick="document.getElementById('id01').style.display='none'"
-                    class="w3-button w3-blue w3-xlarge w3-display-topright">&times;</span>
+                    class="x-btn orange-header w3-xlarge w3-display-topright">&times;</span>
                 <h2>Edit Recipe</h2>
             </header>
 
@@ -65,11 +64,7 @@
             <div id="London" class="w3-container city">
                 <form action="/edit-recipes?id={{id}}" method="POST">
                 <input type="hidden" value="{{id}}">
-                    {{!-- <input type="hidden" value="{{id}}" name="id"> --}}
-                    <br>
-                    {{!-- <textarea name="summary" id="summary" cols="140" rows="10" value="{{summary}}" type="text"></textarea> --}}
-                    <input type="text" value="{{summary}}" name="summary" id="summary" class="input-summary">
-                    <br>
+                <textarea cols="140" rows="10" name="summary">{{summary}}</textarea>
             </div>
             <div id="Paris" class="w3-container city">
                 {{#each extendedIngredients}}
@@ -82,11 +77,11 @@
 
             <div id="Tokyo" class="w3-container city">
                 <br>
-                <input type="text" value="{{instructions}}" id="summary" name="instructions" class="input-summary">
+                 <textarea cols="140" rows="10" name="instructions">{{instructions}}</textarea>
                 <br>
             </div>
             <div class="w3-container w3-light-grey w3-padding">
-                <button class="w3-button w3-right w3-white w3-border">Save</button>
+                <button class="save-btn">Save</button>
                 </form>
             </div>
         </div>
