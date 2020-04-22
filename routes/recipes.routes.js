@@ -43,7 +43,7 @@ router.get( '/explore-recipes', ( req, res ) => {
 
 router.get( '/teste', ( req, res ) => {
   let ingredient = req.query.ingredients
-  const apiUrl = `https://api.spoonacular.com/recipes/search?query=${ingredient[0]}&query=${ingredient[1]}&query=${ingredient[2]}${apiUrlFinal}`
+  const apiUrl = `https://api.spoonacular.com/recipes/random?number=10&tags=vegetarian,dessert${apiUrlFinal}`
   console.log( apiUrl )
 
   axios.get( apiUrl )
@@ -51,7 +51,6 @@ router.get( '/teste', ( req, res ) => {
       resp.data.results.forEach( recipe => {
         const {
           title,
-          readyInMinutes,
           image,
           id
         } = recipe
@@ -68,7 +67,7 @@ router.get( '/teste', ( req, res ) => {
         recipeIdsArr.push( id )
         console.log( 'receita criada com sucesso' );
       } )
-      res.render( 'searchResults' )
+      res.render( 'test' )
     } )
     .catch( err => console.log( '---- ', err ) )
 } )
