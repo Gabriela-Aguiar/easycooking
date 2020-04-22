@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Paaji+2|Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
+    margin: 0;
+}
+
+body{
+    font-size: 10px;
+}
+
+
+:root{
+    --primaryColor: #F1935C;
+}
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+html{
+    font-size: 10px;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+body {
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 30px;
+    background-image: url('/images/addRecipe.jpg');
+    background-size: cover;
+    background-position: center;
+    overflow: auto;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.card {
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    height: 100vh;
+}
+
+.title {
+    font-size: 5rem;
+    font-family: 'Pacifico', cursive;
+    color: #fff;
+}
+
+.titles {
+    margin-top: 10px;
+    font-size: 2rem;
+    color: #fff;
+}
+
+.text {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+input {
+    border: 1px solid #959595;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #959595;
+    padding: 8px 0;
+    margin-top: 20px;
+    padding-left: 10px;
+    outline-color: #F1935C;
+}
+
+label {
+    margin-right: 10px;
+}
+
+textarea {
+    border: 1px solid #959595;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #959595;
+    padding: 8px 0;
+    margin-top: 20px;
+    width: 350px;;
+    padding-left: 10px;
+    outline-color: #F1935C;
+}
+
+.ingredient {
+    width: 200px;
+    margin-right: 20px;
+}
+
+.summary-instructions {
+    display: flex;
+    justify-content: space-around;
+}
+
+.details {
+    display: flex;
+    justify-content: space-around;
+}
+
+.file {
+    color: #fff;
+}
+
+button {
+    background: var(--primaryColor);
+    padding: 7px 10px;
+    width: auto;
+    text-transform:  uppercase;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer; 
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.1);
+    border: 0;
+    outline: 0;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+}
+
+a {
+    background: var(--primaryColor);
+    padding: 7px 10px;
+    width: auto;
+    text-transform:  uppercase;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer; 
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.1);
+    border: 0;
+    outline: 0;
+    margin-top: 10px;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+a:hover {
+    transform: scale(1.1);
+}

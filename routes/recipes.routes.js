@@ -2,7 +2,7 @@ var express = require( 'express' );
 var router = express.Router();
 const token = process.env[ 'API_TOKEN' ]
 const apiUrl = `https://api.spoonacular.com/recipes/search?query=`
-const apiUrlFinal = `&number=100&apiKey=${token}`
+const apiUrlFinal = `&number=12&apiKey=${token}`
 const apiUrlFinalRecipeById = `&apiKey=${token}`
 const User = require( '../Models/users' )
 const axios = require( 'axios' );
@@ -23,7 +23,7 @@ router.get( '/allrecipes', ( req, res ) => {
 	getRecipes
 		.find()
 		.then( results => {
-			for ( let i = 0; i <= 12; i++ ) {
+			for ( let i = 0; i <= 11; i++ ) {
 				const position = Math.floor( Math.random() * results.length )
 				resultado.push( results[ position ] )
 			}
