@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link rel="icon" href="/images/whisk.png" type="image">
     <title>Easy Cooking</title>
 </head>
+
 <body>
     <div class="photo">
         <div class="transparency">
@@ -33,75 +35,47 @@
         <div class="categories">
             <label for="ingredients" class="search-ingredient">Search by ingredient</label>
             <br>
-            <form action="">
-            <input type="search">
-            <i class="fa fa-search"></i>
+            <form action="" id="form-search">
+                <input type="search" id="input-search">
+                <i class="fa fa-search" id="search"></i>
             </form>
             <h1>Categories</h1>
             <ul class="categoriesList">
                 <li><a href="#"><img src="/images/icons/tapas.png" class="icon"> 20 minutes or less</a></li>
                 <li><a href="#"><img src="/images/icons/pancake.png" class="icon">Breakfast</a></li>
                 <li><a href="#"><img src="/images/icons/pie.png" class="icon">Cakes</a></li>
-                <li><a href="#"><img src="/images/icons/thanksgiving.png" class="icon">Chicken</a></li>
+                <li><a href="/allrecipes?type=chicken"><img src="/images/icons/thanksgiving.png"
+                            class="icon">Chicken</a></li>
                 <li><a href="#"><img src="/images/icons/bananasplit.png" class="icon">Dessert</a></li>
                 <li><a href="#"><img src="/images/icons/cocktail.png" class="icon">Drinks</a></li>
-                <li><a href="#"><img src="/images/icons/eggs.png" class="icon">Eggs</a></li>
-                <li><a href="#"><img src="/images/icons/fishfood.png" class="icon">Fish</a></li>
+                <li><a href="/allrecipes?type=egg"><img src="/images/icons/eggs.png" class="icon">Eggs</a></li>
+                <li><a href="/allrecipes?type=fish"><img src="/images/icons/fishfood.png" class="icon">Fish</a></li>
                 <li><a href="#"><img src="/images/icons/lettuce.png" class="icon">Healthy</a></li>
-                <li><a href="#"><img src="/images/icons/steak.png" class="icon">Meat</a></li>
-                <li><a href="#"><img src="/images/icons/spaghetti.png" class="icon">Pasta</a></li>
+                <li><a href="/allrecipes?type=steak"><img src="/images/icons/steak.png" class="icon">Steak</a></li>
+                <li><a href="/allrecipes?type=pasta"><img src="/images/icons/spaghetti.png" class="icon">Pasta</a></li>
                 <li><a href="#"><img src="/images/icons/pizza.png" class="icon">Pizza</a></li>
-                <li><a href="#"><img src="/images/icons/hamburger.png" class="icon">Sandwiches</a></li>
+                <li><a href="/allrecipes?type=hamburger"><img src="/images/icons/hamburger.png" class="icon">Hamburger</a></li>
                 <li><a href="#"><img src="/images/icons/vegansymbol.png" class="icon">Vegan</a></li>
                 <li><a href="#"><img src="/images/icons/naturalfood.png" class="icon">Vegetarian</a></li>
             </ul>
         </div>
-        <div class="recipes">
-            <div class="recepes-info">
-                <h1>Trending Now</h1>
-                <div class="recipes-card">
-                    <div class="card"></div>
-                    <div class="card"></div>
-                    <div class="card"></div>
-                    <div class="card"></div>
+        <div class="card-container-recipe">
+        {{#each resultado}}
+            <div class="card">
+                <a href="/recipe/{{id}}">
+                    <img src="{{image}}" class="card-image" />
+                </a>
+                <div class="card-text">
+                    <a href="/recipe/{{id}}">
+                        <h2 class="card-title">{{title}}</h2>
+                    </a>
+                    <form action="/updatelikes" method="POST" class="form-likes">
+                        <input type="hidden" value="{{id}}" name="id">
+                            <i class="fa fa-heart  card-like" aria-hidden="true">{{likes}}</i>
+                    </form>
                 </div>
             </div>
-            <div class="recepes-info">
-                <h1>Most searched recipes</h1>
-                <div class="recipes-card">
-                    <div class="card"></div>
-                    <div class="card"></div>
-                    <div class="card"></div>
-                    <div class="card"></div>
-                </div>
-            </div>
-            <div class="recepes-info">
-                <h1>Recently added recipes</h1>
-                <div class="recipes-card">
-                    <div class="card"></div>
-                    <div class="card"></div>
-                    <div class="card"></div>
-                    <div class="card"></div>
-                </div>
-            </div>
-            <div class="recepes-info">
-                <h1>Recipes best qualified</h1>
-                <div class="recipes-card">
-                    <div class="card"></div>
-                    <div class="card"></div>
-                    <div class="card"></div>
-                    <div class="card"></div>
-                </div>
-            </div>
-            <div class="recepes-info">
-                <h1>For dessert</h1>
-            <div class="recipes-card">
-                    <div class="card"></div>
-                    <div class="card"></div>
-                    <div class="card"></div>
-                    <div class="card"></div>
-                </div>
-            </div>
+            {{/each}}
         </div>
     </div>
 </body>
@@ -119,7 +93,7 @@
                 <p>Pedro</p>
                 <a href="https://www.linkedin.com/in/pedrovsiqueira/"><i class="fa fa-linkedin socialMedia"></i></a>
                 <a href="https://github.com/pedrovsiqueira/easycooking"><i class="fa fa-github socialMedia"></i></a>
-            </div>  
+            </div>
         </div>
     </div>
     <div class="links">
@@ -133,4 +107,5 @@
 <div class="copy">
     <p> &copy 2020 Copyright: Gabriela Aguiar e Pedro Siqueira</p>
 </div>
+
 </html>

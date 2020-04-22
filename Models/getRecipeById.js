@@ -26,7 +26,6 @@ const getRecipeById = new mongoose.Schema( {
     },
     instructions: {
         type: String,
-        default: "Unfotunately we do not have instructions on how to prepare the recipe above in our database. If you have any idea on how to prepare the recipe please contact us. You can also fork the recipe and add your own instructions."
     },
     extendedIngredients: [ {
         name: String,

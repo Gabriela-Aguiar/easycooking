@@ -67,7 +67,11 @@
         </div>
         <div class="instructions">
             <h1>Instructions</h1>
+            {{#if instructions}}
             <p class="instr-text">{{instructions}}</p>
+            {{else}}
+            <p>Unfotunately we do not have instructions on how to prepare the recipe above in our database. If you have any idea on how to prepare the recipe please contact us. You can also fork the recipe and add your own instructions.</p>
+            {{/if}}
         </div>
         {{/with}}
     </div>

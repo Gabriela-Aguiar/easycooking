@@ -16,8 +16,27 @@ const ensureLogin = require( "connect-ensure-login" );
 let recipeIdsArr = []
 
 router.get( '/allrecipes', ( req, res ) => {
-  res.render( 'allrecipes' )
+  console.log(req.query);
+  const resultado = [];
+  
+  if(req.query.type == undefined){
+    res.render('allrecipes')
+  }
+  getRecipeById
+  .find()
+  .then(results => {
+      results.forEach(item => {
+        item.extendedIngredients.forEach(ing => {
+          if(ing.name == req.query.type) {
+            resultado.push(item)
+          }
+        });
+      })
+      res.render( 'allrecipes', {resultado} )
+  })
+  .catch(error => console.log(error))
 } )
+
 
 router.get( '/teste', ( req, res ) => {
   let ingredient = req.query.ingredients

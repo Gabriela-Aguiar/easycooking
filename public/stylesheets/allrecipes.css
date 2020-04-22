@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Baloo+Paaji+2|Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,600,700|Work+Sans:100,200,300,400,500,600');
 
 :root{
     --primaryColor: #F1935C;
@@ -38,7 +39,7 @@
     font-size: 25px;
 }
 
-form{
+#form-search{
     position: relative;
     top: 4%;
     left: 40%;
@@ -53,7 +54,7 @@ form{
     padding: 5px;
 }
 
-input{
+#input-search{
     position: absolute;
     top: 0;
     left: 0;
@@ -68,7 +69,7 @@ input{
     padding: 0 20px;
 }
 
-.fa-search{
+#search{
     box-sizing: border-box;
     padding: 10px;
     width: 50px;
@@ -83,20 +84,20 @@ input{
     transition: all 1s;
 }
 
-.fa-search:before {
+#search:before {
     font-size: 1rem;
 }
 
-form:hover{
+#form-search:hover{
     width: 200px;
     cursor: pointer;
 }
 
-form:hover input{
+#form-search:hover #search{
     display: block;
 }
 
-form:hover .fa-search{
+#form-search:hover #input-search{
     background: rgba(0, 0, 0, 0);
     color: var(--primaryColor);
 }
@@ -124,21 +125,90 @@ form:hover .fa-search{
     align-items: center;
 }
 
-.recipes {
-    margin-left: 200px;
-    width: 900px;
-}
-
-.recipes-card {
+.card-container-recipe {
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
+    align-items: flex-start;
 }
 
-.card{
-    width: 100px;
-    height: 100px;
-    background-color: rebeccapurple;
-    margin: 20px 0 20px 0;
+.card {
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: 210px 160px 80px;
+    grid-template-areas: "image" "text" "stats";
+    border-radius: 18px;
+    background: white;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    font-family: roboto;
+    text-align: center;
+    transition: 0.5s ease;
+    margin:30px;
+    position: relative;
+}
+
+.card-container-recipe a {
+    text-decoration: none;
+    color: #000;
+}
+
+.card-image {
+    grid-area: image;
+    grid-area: image;
+    background: url("img1.jpg");
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+    width: 100%;
+}
+
+.card-text {
+    grid-area: text;
+    grid-area: text;
+    margin: 25px;
+}
+
+.card-text i {
+    color: grey;
+    font-size:15px;
+    font-weight: 300;
+    padding: 10px;
+}
+
+.form-likes{
+    display: inline-block;
+    padding: 0px;
+    margin: 0px;
+}
+
+.card-text h2 {
+    margin-top:0px;
+    font-size:25px;
+    font-family: 'Josefin Slab', serif;
+}
+
+.card-text h2:hover{
+    color:var(--primaryColor);
+}
+
+.card:hover {
+    box-shadow: 5px 5px 15px rgba(139, 95, 53, 0.692);
+    color:var(--primaryColor);
+}
+
+
+.fa-heart:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.fa-heart:hover::after {
+    content: 'Like Me!';
+    display: block;
+    color: var(--primaryColor);
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    margin: 10px;
 }
 
 a {

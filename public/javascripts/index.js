@@ -52,6 +52,7 @@ add.addEventListener('click', text => {
       }
       input.value = ''
     }
+    checkInput();
   })
 
   function checkIfNumber(text){
@@ -77,6 +78,17 @@ add.addEventListener('click', text => {
     return exist;
   }
 
+  const checkInput = () => {
+    if(items.length == 1){
+      input.placeholder = 'Add two more ingredients'
+    } else if (items.length == 2) {
+      input.placeholder = 'Add one more ingredient'
+    } else {
+      input.placeholder = "What ingredients do you have?"
+    }
+    return;
+  }
+
   window.onload = function() {
     document.getElementById('input').onkeypress = function searchKeyPress(event) {
        if (event.keyCode == 13) {
@@ -86,8 +98,6 @@ add.addEventListener('click', text => {
 
   //  document.getElementById('add').onclick = doSomething;
 }
-
-
 
 // search.addEventListener('click', () => {
 //   console.log(items);
