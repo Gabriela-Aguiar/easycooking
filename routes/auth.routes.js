@@ -22,6 +22,7 @@ router.get( '/login', ( req, res ) => {
 //USER auth SIGNUP
 router.post( '/signup', ( req, res, next ) => {
     const {
+        name,
         username,
         email,
         password
@@ -46,6 +47,7 @@ router.post( '/signup', ( req, res, next ) => {
             const hashPass = bcrypt.hashSync( password, salt );
 
             const newUser = new User( {
+                name,
                 username,
                 email,
                 password: hashPass
