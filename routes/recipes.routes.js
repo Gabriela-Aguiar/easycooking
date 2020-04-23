@@ -54,47 +54,13 @@ router.get( '/explore-recipes', ( req, res ) => {
 			} );
 			res.render( 'allrecipes', {
 				resultado: resultado.slice( 0, 12 ),
-				user:req.user
+				user: req.user
 			} )
 		} )
 		.catch( error => console.log( error ) )
 } )
 
-
-router.get( '/teste', ( req, res ) => {
-	let ingredient = req.query.ingredients
-	const apiUrl = `https://api.spoonacular.com/recipes/random?number=10&tags=vegetarian,dessert${apiUrlFinal}`
-	console.log( apiUrl )
-
-	axios.get( apiUrl )
-		.then( resp => {
-			console.log( resp.data );
-			resp.data.recipes.forEach( recipe => {
-				const {
-					title,
-					readyInMinutes,
-					image,
-					id
-				} = resp.data
-
-				//check if id is already in the db
-				if ( recipeIdsArr.includes( id ) ) return
-
-				Recipe.create( {
-					title,
-					readyInMinutes,
-					image,
-					id
-				} )
-				recipeIdsArr.push( id )
-				console.log( 'receita criada com sucesso' );
-			} )
-			res.render( 'teste' )
-		} )
-		.catch( err => console.log( '---- ', err ) )
-} )
-
-router.get( '/getrecipes',ensureLogin.ensureLoggedIn(), ( req, res ) => {
+router.get( '/getrecipes', ensureLogin.ensureLoggedIn(), ( req, res ) => {
 	let ingredient = req.query.ingredients;
 	let recipeList = [];
 	let recipeIdList = []
@@ -128,7 +94,7 @@ router.get( '/getrecipes',ensureLogin.ensureLoggedIn(), ( req, res ) => {
 						console.log( 'CAI NO IFFFFFFFFFFFFFFFFFFFF' )
 						res.render( "searchResults", {
 							recipesFromDB,
-							user:req.user
+							user: req.user
 						} )
 					}
 					//se as receitas não existem no bd 
@@ -154,13 +120,13 @@ router.get( '/getrecipes',ensureLogin.ensureLoggedIn(), ( req, res ) => {
 								recipesFromDB = [ ...recipesFromDB, ...recipe ]
 								res.render( "searchResults", {
 									recipesFromDB,
-									user:req.user
+									user: req.user
 								} )
 							} )
 							.catch( _ => {
 								res.render( 'searchResults', {
 									recipeList,
-									user:req.user
+									user: req.user
 								} )
 							} )
 					}
@@ -170,7 +136,7 @@ router.get( '/getrecipes',ensureLogin.ensureLoggedIn(), ( req, res ) => {
 		.catch( error => console.log( 'error CATCH AXIOS' ) )
 } )
 
-router.get( '/recipe/:id',ensureLogin.ensureLoggedIn(), ( req, res ) => {
+router.get( '/recipe/:id', ensureLogin.ensureLoggedIn(), ( req, res ) => {
 	const id = req.params.id
 	let recipeObjectFromAPI = {}
 	let recipeObjectFromAPIArr = []
@@ -242,14 +208,14 @@ router.get( '/recipe/:id',ensureLogin.ensureLoggedIn(), ( req, res ) => {
 					recipeIdsArr.push( id )
 					res.render( 'recipeById', {
 						recipeObjectFromAPI,
-						user:req.user
+						user: req.user
 					} )
 				} )
 				.catch( error => {
 					console.log( extendedIngredientsToDB )
 					res.render( 'recipeById', {
 						recipeObjectFromAPI,
-						user:req.user
+						user: req.user
 					} )
 				} )
 		} )
@@ -259,11 +225,10 @@ router.get( '/recipe/:id',ensureLogin.ensureLoggedIn(), ( req, res ) => {
 		} )
 } )
 
-router.post( '/updatelikes', ( req, res ) => {
+router.post( '/updatelikes/:id', ( req, res ) => {
 	let {
 		id,
-	} = req.body
-	console.log( req.body )
+	} = req.params
 
 	getRecipes.find( {
 			id: id
@@ -283,14 +248,14 @@ router.post( '/updatelikes', ( req, res ) => {
 					new: true
 				} )
 				.then( _ => {
-					res.redirect( '/my-recipes' )
+					res.json({likes: likes} )
 				} )
 				.catch( error => console.log( error ) )
 		} )
 		.catch( error => console.log( error ) )
 } )
 
-router.get( '/my-recipes',ensureLogin.ensureLoggedIn(), ( req, res ) => {
+router.get( '/my-recipes', ensureLogin.ensureLoggedIn(), ( req, res ) => {
 
 	myRecipes
 		.find( {
@@ -305,7 +270,7 @@ router.get( '/my-recipes',ensureLogin.ensureLoggedIn(), ( req, res ) => {
 					res.render( 'myRecipes', {
 						myRecipes,
 						myCreatedRecipes,
-						user:req.user
+						user: req.user
 					} )
 				} )
 				.catch( error => console.log( error ) )
@@ -315,7 +280,7 @@ router.get( '/my-recipes',ensureLogin.ensureLoggedIn(), ( req, res ) => {
 } )
 
 
-router.get( '/recipes-copy',ensureLogin.ensureLoggedIn(), ( req, res ) => {
+router.get( '/recipes-copy', ensureLogin.ensureLoggedIn(), ( req, res ) => {
 	let recipeIdFromDb = []
 	let {
 		id
@@ -380,29 +345,27 @@ router.get( '/my-account/:user', ensureLogin.ensureLoggedIn(), ( req, res ) => {
 		.catch( error => console.log( error ) )
 } )
 
-router.post( '/my-account/avatar', uploadCloud.single( 'photo' ), async (req,res) => {
-	console.log(req.body);
+router.post( '/my-account/avatar', uploadCloud.single( 'photo' ), async ( req, res ) => {
+	console.log( req.body );
 	const imgPath = await req.file.url;
 	const imgName = await req.file.originalname;
-	console.log(imgPath, imgName);
-	User.findByIdAndUpdate(
-		{
-			_id:req.body['id-user']
-		},
-		{
+	console.log( imgPath, imgName );
+	User.findByIdAndUpdate( {
+			_id: req.body[ 'id-user' ]
+		}, {
 			imgPath,
 			imgName
-		},
-		{
+		}, {
 			new: true
-		}
-	)
-	.then( user => {
-		res.render('myAccount', { user })
-	})
-})
+		} )
+		.then( user => {
+			res.render( 'myAccount', {
+				user
+			} )
+		} )
+} )
 
-router.get( '/edit-recipes',ensureLogin.ensureLoggedIn(), ( req, res ) => {
+router.get( '/edit-recipes', ensureLogin.ensureLoggedIn(), ( req, res ) => {
 	// console.log( req.query.id )
 
 	myRecipes.findOne( {
@@ -454,13 +417,13 @@ router.post( '/edit-recipes', ( req, res ) => {
 		.then( recipe => {
 			res.render( 'editRecipes', {
 				recipe,
-				user:req.user
+				user: req.user
 			} )
 		} )
 		.catch( error => console.log( error ) )
 } )
 
-router.get( '/remove-recipe/:id',ensureLogin.ensureLoggedIn(), ( req, res ) => {
+router.get( '/remove-recipe/:id', ensureLogin.ensureLoggedIn(), ( req, res ) => {
 	const {
 		id
 	} = req.params
@@ -481,8 +444,8 @@ router.post( '/add-recipe', uploadCloud.single( 'photo' ), ( req, res, next ) =>
 
 	let extendedIngredients = []
 
-  const imgPath = req.file.url;
-  const imgName = req.file.originalname;
+	const imgPath = req.file.url;
+	const imgName = req.file.originalname;
 
 
 	const {
