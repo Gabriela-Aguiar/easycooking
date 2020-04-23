@@ -29,7 +29,8 @@ router.get( '/allrecipes', ( req, res ) => {
 			}
 			res.render( 'allrecipes', {
 				resultado,
-				isMain: true
+				isMain: true,
+				user: req.user
 			} )
 		} )
 		.catch( err => console.log( object ) )
@@ -52,7 +53,8 @@ router.get( '/explore-recipes', ( req, res ) => {
 				}
 			} );
 			res.render( 'allrecipes', {
-				resultado: resultado.slice( 0, 12 )
+				resultado: resultado.slice( 0, 12 ),
+				user:req.user
 			} )
 		} )
 		.catch( error => console.log( error ) )
@@ -125,7 +127,8 @@ router.get( '/getrecipes',ensureLogin.ensureLoggedIn(), ( req, res ) => {
 					if ( recipesFromDB.length === recipeIdList.length ) {
 						console.log( 'CAI NO IFFFFFFFFFFFFFFFFFFFF' )
 						res.render( "searchResults", {
-							recipesFromDB
+							recipesFromDB,
+							user:req.user
 						} )
 					}
 					//se as receitas não existem no bd 
@@ -150,12 +153,14 @@ router.get( '/getrecipes',ensureLogin.ensureLoggedIn(), ( req, res ) => {
 								//juntar receitas que existem no banco com as que foram inseridas
 								recipesFromDB = [ ...recipesFromDB, ...recipe ]
 								res.render( "searchResults", {
-									recipesFromDB
+									recipesFromDB,
+									user:req.user
 								} )
 							} )
 							.catch( _ => {
 								res.render( 'searchResults', {
-									recipeList
+									recipeList,
+									user:req.user
 								} )
 							} )
 					}
@@ -236,13 +241,15 @@ router.get( '/recipe/:id',ensureLogin.ensureLoggedIn(), ( req, res ) => {
 					console.log( name, amount, unit )
 					recipeIdsArr.push( id )
 					res.render( 'recipeById', {
-						recipeObjectFromAPI
+						recipeObjectFromAPI,
+						user:req.user
 					} )
 				} )
 				.catch( error => {
 					console.log( extendedIngredientsToDB )
 					res.render( 'recipeById', {
-						recipeObjectFromAPI
+						recipeObjectFromAPI,
+						user:req.user
 					} )
 				} )
 		} )
@@ -297,7 +304,8 @@ router.get( '/my-recipes',ensureLogin.ensureLoggedIn(), ( req, res ) => {
 				.then( myCreatedRecipes => {
 					res.render( 'myRecipes', {
 						myRecipes,
-						myCreatedRecipes
+						myCreatedRecipes,
+						user:req.user
 					} )
 				} )
 				.catch( error => console.log( error ) )
@@ -445,7 +453,8 @@ router.post( '/edit-recipes', ( req, res ) => {
 		} )
 		.then( recipe => {
 			res.render( 'editRecipes', {
-				recipe
+				recipe,
+				user:req.user
 			} )
 		} )
 		.catch( error => console.log( error ) )

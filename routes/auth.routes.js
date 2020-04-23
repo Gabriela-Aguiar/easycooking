@@ -120,7 +120,9 @@ router.post( '/resetPassword', ( req, res ) => {
 } )
 
 router.get( '/about', ( req, res ) => {
-	res.render( 'aboutUs' )
+	res.render( 'aboutUs', {
+		user: req.user
+	} )
 } )
 
 
