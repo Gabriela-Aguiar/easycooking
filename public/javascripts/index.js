@@ -7,8 +7,8 @@ const items   = [];
 
 add.addEventListener('click', text => {
     const newIngredient = input.value;
-
-    if( newIngredient !== '' && checkIfNumber(newIngredient) && checkIfExists(newIngredient)){
+    if( newIngredient !== '' && checkIfExists(newIngredient)){
+      console.log(newIngredient);
       const span = document.createElement('span');
       const del = document.createElement('span');
       const inputIngredient = document.createElement('input')
@@ -99,6 +99,3 @@ add.addEventListener('click', text => {
   //  document.getElementById('add').onclick = doSomething;
 }
 
-// search.addEventListener('click', () => {
-//   console.log(items);
-// })
