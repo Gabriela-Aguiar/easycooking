@@ -14,8 +14,11 @@ const userSchema = new Schema({
   name: {
     type: String
   },
-  urlImg: {
-    type: String,
+  imgName: {
+		type: String,
+	},
+	imgPath: {
+		type: String,
     default: "/images/chef.png"
   },
 }, {

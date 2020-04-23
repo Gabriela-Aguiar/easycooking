@@ -362,7 +362,6 @@ router.get( '/recipes-copy',ensureLogin.ensureLoggedIn(), ( req, res ) => {
 } )
 
 router.get( '/my-account/:user', ensureLogin.ensureLoggedIn(), ( req, res ) => {
-	console.log( req.params.user );
 	User
 		.findById( req.params.user )
 		.then( user => {
@@ -373,6 +372,27 @@ router.get( '/my-account/:user', ensureLogin.ensureLoggedIn(), ( req, res ) => {
 		.catch( error => console.log( error ) )
 } )
 
+router.post( '/my-account/avatar', uploadCloud.single( 'photo' ), async (req,res) => {
+	console.log(req.body);
+	const imgPath = await req.file.url;
+	const imgName = await req.file.originalname;
+	console.log(imgPath, imgName);
+	User.findByIdAndUpdate(
+		{
+			_id:req.body['id-user']
+		},
+		{
+			imgPath,
+			imgName
+		},
+		{
+			new: true
+		}
+	)
+	.then( user => {
+		res.render('myAccount', { user })
+	})
+})
 
 router.get( '/edit-recipes',ensureLogin.ensureLoggedIn(), ( req, res ) => {
 	// console.log( req.query.id )

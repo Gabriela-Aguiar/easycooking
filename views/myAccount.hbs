@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="stylesheet" href="/stylesheets/nav.css">
     <link rel="stylesheet" href="/stylesheets/myAccount.css">
     <link rel="icon" href="/images/whisk.png" type="image">
     <title>Easy Cooking</title>
 </head>
+
 <body>
     <nav>
         <a href="/" class="nav-a">Easy Cooking</a>
@@ -28,7 +31,27 @@
     </nav>
     <div class="principal">
         <div class="user-card">
-            <img src="{{user.urlImg}}" class="image">
+            <img src="{{user.imgPath}}" class="image">
+            <button onclick="document.getElementById('id01').style.display='block'" type="hidden" class="img-btn">Change
+                my avatar</button>
+            <div id="id01" class="w3-modal">
+                <div class="w3-modal-content w3-card-4 w3-animate-zoom">
+                    <header class="w3-container orange-header">
+                        <span onclick="document.getElementById('id01').style.display='none'"
+                            class="x-btn orange-header w3-xlarge w3-display-topright">&times;</span>
+                        <h2>Change image</h2>
+                    </header>
+                    <form action="/my-account/avatar" method="post" enctype="multipart/form-data">
+                        <input type="file" name="photo" class="file">
+                        <input type="hidden" value={{user._id}} name="id-user">
+                        <input type="submit">
+                    </form>
+                    <div class="w3-container w3-light-grey w3-padding">
+                        <button class="save-btn">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
             <h1 class="username">{{user.username}}</h1>
         </div>
     </div>
@@ -57,14 +80,17 @@
             <div class="contact">
                 <div class="gabriela">
                     <p>Gabriela</p>
-                    <a href="https://www.linkedin.com/in/gabyaguiar/" class="footer-a"><i class="fa fa-linkedin socialMedia"></i></a>
+                    <a href="https://www.linkedin.com/in/gabyaguiar/" class="footer-a"><i
+                            class="fa fa-linkedin socialMedia"></i></a>
                     <a href="https://github.com/Gabriela-Aguiar/easycooking" class="footer-a"><i
                             class="fa fa-github socialMedia"></i></a>
                 </div>
                 <div class="pedro">
                     <p>Pedro</p>
-                    <a href="https://www.linkedin.com/in/pedrovsiqueira/" class="footer-a"><i class="fa fa-linkedin socialMedia"></i></a>
-                    <a href="https://github.com/pedrovsiqueira/easycooking" class="footer-a"><i class="fa fa-github socialMedia"></i></a>
+                    <a href="https://www.linkedin.com/in/pedrovsiqueira/" class="footer-a"><i
+                            class="fa fa-linkedin socialMedia"></i></a>
+                    <a href="https://github.com/pedrovsiqueira/easycooking" class="footer-a"><i
+                            class="fa fa-github socialMedia"></i></a>
                 </div>
             </div>
         </div>
@@ -80,4 +106,5 @@
         <p> &copy 2020 Copyright: Gabriela Aguiar e Pedro Siqueira</p>
     </div>
 </body>
+
 </html>

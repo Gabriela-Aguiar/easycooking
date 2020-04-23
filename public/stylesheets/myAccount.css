@@ -88,13 +88,13 @@ select {
     border: 0 !important;
     background: var(--primaryColor);;
     background-image: none;
-  }
+}
 
-  select::-ms-expand {
+select::-ms-expand {
     display: none;
-  }
+}
 
-  .select {
+.select {
     position: relative;
     display: flex;
     width: 20em;
@@ -103,16 +103,16 @@ select {
     background: var(--primaryColor);;
     overflow: hidden;
     border-radius: .25em;
-  }
+}
 
-  select {
+select {
     flex: 1;
     padding: 0 .5em;
     color: #fff;
     cursor: pointer;
-  }
+}
 
-  .select::after {
+.select::after {
     content: '\25BC';
     position: absolute;
     top: 0;
@@ -124,9 +124,9 @@ select {
     -webkit-transition: .25s all ease;
     -o-transition: .25s all ease;
     transition: .25s all ease;
-  }
+}
 
-  .select:hover::after {
+.select:hover::after {
   color: #fff;
 }
 
@@ -135,3 +135,50 @@ select {
     align-items: flex-end;
 }
 
+.orange-header {
+    background-color: var(--primaryColor);
+    color: #fff;
+}
+
+.x-btn {
+    margin-right: 15px;
+}
+
+.x-btn:hover {
+    cursor: pointer;
+}
+
+.save-btn {
+    background: var(--primaryColor);
+    padding: 7px 10px;
+    width: auto;
+    text-transform:  uppercase;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer; 
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.1);
+    border: 0;
+    outline: 0;
+}
+
+.save-btn:hover {
+    transform: scale(1.1);
+}
+
+.img-btn {
+    background: #fff;
+    padding: 7px 10px;
+    width: auto;
+    text-transform:  uppercase;
+    border-radius: 4px;
+    color: var(--primaryColor);
+    cursor: pointer; 
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.1);
+    border: 0;
+    outline: 0;
+    margin-top: 5px;
+}
+
+.img-btn:hover {
+    transform: scale(1.1);
+}
