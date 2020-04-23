@@ -373,7 +373,8 @@ router.get( '/edit-recipes', ensureLogin.ensureLoggedIn(), ( req, res ) => {
 		} )
 		.then( recipe => {
 			res.render( 'editRecipes', {
-				recipe
+				recipe,
+				user: req.user
 			} )
 		} )
 		.catch( error => console.log( error ) )
