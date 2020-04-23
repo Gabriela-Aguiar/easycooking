@@ -166,3 +166,30 @@ a {
   transform: scale(1.1);
 }
 
+@media (min-width: 768px) and (max-width: 992px) {
+  .button {
+    left: 15%;
+  }
+  .carousel-wrapper .carousel .carousel-cell {
+    height: 250px;
+  }
+}
+
+@media (min-width: 630px) and (max-width: 768px) {
+  .button {
+    left: 6%;
+  }
+  .carousel-wrapper .carousel .carousel-cell {
+    height: 250px;
+  }
+}
+
+
+@media (min-width: 576px) and (max-width: 630px) {
+  .button {
+    left: 4%;
+  }
+  .carousel-wrapper .carousel .carousel-cell {
+    height: 250px;
+  }
+}

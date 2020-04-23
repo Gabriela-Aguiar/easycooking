@@ -85,3 +85,32 @@ footer p {
     background-color: #F5A86F;
     font-size: 0.8rem;
 }
+
+@media (min-width: 630px) and (max-width: 768px) {
+    footer h2{
+        font-size: 1.2rem;
+    }
+
+    footer p {
+        font-size: 1rem;
+    }
+
+    .footer-a {
+        font-size: 0.6rem;
+    }
+}
+
+
+@media (min-width: 576px) and (max-width: 630px) {
+    footer h2{
+        font-size: 1rem;
+    }
+
+    footer p {
+        font-size: 0.8rem;
+    }
+
+    .footer-a {
+        font-size: 0.6rem;
+    }
+}

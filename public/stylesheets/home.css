@@ -143,3 +143,32 @@
 .noMostrar{
     display: none;
 }
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .search h1 {
+        font-size: 7rem;
+    }
+}
+
+@media (min-width: 630px) and (max-width: 768px) {
+    .search h1 {
+        font-size: 5rem;
+    }
+    
+    .principal {
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
+
+@media (min-width: 576px) and (max-width: 630px) {
+    .search h1 {
+        font-size: 5rem;
+    }
+
+    .principal {
+        width: 100vw;
+        height: 100vh;
+    }
+}

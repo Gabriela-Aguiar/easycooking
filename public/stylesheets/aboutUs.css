@@ -118,3 +118,57 @@ body{
     font-size: 1rem;
 }
  
+@media (min-width: 768px) and (max-width: 992px) {
+    .title{
+        font-size: 8rem;
+    }
+    .about-title {
+        margin-top: 0;
+    }
+    .about-us {
+        height: 100vh;
+    }
+    .card-text {
+        font-size: 0.8rem;
+    }
+    .card-pedro {
+        margin-left: 70px
+    }
+}
+
+@media (min-width: 630px) and (max-width: 768px) {
+    .title{
+        font-size: 8rem;
+    }
+    .about-title {
+        margin-top: 0;
+    }
+    .about-us {
+        height: 100vh;
+    }
+    .card-text {
+        font-size: 0.8rem;
+    }
+    .card-pedro {
+        margin-left: 50px
+    }
+}
+
+
+@media (min-width: 576px) and (max-width: 630px) {
+    .title{
+        font-size: 8rem;
+    }
+    .about-title {
+        margin-top: 0;
+    }
+    .about-us {
+        height: 100vh;
+    }
+    .card-text {
+        font-size: 0.8rem;
+    }
+    .card-pedro {
+        margin-left: 50px
+    }
+}

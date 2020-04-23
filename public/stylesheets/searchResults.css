@@ -150,4 +150,26 @@ body{
     outline: none;
 }
 
+@media (min-width: 768px) and (max-width: 992px) {
+    .card {
+        grid-template-columns: 200px;
+        grid-template-rows: 180px 100px 80px;
+    }
+}
+
+@media (min-width: 630px) and (max-width: 768px) {
+    .card {
+        grid-template-columns: 200px;
+        grid-template-rows: 180px 100px 80px;
+    }
+}
+
+
+@media (min-width: 576px) and (max-width: 630px) {
+    .card {
+        grid-template-columns: 200px;
+        grid-template-rows: 180px 100px 80px;
+    }
+}
+
 

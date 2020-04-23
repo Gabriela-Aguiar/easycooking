@@ -190,3 +190,52 @@ a {
 .save-btn:hover {
     transform: scale(1.1);
 }
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .instructions {
+        max-width: 600px;
+        text-align: center;
+        margin-left: 50px;
+    }
+}
+
+@media (min-width: 630px) and (max-width: 768px) {
+    .instructions {
+        max-width: 600px;
+        text-align: center;
+        margin-left: 50px;
+    }
+    .recipe-image {
+        width: 200px;
+    }
+    #icon {
+        font-size: 0.7rem;
+    }
+    p {
+        font-size: 13px;
+    }
+    .ingredients {
+        font-size: 0.8rem;
+    }
+}
+
+
+@media (min-width: 576px) and (max-width: 630px) {
+    .instructions {
+        max-width: 600px;
+        text-align: center;
+        margin-left: 50px;
+    }
+    .recipe-image {
+        width: 200px;
+    }
+    #icon {
+        font-size: 0.7rem;
+    }
+    p {
+        font-size: 13px;
+    }
+    .ingredients {
+        font-size: 0.8rem;
+    }
+}
