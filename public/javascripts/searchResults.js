@@ -3,7 +3,7 @@ document.querySelectorAll( '.btn-like' ).forEach( elem => {
 	elem.addEventListener( 'click', event => {
 		event.preventDefault();
 		const id = event.target.parentElement.id
-		axios.post( `http://localhost:3000/updatelikes/${id}` )
+		axios.post( `https://easy-cooking-app.herokuapp.com/updatelikes/${id}` )
 			.then( () => {
 				const classId = document.getElementById( `i-${id}` )
 
