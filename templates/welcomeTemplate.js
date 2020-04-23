@@ -302,7 +302,7 @@ const template = ( username ) => {
           <td
              align="center" bgcolor="#ffffff" role="presentation" style="border:none;border-radius:10px;cursor:auto;mso-padding-alt:10px 25px;background:#ffffff;" valign="middle"
           >
-          <a href='http://localhost:3000/home'>
+          <a href='https://easy-cooking-app.herokuapp.com/home'>
             <p
                style="display:inline-block;background:#ffffff;color:#F1935C;font-family:open Sans Helvetica, Arial, sans-serif;font-size:22px;font-weight:bold;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:10px;"
             >
