@@ -7,12 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="icon" href="/images/whisk.png" type="image">
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="/stylesheets/nav.css">
     <link rel="stylesheet" href="stylesheets/style.css">
     <link rel="stylesheet" href="stylesheets/myRecipes.css">
-    <link rel="stylesheet" href="/stylesheets/nav.css">
     <title>Easy Cooking</title>
 </head>
 
@@ -42,7 +41,7 @@
         <div class="carousel" data-flickity data-flickity-options='{ "wrapAround": true }'>
             {{#each myRecipes}}
             <div class="carousel-cell" data-flickity-options='{ "wrapAround": true }'>
-                <h3>{{title}}</h3>
+                <a href="/recipe/{{id}}"><h3>{{title}}</h3></a>
                 <img src="{{image}}" />
                 <div class="button">
                     <a href="/edit-recipes/?id={{id}}"><button class="edit-recipe-btn">Edit</button></a>
@@ -75,23 +74,23 @@
             <div class="contact">
                 <div class="gabriela">
                     <p>Gabriela</p>
-                    <a href="https://www.linkedin.com/in/gabyaguiar/"><i class="fa fa-linkedin socialMedia"></i></a>
-                    <a href="https://github.com/Gabriela-Aguiar/easycooking"><i
+                    <a href="https://www.linkedin.com/in/gabyaguiar/" class="footer-a"><i class="fa fa-linkedin socialMedia"></i></a>
+                    <a href="https://github.com/Gabriela-Aguiar/easycooking" class="footer-a"><i
                             class="fa fa-github socialMedia"></i></a>
                 </div>
                 <div class="pedro">
                     <p>Pedro</p>
-                    <a href="https://www.linkedin.com/in/pedrovsiqueira/"><i class="fa fa-linkedin socialMedia"></i></a>
-                    <a href="https://github.com/pedrovsiqueira/easycooking"><i class="fa fa-github socialMedia"></i></a>
+                    <a href="https://www.linkedin.com/in/pedrovsiqueira/" class="footer-a"><i class="fa fa-linkedin socialMedia"></i></a>
+                    <a href="https://github.com/pedrovsiqueira/easycooking" class="footer-a"><i class="fa fa-github socialMedia"></i></a>
                 </div>
             </div>
         </div>
         <div class="links">
             <h2>Links</h2>
-            <p><a href="/">Easy Cooking</a></p>
-            <p><a href="/about">About Us</a></p>
-            <p><a href="/allrecipes">Explore recipes</a></p>
-            <p><a href="/login">Sign up</a></p>
+            <p><a href="/" class="footer-a" >Easy Cooking</a></p>
+            <p><a href="/about" class="footer-a">About Us</a></p>
+            <p><a href="/allrecipes" class="footer-a">Explore recipes</a></p>
+            <p><a href="/login" class="footer-a">Sign up</a></p>
         </div>
     </footer>
     <div class="copy">

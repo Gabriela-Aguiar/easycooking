@@ -40,12 +40,12 @@ footer p {
     font-size: 1.2rem;
 }
 
-footer a {
+.footer-a {
     text-decoration: none;
     color: #fff;
 }
 
-a:hover {
+.footer-a:hover {
     color: #777;
 }
 
