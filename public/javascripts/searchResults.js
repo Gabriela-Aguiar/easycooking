@@ -1,3 +1,4 @@
+
 document.querySelectorAll( '.btn-like' ).forEach( elem => {
 	elem.addEventListener( 'click', event => {
 		event.preventDefault();
@@ -8,6 +9,10 @@ document.querySelectorAll( '.btn-like' ).forEach( elem => {
 
 				classId.classList.add( 'liked-recipe' )
 				classId.innerHTML = +classId.textContent + 1
+
+				if(classId.classList.contains('liked-recipe')) {
+					elem.disabled = true
+				}
 
 				console.log( document.getElementById( `i-${id}` ).textContent )
 			} )

@@ -128,7 +128,6 @@ body {
 	color: var(--primaryColor);
 }
 
-
 .fa-heart:hover {
 	color: red;
 	cursor: pointer;
@@ -144,7 +143,7 @@ body {
 }
 
 .liked-recipe {
-	color: red;
+	color: red !important;
 }
 
 .border-none {
