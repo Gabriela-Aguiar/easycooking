@@ -424,6 +424,66 @@ router.post( '/edit-recipes', ( req, res ) => {
 		.catch( error => console.log( error ) )
 } )
 
+router.get( '/edit-createdRecipes', ensureLogin.ensureLoggedIn(), ( req, res ) => {
+	console.log( req.query.id )
+
+	myCreatedRecipes.findOne( {
+			_id: req.query.id
+		} )
+		.then( recipe => {
+			console.log(recipe);
+			res.render( 'editCreatedRecipes', {
+				recipe,
+				user: req.user
+			} )
+		} )
+		.catch( error => console.log( error ) )
+} )
+
+router.post( '/edit-createdRecipes', ( req, res ) => {
+	console.log('ENTREEEEI');
+	const extendedIngredients = []
+
+	const {
+		id
+	} = req.query
+
+	const {
+		summary,
+		instructions,
+		name,
+		unit,
+		amount,
+	} = req.body
+
+
+	for ( i = 0; i < req.body.amount.length; i++ ) {
+		extendedIngredients.push( {
+			name: req.body.name[ i ],
+			amount: req.body.amount[ i ],
+			unit: req.body.unit[ i ]
+		} )
+	}
+
+	myCreatedRecipes.findOneAndUpdate( {
+			_id: id,
+			owner: req.user._id
+		}, {
+			summary,
+			extendedIngredients,
+			instructions
+		}, {
+			new: true
+		} )
+		.then( recipe => {
+			res.render( 'editCreatedRecipes', {
+				recipe,
+				user: req.user
+			} )
+		} )
+		.catch( error => console.log( error ) )
+} )
+
 router.get( '/remove-recipe/:id', ensureLogin.ensureLoggedIn(), ( req, res ) => {
 	const {
 		id
@@ -431,6 +491,19 @@ router.get( '/remove-recipe/:id', ensureLogin.ensureLoggedIn(), ( req, res ) => 
 
 	myRecipes.findOneAndRemove( {
 			id: id,
+			owner: req.user._id
+		} )
+		.then( res.redirect( '/my-recipes' ) )
+		.catch( console.log( `caí no catch` ) )
+} )
+
+router.get( '/remove-createdRecipe/:id', ensureLogin.ensureLoggedIn(), ( req, res ) => {
+	const {
+		id
+	} = req.params
+	console.log('aquiiii', id);
+	myCreatedRecipes.findOneAndRemove( {
+			_id: id,
 			owner: req.user._id
 		} )
 		.then( res.redirect( '/my-recipes' ) )
