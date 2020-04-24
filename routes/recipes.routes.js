@@ -2,7 +2,7 @@ var express = require( 'express' );
 var router = express.Router();
 const token = process.env[ 'API_TOKEN' ]
 const apiUrl = `https://api.spoonacular.com/recipes/search?query=`
-const apiUrlFinal = `&number=50&apiKey=${token}`
+const apiUrlFinal = `&number=12&apiKey=${token}`
 const apiUrlFinalRecipeById = `&apiKey=${token}`
 const User = require( '../Models/users' )
 const axios = require( 'axios' );
