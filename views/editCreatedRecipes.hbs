@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/nav.css">
+    <link rel="stylesheet" href="/stylesheets/editRecipes.css">
+    <link rel="icon" href="/images/whisk.png" type="image">
+    <title>Easy Cooking</title>
+</head>
+
+<body>
+    <div class="principal">
+        <div class="transparency">
+            <nav>
+                <a href="/" class="nav-a">Easy Cooking</a>
+                <a href="/about" class="nav-a">About Us</a>
+                <a href="/allrecipes" class="nav-a">Explore Recipes</a>
+                <a href="/home" class="nav-a">Search by ingredient</a>
+                <div class="dropdown">
+                    <button class="nav-btn">My Account</button>
+                    <div class="dropdown-content">
+                        <button class="drop-btn" id="first"><a href="/my-account/{{user._id}}">Account</a></button>
+                        <button class="drop-btn" id="second"><a href="/my-recipes">My Recipes</a></button>
+                        <button class="drop-btn" id="third"><a href="/add-recipe">Add recipe</a></button>
+                        <button class="drop-btn" id="fourth"><a href="/logout">Logout</a></button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    {{#with recipe}}
+    <div class="recipe">
+        <div class="recipe-title">
+            <style>
+                h1 {
+                    text-align: center;
+                    color: var(--primaryColor);
+                    font-size: 50px;
+                    font-family: 'Pacifico', cursive;
+                }
+            </style>
+            <h1>{{this.title}}</h1>
+            <button onclick="document.getElementById('id01').style.display='block'" type="hidden"><i class="fas fa-pencil-alt" id="edit-summary"></i></button>
+        </div>
+    </div>
+    <div id="id01" class="w3-modal">
+        <div class="w3-modal-content w3-card-4 w3-animate-zoom">
+            <header class="w3-container orange-header">
+                <span onclick="document.getElementById('id01').style.display='none'"
+                    class="x-btn orange-header w3-xlarge w3-display-topright">&times;</span>
+                <h2>Edit Recipe</h2>
+            </header>
+
+            <div class="w3-bar w3-border-bottom">
+                <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'London')">Summary</button>
+                <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'Paris')">Ingredients</button>
+                <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'Tokyo')">Instructions</button>
+            </div>
+
+            <div id="London" class="w3-container city">
+                <form action="/edit-createdRecipes?id={{id}}" method="POST">
+                <input type="hidden" value="{{id}}">
+                <textarea cols="140" rows="10" name="summary">{{summary}}</textarea>
+            </div>
+            <div id="Paris" class="w3-container city">
+                {{#each extendedIngredients}}
+                <input type="text" value="{{amount}}" name="amount">
+                <input type="text" value="{{unit}}" name="unit">
+                <input type="text" value="{{name}}" name="name">
+                <br>
+                {{/each}}
+            </div>
+
+            <div id="Tokyo" class="w3-container city">
+                <br>
+                 <textarea cols="140" rows="10" name="instructions">{{instructions}}</textarea>
+                <br>
+            </div>
+            <div class="w3-container w3-light-grey w3-padding">
+                <button class="save-btn">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="recipe-card">
+        <div class="recipe-info">
+            <img src="{{imgPath}}" class="recipe-image">
+            <div class="recipe-details">
+                <p><i class="fa fa-clock" id="icon"> Ready in: {{readyInMinutes}}</i></p>
+                <p><i class="fa fa-chart-pie" id="icon"> Servings: {{servings}}</i></p>
+                <p><i class="fa fa-heart" id="icon"> Likes: {{this.aggregateLikes}}</i></p>
+
+            </div>
+        </div>
+        <div class="recipe-summary">
+            <p>{{{this.summary}}}</p>
+
+        </div>
+
+    </div>
+
+    <div class="ingredients">
+        <h1>Ingredients</h1>
+        {{#each extendedIngredients}}
+        {{amount}}
+        {{unit}}
+        {{name}}
+        <br>
+        {{/each}}
+    </div>
+    <div class="instructions">
+        <h1>Instructions</h1>
+        <p class="instr-text">{{instructions}}</p>
+    </div>
+    {{/with}}
+    </div>
+    <footer>
+        <h1>Easy Cooking</h1>
+        <div>
+            <h2>Contact</h2>
+            <div class="contact">
+                <style>
+                    @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css');
+
+                    .socialMedia {
+                        font-size: 20px
+                    }
+                </style>
+                <div class="gabriela">
+                    <p>Gabriela</p>
+                    <a href="https://www.linkedin.com/in/gabyaguiar/"><i class="fa fa-linkedin socialMedia"></i></a>
+                    <a href="https://github.com/Gabriela-Aguiar/easycooking"><i
+                            class="fa fa-github socialMedia"></i></a>
+                </div>
+                <div class="pedro">
+                    <p>Pedro</p>
+                    <a href="https://www.linkedin.com/in/pedrovsiqueira/"><i class="fa fa-linkedin socialMedia" class="footer-a"></i></a>
+                    <a href="https://github.com/pedrovsiqueira/easycooking" class="footer-a"><i class="fa fa-github socialMedia"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="links">
+            <h2>Links</h2>
+            <p><a href="/" class="footer-a">Easy Cooking</a></p>
+            <p><a href="/about" class="footer-a">About Us</a></p>
+            <p><a href="/allrecipes" class="footer-a"Explore recipes</a></p>
+            <p><a href="/login" class="footer-a">Sign up</a></p>
+        </div>
+    </footer>
+    <div class="copy">
+        <p> &copy 2020 Copyright: Gabriela Aguiar e Pedro Siqueira</p>
+    </div>
+    <script src="/javascripts/editRecipe.js"></script>
+</body>
+
+</html>
