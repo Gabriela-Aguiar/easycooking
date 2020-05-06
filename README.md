@@ -32,9 +32,10 @@ In order to run this project locally you will need to the following:
 * Setup Cloudinary API keys.
 * Setup MongoDB locally or on the cloud.
 * Install Node.js.
-* Create an email address and add the email with the password
+* Create an email address and add the email with the password.
+* Create an account on https://spoonacular.com/food-api and save your personal token.
 
-Rename the .env-example do .env located on the root of the project add the keys
+Rename the .env-example to .env located on the root of the project add the keys
 
 
 ### Installation
