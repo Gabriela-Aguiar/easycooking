@@ -6,16 +6,15 @@ const search = document.getElementById("search");
 const tags = document.getElementById("tags");
 const searchForm = document.getElementById("search-form");
 const items = [];
-const autocomplete = document.getElementById('autocomplete')
-const div = document.createElement('div')
-let spans = ''
-div.classList.add('autocomplete')
+const autocomplete = document.getElementById("autocomplete");
+const div = document.createElement("div");
+let spans = "";
+div.classList.add("autocomplete");
 // const token = process.env["API_TOKEN"];
 // const urlKey = `&apiKey=${token}`;
 
-
 add.addEventListener("click", (text) => {
-  div.innerHTML = ''
+  div.innerHTML = "";
   const newIngredient = input.value;
   if (newIngredient !== "" && checkIfExists(newIngredient)) {
     // console.log(newIngredient);
@@ -50,7 +49,7 @@ add.addEventListener("click", (text) => {
       items.forEach((item, index) => {
         if (item === newIngredient) {
           items.splice(index, 1);
-          checkInput()
+          checkInput();
         }
       });
     });
@@ -89,20 +88,20 @@ function checkIfExists(text) {
 const checkInput = () => {
   if (items.length >= 0 && items.length <= 2) {
     searchForm.classList.add("noMostrar");
-    input.disabled = false
+    input.disabled = false;
   }
 
   if (items.length == 0) {
-    input.placeholder = "What ingredients do you have?"
+    input.placeholder = "What ingredients do you have?";
   } else if (items.length == 1) {
     input.placeholder = "Add two more ingredients";
   } else if (items.length == 2) {
     input.placeholder = "Add one more ingredient";
   } else {
     searchForm.classList.remove("noMostrar");
-    input.placeholder = 'Click on Search!'
-    input.disabled = true
-  } 
+    input.placeholder = "Click on Search!";
+    input.disabled = true;
+  }
   return;
 };
 
@@ -114,30 +113,35 @@ window.onload = function () {
   };
 };
 
-input.addEventListener('keyup', (event) => {
-  const { value } = event.target
-  if (value.length < 3) return
+input.addEventListener("keyup", (event) => {
+  const { value } = event.target;
+  if (value.length < 3) {
+    div.innerHTML = ''
+    return;
+  }
   axios
-    .get(`https://api.spoonacular.com/food/ingredients/autocomplete?query=${value}&number=5&apiKey=7eb554676862479cb1af0e683768a3c3`)
-    .then(response => {
+    .get(
+      `https://api.spoonacular.com/food/ingredients/autocomplete?query=${value}&number=5&apiKey=7eb554676862479cb1af0e683768a3c3`
+    )
+    .then((response) => {
       if (response.data.length > 0) {
-        const list = response.data.map((ingredient) => `<span class="search-options">${ingredient.name}</span>`)
-        div.innerHTML = list
-        autocomplete.appendChild(div)
+        const list = response.data.map(
+          (ingredient) =>
+            `<span class="search-options">${ingredient.name}</span>`
+        );
+        div.innerHTML = list;
+        autocomplete.appendChild(div);
 
-        document
-          .querySelectorAll('.search-options')
-          .forEach(span => {
-            span.addEventListener('click', (event) => {
-              input.value = event.target.innerText
-              add.click()
-            })
-          })
+        document.querySelectorAll(".search-options").forEach((span) => {
+          span.addEventListener("click", (event) => {
+            input.value = event.target.innerText;
+            add.click();
+          });
+        });
       } else {
-        div.innerHTML = ''
+        div.innerHTML = "";
       }
       // console.log(response.data)
     })
-    .catch(error => console.log(error))
-})
-
+    .catch((error) => console.log(error));
+});
