@@ -1,5 +1,3 @@
-// require('dotenv').config();
-
 const input = document.getElementById("input");
 const add = document.getElementById("add");
 const search = document.getElementById("search");
@@ -10,8 +8,6 @@ const autocomplete = document.getElementById("autocomplete");
 const div = document.createElement("div");
 let spans = "";
 div.classList.add("autocomplete");
-// const token = process.env["API_TOKEN"];
-// const urlKey = `&apiKey=${token}`;
 
 add.addEventListener("click", (text) => {
   div.innerHTML = "";
