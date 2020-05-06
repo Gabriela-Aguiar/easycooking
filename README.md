@@ -1,7 +1,7 @@
 # Easy Cooking
 
 ## About The Project
-TODO
+Stop wasting your time while thinking what to cook. We can help you to create your own recipes from products which are in your fridge right now! Our website allows you to search recipes with 3 ingredients. All you have to do is type the ingredients and hit search. We also give you an option to save, like, copy, edit and create recipes. 
 
 ### Built With:
 
