@@ -112,10 +112,6 @@ window.onload = function () {
       document.getElementById("add").click();
     }
   };
-
-  
-
-  //  document.getElementById('add').onclick = doSomething;
 };
 
 input.addEventListener('keyup', (event) => {
