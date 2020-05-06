@@ -54,7 +54,7 @@ npm run dev
 
 ## Screenshots
 
-(screenshots/search.png)
+![Desktop views](screenshots/search.png)
 
 
 <!-- USAGE EXAMPLES -->
