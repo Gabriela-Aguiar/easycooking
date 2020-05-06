@@ -35,7 +35,7 @@ TODO
 
 1. Clone the repo
 ```sh
-git clone https://github.com/rafaelbogfreitas/sacada_do_predio.git
+git clone https://github.com/pedrovsiqueira/easycooking.git
 ```
 2. Install NPM packages
 ```sh
