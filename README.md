@@ -1,7 +1,11 @@
 # Easy Cooking
 
+
 ## About The Project
-TODO
+Stop wasting your time while thinking what to cook. We can help you get creative with recipes based on products which are in your fridge right now! Our website allows you to search recipes with 3 ingredients. All you have to do is type the ingredients and hit search. We also give you an option to save, like, copy, edit and create recipes. 
+
+
+![Desktop views](screenshots/search.png)
 
 ### Built With:
 
@@ -20,15 +24,18 @@ TODO
 
 <!-- GETTING STARTED -->
 ## Getting Started
-TODO
 
 ### Prerequisites
 
-In order to run this project locally you will need to:
-TODO
+In order to run this project locally you will need to the following:
+
 * Setup Cloudinary API keys.
 * Setup MongoDB locally or on the cloud.
 * Install Node.js.
+* Create an email address and add the email with the password.
+* Create an account on https://spoonacular.com/food-api and save your personal token.
+
+Rename the .env-example to .env located on the root of the project add the keys
 
 
 ### Installation
@@ -49,6 +56,7 @@ Or run with Nodemon
 ```sh
 npm run dev
 ```
+
 
 <!-- USAGE EXAMPLES -->
 ## Usage
