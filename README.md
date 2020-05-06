@@ -2,6 +2,7 @@
 
 ## About The Project
 Stop wasting your time while thinking what to cook. We can help you get creative with recipes based on products which are in your fridge right now! Our website allows you to search recipes with 3 ingredients. All you have to do is type the ingredients and hit search. We also give you an option to save, like, copy, edit and create recipes. 
+![Desktop views](screenshots/search.png)
 
 ### Built With:
 
@@ -54,7 +55,6 @@ npm run dev
 
 ## Screenshots
 
-![Desktop views](screenshots/search.png)
 
 
 <!-- USAGE EXAMPLES -->
