@@ -51,6 +51,14 @@ nav {
   transform: scale(1.1);
 }
 
+.side-menu {
+  display: none;
+}
+
+.menu {
+  display: none;
+}
+
 .btn-text {
   color: #fff;
   font-size: 17px;
@@ -157,12 +165,6 @@ nav {
     font-size: 12px;
   }
 }
-.menu {
-  display: none;
-}
-.hidden {
-  display: none;
-}
 
 @media (max-width: 414px) {
   nav > a,
@@ -178,6 +180,7 @@ nav {
     justify-content: flex-end;
   }
   .menu {
+    position: relative;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -189,6 +192,7 @@ nav {
   }
   .hamburguer {
     border: 2px solid var(--primaryColor);
+    background-color: var(--primaryColor);
 
     width: 30px;
     margin: 4px;
@@ -215,12 +219,7 @@ nav {
   }
   .show {
     display: flex;
-    animation: show 0.5s ease-in forwards
-  }
-  .hide{
-    display: none;
-    opacity: 1;
-    animation: show 0.5s ease-in forwards;
+    animation: show 0.4s ease-in forwards
   }
 
   @keyframes show {
@@ -234,67 +233,37 @@ nav {
     }
   }
 
-  @keyframes hide {
+  .start {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    transform: rotate(45deg);
+    border: 2px solid #777;
+    background-color: #777;
+    animation: hamburguer 0.3s ease-in forwards
+  }  
+
+  .middle {
+    display: none
+  }  
+
+  .end {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    transform: rotate(-45deg);
+    border: 2px solid #777;
+    background-color: #777;
+    animation: hamburguer 0.3s ease-in forwards
+  }
+  
+  @keyframes hamburguer {
     from {
-      opacity: 1;
-      transform: translateX(0%);
+      opacity: 0;
     }
     to {
-      opacity: 0;
-      transform: translateX(100%);
+      opacity: 1;
     }
   }
-}
+} 
 
-/* @media (min-width: 630px) and (max-width: 768px) {
-    .nav-a {
-        font-size: 12px;
-    }
-    .sign-btn {
-        width: 80px;
-        height: 40px;
-    }
-
-    .nav-btn {
-        width: 80px;
-        height: 40px;
-        font-size: 8px;
-    }
-
-    .btn-text {
-        font-size: 12px;
-    }
-
-    .drop-btn {
-        width: 80px;
-        height: 40px;
-        font-size: 8px;
-    }
-}
-
-
-@media (min-width: 576px) and (max-width: 630px) {
-    .nav-a {
-        font-size: 12px;
-    }
-    .sign-btn {
-        width: 80px;
-        height: 40px;
-    }
-
-    .nav-btn {
-        width: 80px;
-        height: 40px;
-        font-size: 8px;
-    }  
-
-    .drop-btn {
-        width: 80px;
-        height: 40px;
-        font-size: 8px;
-    }
-
-    .btn-text {
-        font-size: 12px;
-    }
-} */

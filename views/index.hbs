@@ -20,9 +20,9 @@
         <a href="/home" class="nav-a">Search by Ingredient</a>
         <button class="sign-btn"><a href="/login" class="btn-text">Login / Sign Up</a></button>
         <div class="menu">
-            <div class="hamburguer"></div>
-            <div class="hamburguer"></div>
-            <div class="hamburguer"></div>
+            <div class="hamburguer first"></div>
+            <div class="hamburguer second"></div>
+            <div class="hamburguer third"></div>
         </div>
         <div class="side-menu hide">
             <a href="/" class="side-item nav-a">Easy Cooking</a>
@@ -114,7 +114,9 @@
     <script>
         document.querySelector('.menu').addEventListener('click', () => {
             document.querySelector('.side-menu').classList.toggle('show')
-            document.querySelector('.side-menu').classList.toggle('hide')
+            document.querySelector('.first').classList.toggle('start')
+            document.querySelector('.second').classList.toggle('middle')
+            document.querySelector('.third').classList.toggle('end')
         })
     </script>
 
