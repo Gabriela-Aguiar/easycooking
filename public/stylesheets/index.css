@@ -1,159 +1,227 @@
-@import url('https://fonts.googleapis.com/css?family=Baloo+Paaji+2|Pacifico&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css');
+@import url("https://fonts.googleapis.com/css?family=Baloo+Paaji+2|Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css");
 
 * {
-    margin: 0;
+  margin: 0;
 }
 
-body{
-    font-size: 10px;
+body {
+  font-size: 10px;
 }
 
-
-:root{
-    --primaryColor: #F1935C;
+:root {
+  --primaryColor: #f1935c;
 }
 
 .principal {
-    background-image: url('/images/EasyCooking.gif');
-    height: 80vh;
-    background-position: top;
-    background-size: cover;
+  background-image: url("/images/EasyCooking.gif");
+  height: 80vh;
+  background-position: top;
+  background-size: cover;
 }
 
 .transparency {
-    background-color: rgba(0, 0, 0, 0.6);
-    height: 80vh;
-    width: 100vw;
-    display: flex;
-	flex-direction: column;
-	justify-content: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 80vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .text {
-    display: flex;
-	flex-direction: column;
-	align-items: center;
-    color: #fff;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  font-family: "Open Sans", sans-serif;
+  font-size: 2rem;
 }
 
-/* .text p {
-    max-width: 40%;
-    padding-top: 50px;
-    text-align: center;
-} */
-
 .text p {
-    max-width: 40%;
-    padding-top: 50px;
-    text-align: center;
-    animation-duration: 3s;
-    animation-name: slidein;
+  max-width: 1000px;
+  width: 90%;
+  padding-top: 50px;
+  text-align: center;
+  animation-duration: 3s;
+  animation-name: slidein;
 }
 
 @keyframes slidein {
-    from {
-      margin-right: 100%;
-      width: 300%
-    }
-  
-    to {
-      margin-right: 0%;
-      width: 100%;
-    }
+  from {
+    margin-right: 100%;
+    width: 300%;
   }
 
+  to {
+    margin-right: 0%;
+    width: 100%;
+  }
+}
+
 .title {
-    font-family: 'Pacifico', cursive;
-    font-size: 7rem;
-    text-shadow: 5px 5px 5px var(--primaryColor);
+  font-family: "Pacifico", cursive;
+  font-size: 7rem;
+  text-shadow: 5px 5px 5px var(--primaryColor);
 }
 
 .div-all {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-image: url('/images/waves.png');
-    background-position: top;
-    background-repeat: no-repeat;
-    background-color: #F1F2F3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("/images/waves.png");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-color: #f1f2f3;
+  background-size: contain;
+  width: 100%;
+}
+
+.div-all a{
+  margin-bottom: 80px;
 }
 
 .title-how {
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-    margin-top: 50px;
-    font-size: 4rem;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  margin-top: 10px;
+  font-size: 4rem;
+  margin-bottom: 120px;
 }
 
 .works {
-    height: 50vh;
-    display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	align-items: center;
+  width: 90vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-bottom: 60px;
 }
 
 .card {
-    width: 16%;
-    height: 75%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: 'Open Sans', sans-serif;
-    padding: 0 10px;
+  width: 30%;
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Open Sans", sans-serif;
+  padding: 30px 25px;
+  height: 250px;
+  /* outline: red 1px solid; */
+  transition: 0.2s ease-in-out;
 }
 
 .card:hover {
-    box-shadow: 0 2px 6px rgba(241, 147, 92, 0.726), 0 3px 6px rgba(0,0,0,0.1);
-    transform: scale(1.2);
+  box-shadow: 0 2px 6px rgba(241, 147, 92, 0.726), 0 3px 6px rgba(0, 0, 0, 0.1);
+  /* transform: scale(1.2); */
+  transition: 0.2s ease-in-out;
+  cursor: default;
+}
+
+.img {
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .img-fridge {
-    width: 100px;
+  height: 90%;
+  margin-bottom: 10px;
 }
 
 .img-recipe {
-    width: 100px;
+  width: 100%;
 }
 
 .img-spaghetti {
-    width: 100px;
+  width: 100%;
 }
 
 .card-title {
-    font-size: 1rem;
-    margin-top: 20px;
+  font-size: 1rem;
+  margin-bottom: 10px;
 }
 
 .card-text {
-    margin-top: 5px;
-    font-size: 1rem;
-    text-align: center;
+  /* margin-top: 5px; */
+  font-size: 1rem;
+  text-align: center;
+  color: #777;
 }
 
 .find-btn {
-    background-color: #fff;
-    color: #000;
-    border: 3px solid var(--primaryColor);
-    padding: 7px 10px;
-    width: auto;
-    text-transform: uppercase;
-    margin-bottom: 80px;
-    outline-color: #F1935C;
+  background-color: var(--primaryColor);
+  color: white;
+  /* border: 2.0px solid var(--primaryColor); */
+  padding: 13px 20px;
+  width: auto;
+  text-transform: uppercase;
+  font-size: 18px;
+  border-radius: 7px;
 }
 
 .find-btn:hover {
-    background-color: var(--primaryColor);
-    color: #fff;
-    transition: 0.2s linear;
-    transform: scale(1.1);
+  background-color: var(--primaryColor);
+  /* color: black; */
+  transition: 0.1s linear;
+  transform: scale(1.1);
+  cursor: pointer;
 }
 
-@media (min-width: 768px) and (max-width: 992px) {
+@media (max-width: 414px) {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  .title {
+    font-size: 80px;
+    text-align: center;
+    line-height: 110px;
+  }
+  .text p {
+    font-size: 23px;
+    animation: none;
+  }
+  .title-how {
+    font-size: 50px;
+    margin: 50px 0;
+  }
+  .works {
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    margin-bottom: 0;
+  }
+  .card {
+    width: 80%;
+    max-width: none;
+  }
+  .card:hover {
+    box-shadow: none;
+  }
+  .card-title {
+    font-size: 20px;
+    margin: 10px 0;
+  }
+  .card-text {
+    font-size: 18px;
+  }
+  
+
+  footer h1 {
+    display: none;
+  }
+}
+
+/* @media (min-width: 768px) and (max-width: 992px) {
     .find-btn {
         margin-top: 90px;
     }
@@ -383,4 +451,4 @@ body{
     .img-spaghetti {
         width: 50px;
     }
-}
+} */

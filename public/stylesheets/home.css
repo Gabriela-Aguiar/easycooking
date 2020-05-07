@@ -118,7 +118,7 @@
     padding: 10px 16px;
     width: auto;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 16px;
     color: #fff;
     line-height: 16px;
     letter-spacing: 0.5px;
@@ -135,13 +135,14 @@
 
 .autocomplete span{
     border-radius: 25px;
-    padding: 5px 5px;
+    padding: 10px 10px;
     background-color: rgba(255, 255, 255, 0.9);
     margin: 15px 15px;
     cursor: pointer;
     font-family: Arial, Helvetica, sans-serif;
     color: var(--primaryColor);
-    font-size: 20px;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 
