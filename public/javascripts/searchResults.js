@@ -13,7 +13,6 @@ document.querySelectorAll( '.btn-like' ).forEach( elem => {
 				if(classId.classList.contains('liked-recipe')) {
 					elem.disabled = true
 				}
-
 				console.log( document.getElementById( `i-${id}` ).textContent )
 			} )
 			.catch( error => console.log( error ) )

@@ -1,174 +1,186 @@
-@import url('https://fonts.googleapis.com/css?family=Baloo+Paaji+2|Pacifico&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Baloo+Paaji+2|Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 
 * {
-    margin: 0;
+  margin: 0;
 }
 
-body{
-    font-size: 10px;
+body {
+  font-size: 10px;
 }
 
-
-:root{
-    --primaryColor: #F1935C;
+:root {
+  --primaryColor: #f1935c;
 }
 
 * {
-    font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
-.html{
-    font-size: 10px;
+.html {
+  font-size: 10px;
 }
 
 .principal {
-    background-image: url('/images/chefs1.jpg');
-    height: 80vh;
-    background-position: top;
-    background-size: cover;
+  background-image: url("/images/chefs1.jpg");
+  height: 80vh;
+  background-position: top;
+  background-size: cover;
 }
 
 .transparency {
-    background-color: rgba(0, 0, 0, 0.6);
-    height: 80vh;
-    width: 100vw;
-    display: flex;
-	flex-direction: column;
-	justify-content: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 80vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
+/* .about-us{
+    max-width: 1500px;
+    width: 90vw;
+} */
 .title {
-    font-size: 10rem;
-    font-family: 'Pacifico', cursive;
-    color: #fff;
-    text-shadow: 5px 5px 5px var(--primaryColor);
-    margin-top: 100px;
-    margin-bottom:50px;
-    text-align: center;
-}
-
-.about-us {
-    height: 90vh;
+  font-size: 10rem;
+  font-family: "Pacifico", cursive;
+  color: #fff;
+  text-shadow: 5px 5px 5px var(--primaryColor);
+  text-align: center;
 }
 
 .about-title {
-    font-size: 3rem;
-    color: var(--primaryColor);
-    text-align: center;
-    margin-top: 50px;
+  font-size: 3rem;
+  color: var(--primaryColor);
+  text-align: center;
+  margin-top: 50px;
 }
 
 .about-title::after {
-    content: '';
-    height: 4px;
-    width: 20%;
-    background: var(--primaryColor);
-    display: block;
-    margin: 10px auto;
+  content: "";
+  height: 4px;
+  width: 20%;
+  background: var(--primaryColor);
+  display: block;
+  margin: 10px auto;
 }
 
 .us {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .profile {
-    display: flex;
-    flex-direction: row;
-    background: white;
-    font-family: roboto;
-    text-align: center;
-    margin:30px;
-    width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background: white;
+  font-family: roboto;
+  text-align: center;
+  margin: 30px;
 }
 
 .card-gabriela {
-    margin-top: 50px;
+  margin-top: 50px;
 }
 
-.gabi{
-    margin-left: 20px;
+.card-hover:hover {
+  box-shadow: 0 2px 6px rgba(241, 147, 92, 0.726), 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: 0.2s ease-in-out;
+  cursor: default;
+  border-radius: 25px;
 }
 
-.card-pedro {
-    margin-left: 100px
+.title-link {
+  text-decoration: none;
+  display: inline-block;
+  color: black;
+}
+
+.title-link:hover {
+  transform: translateY(5px);
+}
+
+.gabi {
+  margin-left: 20px;
 }
 
 .card-image {
-    width: 180px;
-    height: 250px;
-    border-radius: 10px;
+  width: 180px;
+  height: 250px;
+  border-radius: 10%;
 }
 
 .card-info {
-    width: 80vw
+  width: 100vw;
+  margin-right: 20px;
 }
 
 .card-title {
-    margin-top:0px;
-    font-size:2rem;
-    width: 100%;
-    font-family: 'Pacifico', cursive;
-    margin-bottom: 20px;
+  margin-top: 0px;
+  font-size: 2rem;
+  width: 100%;
+  font-family: "Pacifico", cursive;
+  margin-bottom: 20px;
 }
 
 .card-text {
-    width: 100%;
-    font-size: 1rem;
-}
- 
-@media (min-width: 768px) and (max-width: 992px) {
-    .title{
-        font-size: 8rem;
-    }
-    .about-title {
-        margin-top: 0;
-    }
-    .about-us {
-        height: 100vh;
-    }
-    .card-text {
-        font-size: 0.8rem;
-    }
-    .card-pedro {
-        margin-left: 70px
-    }
+  width: 100%;
+  font-size: 1rem;
+  /* max-width: 1000px; */
 }
 
-@media (min-width: 630px) and (max-width: 768px) {
-    .title{
-        font-size: 8rem;
-    }
-    .about-title {
-        margin-top: 0;
-    }
-    .about-us {
-        height: 100vh;
-    }
-    .card-text {
-        font-size: 0.8rem;
-    }
-    .card-pedro {
-        margin-left: 50px
-    }
-}
+@media (max-width: 414px) and (min-width: 360px) {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  .title {
+    font-size: 100px;
+    text-align: center;
+  }
+  .about-title{
+      font-size: 50px;
+  }
+  .card-gabriela{
 
-
-@media (min-width: 576px) and (max-width: 630px) {
-    .title{
-        font-size: 8rem;
-    }
-    .about-title {
-        margin-top: 0;
-    }
-    .about-us {
-        height: 100vh;
-    }
-    .card-text {
-        font-size: 0.8rem;
-    }
-    .card-pedro {
-        margin-left: 50px
-    }
+  }
+  .card-hover:hover{
+      display: none;
+  }
+  .card-text{
+      width: auto;
+      font-size: 18px;
+  }
+  .card-gabriela{
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+  }
+  .about-title{
+      margin-top: 20px
+  }
+  .card-image{
+      width: 270px;
+      height: 340px;
+  }
+  .card-title{
+      font-size: 50px;
+  }
+  .gabi{
+      margin: 0 10px;
+  }
+    .card-info{
+      margin: 0 10px;
+  }
+    footer h1 {
+    display: none;
+  }
 }
