@@ -203,3 +203,9 @@ a {
     height: 250px;
   }
 }
+
+@media (max-width: 414px){
+  .myRecipes-title::after{
+    display: none;
+  }
+}

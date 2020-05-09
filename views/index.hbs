@@ -29,7 +29,7 @@
             <a href="/about" class="side-item nav-a">About Us</a>
             <a href="/allrecipes" class="side-item nav-a">Explore Recipes</a>
             <a href="/home" class="side-item nav-a">Search by Ingredient</a>
-            <button class="sign-btn side-item nav-a"><a href="/login" class="btn-text">Login / Sign Up</a></button>
+            <button class="sign-btn c"><a href="/login" class="btn-text">Login / Sign Up</a></button>
         </div>
     </nav>
     <div class="principal">
@@ -111,14 +111,7 @@
         <p> &copy 2020 Copyright: Gabriela Aguiar e Pedro Siqueira</p>
     </div>
 
-    <script>
-        document.querySelector('.menu').addEventListener('click', () => {
-            document.querySelector('.side-menu').classList.toggle('show')
-            document.querySelector('.first').classList.toggle('start')
-            document.querySelector('.second').classList.toggle('middle')
-            document.querySelector('.third').classList.toggle('end')
-        })
-    </script>
+    <script src="/javascripts/hamburguer.js"></script>
 
 </body>
 

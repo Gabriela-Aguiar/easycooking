@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Baloo+Paaji+2|Pacifico&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css");
-@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Patua+One&display=swap");
 * {
   margin: 0;
 }
@@ -145,6 +145,10 @@ a {
   max-width: 900px;
 }
 
+.form-mobile {
+  display: none;
+}
+
 @media (min-width: 768px) and (max-width: 992px) {
   .instructions {
     max-width: 600px;
@@ -194,6 +198,15 @@ a {
 }
 
 @media (max-width: 414px) {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+  }
   .recipe-card {
     flex-direction: column;
     justify-content: center;
@@ -214,6 +227,7 @@ a {
   .recipe-copy {
     justify-content: center;
     width: 100%;
+    margin-top: 0;
   }
   .ingredients::after {
     width: 80%;
@@ -224,6 +238,18 @@ a {
 
   .instr-text {
     max-width: 80%;
+  }
+
+  .form-mobile {
+    display: block;
+  }
+
+  .form-web {
+    display: none;
+  }
+
+  .recipe {
+    margin-top: 53px;
   }
 
   footer h1 {
