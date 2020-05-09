@@ -195,22 +195,37 @@
     text-align: center;
   }
 
-  .search-group {
-    width: 400px;
-  }
-  /* .search-options {
+  .autocomplete {
     display: flex;
     flex-direction: row;
-  } */
-  .autocomplete span {
-    margin: 0;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
     font-size: 12px;
   }
-  /* .tags {
-    margin-top: 0px;
-    height: 0px;
-  } */
+
+  .autocomplete span {
+    display: block;
+    margin: 2px 5px
+  }
+
+  .search-group{
+    max-width: 90%;
+  }
+
   footer h1 {
     display: none;
+  }
+  .search-group{
+    width: 100%;
+  }
+
+  .tags{
+    width: 100vw;
+  }
+  .tag{
+    letter-spacing: 0;
+    margin: 0 5px;
   }
 }

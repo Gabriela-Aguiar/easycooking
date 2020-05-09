@@ -7,8 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="icon" href="/images/whisk.png" type="image">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" href="/stylesheets/nav.css">
     <link rel="stylesheet" href="stylesheets/style.css">
     <link rel="stylesheet" href="stylesheets/myRecipes.css">
@@ -25,9 +23,29 @@
             <button class="nav-btn">My Account</button>
             <div class="dropdown-content">
                 <button class="drop-btn" id="first"><a href="/my-account/{{user._id}}">Account</a></button>
-                <button class="drop-btn" id="second"><a href="/my-recipes">My Recipes</a></button>
+                <button class="drop-btn" id="second"><a href="/my-recipes">My recipes</a></button>
                 <button class="drop-btn" id="third"><a href="/add-recipe">Add recipe</a></button>
                 <button class="drop-btn" id="fourth"><a href="/logout">Logout</a></button>
+            </div>
+        </div>
+        <div class="menu">
+            <div class="hamburguer first"></div>
+            <div class="hamburguer second"></div>
+            <div class="hamburguer third"></div>
+        </div>
+        <div class="side-menu hide">
+            <a href="/" class="side-item nav-a">Easy Cooking</a>
+            <a href="/about" class="side-item nav-a">About Us</a>
+            <a href="/allrecipes" class="side-item nav-a">Explore Recipes</a>
+            <a href="/home" class="side-item nav-a">Search by Ingredient</a>
+            <div class="dropdown">
+                <button class="nav-btn side-item nav-a">My Account</button>
+                <div class="dropdown-content">
+                    <button class="drop-btn" id="first"><a href="/my-account/{{user._id}}">Account</a></button>
+                    <button class="drop-btn" id="second"><a href="/my-recipes">My recipes</a></button>
+                    <button class="drop-btn" id="third"><a href="/add-recipe">Add recipe</a></button>
+                    <button class="drop-btn" id="fourth"><a href="/logout">Logout</a></button>
+                </div>
             </div>
         </div>
     </nav>
@@ -102,6 +120,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/flickity@2.0/dist/flickity.min.css">
     <script src="https://unpkg.com/flickity@2.0/dist/flickity.pkgd.min.js"></script>
+    <script src="/javascripts/hamburguer.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </body>
 
 </html>

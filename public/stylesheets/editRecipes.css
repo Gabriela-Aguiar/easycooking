@@ -245,6 +245,11 @@ a {
 
   h1 {
     font-size: 40px;
+    margin: 0;
+  }
+
+  .recipe{
+    margin-top: 0px;
   }
 
   .recipe-summary {

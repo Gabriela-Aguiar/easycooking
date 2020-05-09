@@ -168,7 +168,8 @@ nav {
 
 @media (max-width: 414px) {
   nav > a,
-  nav > button {
+  nav > button,
+  nav > .dropdown {
     display: none;
   }
   nav {

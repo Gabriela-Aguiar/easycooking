@@ -20,12 +20,32 @@
         <a href="/allrecipes" class="nav-a">Explore Recipes</a>
         <a href="/home" class="nav-a">Search by Ingredient</a>
         <div class="dropdown">
-            <a href="/#"><button class="nav-btn">My Account</button></a>
+            <button class="nav-btn">My Account</button>
             <div class="dropdown-content">
                 <button class="drop-btn" id="first"><a href="/my-account/{{user._id}}">Account</a></button>
-                <button class="drop-btn" id="second"><a href="/my-recipes">My Recipes</a></button>
+                <button class="drop-btn" id="second"><a href="/my-recipes">My recipes</a></button>
                 <button class="drop-btn" id="third"><a href="/add-recipe">Add recipe</a></button>
                 <button class="drop-btn" id="fourth"><a href="/logout">Logout</a></button>
+            </div>
+        </div>
+        <div class="menu">
+            <div class="hamburguer first"></div>
+            <div class="hamburguer second"></div>
+            <div class="hamburguer third"></div>
+        </div>
+        <div class="side-menu hide">
+            <a href="/" class="side-item nav-a">Easy Cooking</a>
+            <a href="/about" class="side-item nav-a">About Us</a>
+            <a href="/allrecipes" class="side-item nav-a">Explore Recipes</a>
+            <a href="/home" class="side-item nav-a">Search by Ingredient</a>
+            <div class="dropdown">
+                <button class="nav-btn side-item nav-a">My Account</button>
+                <div class="dropdown-content">
+                    <button class="drop-btn" id="first"><a href="/my-account/{{user._id}}">Account</a></button>
+                    <button class="drop-btn" id="second"><a href="/my-recipes">My recipes</a></button>
+                    <button class="drop-btn" id="third"><a href="/add-recipe">Add recipe</a></button>
+                    <button class="drop-btn" id="fourth"><a href="/logout">Logout</a></button>
+                </div>
             </div>
         </div>
     </nav>
@@ -104,6 +124,7 @@
     <div class="copy">
         <p> &copy 2020 Copyright: Gabriela Aguiar e Pedro Siqueira</p>
     </div>
+    <script src="/javascripts/hamburguer.js"></script>
 </body>
 
 </html>
