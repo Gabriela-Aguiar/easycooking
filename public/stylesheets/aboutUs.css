@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Baloo+Paaji+2|Pacifico&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
 
 * {
   margin: 0;
@@ -50,16 +51,17 @@ body {
 }
 
 .about-title {
-  font-size: 3rem;
+  font-family: 'Patua One', cursive;
+  font-size: 4rem;
   color: var(--primaryColor);
   text-align: center;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 .about-title::after {
   content: "";
   height: 4px;
-  width: 20%;
+  width: 260px;
   background: var(--primaryColor);
   display: block;
   margin: 10px auto;
@@ -185,5 +187,8 @@ body {
   }
   footer h1 {
     display: none;
+  }
+  .about-title::after{
+    width: 50%;
   }
 }
