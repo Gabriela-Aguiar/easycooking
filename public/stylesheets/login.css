@@ -284,7 +284,46 @@ body {
   }
 
   input {
-    width: 250px;;
+    width: 250px;
+  }
+}
+
+@media (max-width: 414px){
+  .title{
+    font-size: 60px;
+    text-align: center;
+  }
+
+  .content{
+    width: auto;
+    margin-left: 0;
+    position: static;
+  }
+
+  h2{
+    text-align: center;
+  }
+
+  input{
+    max-width: 80%;
+  }
+
+  .form-group{
+    margin-left: 25px;
+  }
+
+  #signUp{
+    margin-left: 10px;
+  }
+  #goLeft {
+    margin: 0;
+  }
+
+  #login{
+    margin-left: 10px;
+  }
+  #goRight{
+    margin: 0;
   }
 }
 
