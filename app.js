@@ -16,7 +16,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const flash = require("connect-flash");
 const auth = require('./routes/auth.routes')
-const User = require( './models/users' )
+const User = require( './Models/users' )
 
 //database information
 const mongoose = require( 'mongoose' )

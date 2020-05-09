@@ -8,7 +8,7 @@ var cookieParser = require( 'cookie-parser' );
 var logger = require( 'morgan' );
 var app = express();
 var indexRouter = require( './routes/index' );
-var usersRouter = require( './models/users' );
+var usersRouter = require( './Models/users' );
 const session    = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 

@@ -1,4 +1,4 @@
-const User = require("../models/users");
+const User = require("../Models/users");
 const passport = require("passport");
 const bcrypt = require("bcrypt");
 const sendEmail = require("../helpers/sendEmail");
