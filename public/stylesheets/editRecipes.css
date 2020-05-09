@@ -1,241 +1,289 @@
-@import url('https://fonts.googleapis.com/css?family=Baloo+Paaji+2|Pacifico&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css');
-
+@import url("https://fonts.googleapis.com/css?family=Baloo+Paaji+2|Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css");
 
 * {
-    margin: 0;
+  margin: 0;
 }
 
-body{
-    font-size: 10px;
+body {
+  font-size: 10px;
 }
 
-:root{
-    --primaryColor: #F1935C;
+:root {
+  --primaryColor: #f1935c;
 }
 
 .recipe-copy {
-    display: flex;
-    justify-content: flex-end;
-    width: 85%;
-    margin-top: 30px;
+  display: flex;
+  justify-content: flex-end;
+  width: 85%;
+  margin-top: 30px;
 }
 
-.recipeCopy-btn{
-    background: var(--primaryColor);
-    padding: 7px 10px;
-    width: auto;
-    text-transform:  uppercase;
-    border-radius: 4px;
-    color: #fff;
-    cursor: pointer; 
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.1);
-    border: 0;
-    outline: 0;
+.recipeCopy-btn {
+  background: var(--primaryColor);
+  padding: 7px 10px;
+  width: auto;
+  text-transform: uppercase;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
+  border: 0;
+  outline: 0;
 }
 
 .recipeCopy-btn:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .recipe {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 .recipe-title {
-    text-align: center;
-    color: var(--primaryColor);
-    font-size: 1.5rem;
-    font-family: 'Pacifico', cursive;
+  text-align: center;
+  color: var(--primaryColor);
+  font-size: 1.5rem;
+  font-family: "Pacifico", cursive;
 }
 
 .recipe-card {
-    display: flex;
-    margin: 40px;
-    justify-content: center;
+  display: flex;
+  margin: 40px;
+  justify-content: center;
 }
 
-
 .recipe-info {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .recipe-image {
-    width: 350px;
+  width: 350px;
 }
 
 .recipe-details {
-    display: flex;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 0.8rem;
-    justify-content: space-around;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.8rem;
+  justify-content: space-around;
 }
 
 .recipe-summary {
-    max-width: 600px;
-    margin-left: 30px;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1rem;
+  max-width: 600px;
+  margin-left: 30px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
 }
 
-
 .ingredients {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
 }
 
 .ingredients h1 {
-    color: var(--primaryColor);
-    margin-bottom: 20px;
+  color: var(--primaryColor);
+  margin-bottom: 20px;
 }
 
 .ingredients::before {
-    content: '';
-    height: 4px;
-    width: 70%;
-    background: var(--primaryColor);
-    display: block;
-    margin: 10px auto;
+  content: "";
+  height: 4px;
+  width: 70%;
+  background: var(--primaryColor);
+  display: block;
+  margin: 10px auto;
 }
 
 .instructions {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1rem;
-    margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  margin-bottom: 40px;
 }
 
 .instructions h1 {
-    color: var(--primaryColor);
-    margin-bottom: 20px;
+  color: var(--primaryColor);
+  margin-bottom: 20px;
 }
 
 .ingredients::after {
-    content: '';
-    height: 4px;
-    width: 70%;
-    background: var(--primaryColor);
-    display: block;
-    margin: 20px auto;
+  content: "";
+  height: 4px;
+  width: 70%;
+  background: var(--primaryColor);
+  display: block;
+  margin: 20px auto;
 }
 
 .instr-text {
-    text-align: justify;
-    max-width: 70%;
+  text-align: justify;
+  max-width: 70%;
 }
 
 #icon {
-    font-size: 17px;
-    margin-top: 10px;
+  font-size: 17px;
+  margin-top: 10px;
 }
 
 a {
-    text-decoration: none;
-    color: var(--primaryColor);
+  text-decoration: none;
+  color: var(--primaryColor);
 }
 
 #edit-summary {
-    position: absolute;
-    right: 15%;
-    font-size: 19px;
+  position: absolute;
+  right: 15%;
+  font-size: 19px;
 }
 
 #edit-summary:hover {
-    cursor: pointer;
-    transform: scale(1.1);
-    color: var(--primaryColor);
+  cursor: pointer;
+  transform: scale(1.1);
+  color: var(--primaryColor);
 }
 
 .input-summary {
-    height: 200px;
-
+  height: 200px;
 }
 
 .orange-header {
-    background-color: var(--primaryColor);
-    color: #fff;
+  background-color: var(--primaryColor);
+  color: #fff;
 }
 
 .x-btn {
-    margin-right: 15px;
+  margin-right: 15px;
 }
 
 .x-btn:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .save-btn {
-    background: var(--primaryColor);
-    padding: 7px 10px;
-    width: auto;
-    text-transform:  uppercase;
-    border-radius: 4px;
-    color: #fff;
-    cursor: pointer; 
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.1);
-    border: 0;
-    outline: 0;
+  background: var(--primaryColor);
+  padding: 7px 10px;
+  width: auto;
+  text-transform: uppercase;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
+  border: 0;
+  outline: 0;
 }
 
 .save-btn:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
-    .instructions {
-        max-width: 600px;
-        text-align: center;
-        margin-left: 50px;
-    }
+  .instructions {
+    max-width: 600px;
+    text-align: center;
+    margin-left: 50px;
+  }
 }
 
 @media (min-width: 630px) and (max-width: 768px) {
-    .instructions {
-        max-width: 600px;
-        text-align: center;
-        margin-left: 50px;
-    }
-    .recipe-image {
-        width: 200px;
-    }
-    #icon {
-        font-size: 0.7rem;
-    }
-    p {
-        font-size: 13px;
-    }
-    .ingredients {
-        font-size: 0.8rem;
-    }
+  .instructions {
+    max-width: 600px;
+    text-align: center;
+    margin-left: 50px;
+  }
+  .recipe-image {
+    width: 200px;
+  }
+  #icon {
+    font-size: 0.7rem;
+  }
+  p {
+    font-size: 13px;
+  }
+  .ingredients {
+    font-size: 0.8rem;
+  }
 }
 
-
 @media (min-width: 576px) and (max-width: 630px) {
-    .instructions {
-        max-width: 600px;
-        text-align: center;
-        margin-left: 50px;
-    }
-    .recipe-image {
-        width: 200px;
-    }
-    #icon {
-        font-size: 0.7rem;
-    }
-    p {
-        font-size: 13px;
-    }
-    .ingredients {
-        font-size: 0.8rem;
-    }
+  .instructions {
+    max-width: 600px;
+    text-align: center;
+    margin-left: 50px;
+  }
+  .recipe-image {
+    width: 200px;
+  }
+  #icon {
+    font-size: 0.7rem;
+  }
+  p {
+    font-size: 13px;
+  }
+  .ingredients {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 414px) {
+  .recipe-card {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  .recipe-summary {
+    margin-left: 0px;
+    margin-top: 10px;
+    text-align: justify;
+  }
+
+  .recipe-copy {
+    justify-content: center;
+    width: 100%;
+  }
+  .ingredients::after {
+    width: 80%;
+  }
+  .ingredients::before {
+    width: 80%;
+  }
+
+  .instr-text {
+    max-width: 80%;
+  }
+
+  footer h1 {
+    display: none;
+  }
+
+  #edit-summary {
+    left: 15%;
+  }
+
+  textarea {
+    max-width: 360px;
+  }
+
+  .input-amount {
+    max-width: 50px;
+  }
+  .ingredients-input {
+    padding-left: 110px
+  }
 }
