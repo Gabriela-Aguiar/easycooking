@@ -197,3 +197,21 @@ figure:hover img {
 		grid-template-rows: 180px 100px 80px;
 	}
 }
+
+@media (max-width: 414px) {
+	.title{
+		font-size: 100px;
+	}
+
+	.recipe-results::after{
+		display: none;
+	}
+
+	.card-container-recipe{
+		margin-top: 80px;
+	}
+	  footer h1 {
+    display: none;
+  }
+
+}
