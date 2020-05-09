@@ -131,7 +131,7 @@ body {
   /* max-width: 1000px; */
 }
 
-@media (max-width: 414px) and (min-width: 360px) {
+@media (max-width: 414px) {
   html,
   body {
     margin: 0;
@@ -145,42 +145,45 @@ body {
     font-size: 100px;
     text-align: center;
   }
-  .about-title{
-      font-size: 50px;
+  .about-title {
+    font-size: 50px;
   }
-  .card-gabriela{
-
+  .card-gabriela {
   }
-  .card-hover:hover{
-      display: none;
+  .card-hover:hover {
+    display: none;
   }
-  .card-text{
-      width: auto;
-      font-size: 18px;
+  .card-text {
+    width: auto;
+    font-size: 18px;
+    margin: 0 10px;
   }
-  .card-gabriela{
-      flex-direction: column;
-      justify-content: center;
-      align-content: center;
-      align-items: center;
+  .card-gabriela {
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
   }
-  .about-title{
-      margin-top: 20px
+  .card-pedro {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
   }
-  .card-image{
-      width: 270px;
-      height: 340px;
+  .about-title {
+    margin-top: 20px;
   }
-  .card-title{
-      font-size: 50px;
+  .card-image {
+    width: 270px;
+    height: 340px;
   }
-  .gabi{
-      margin: 0 10px;
+  .card-title {
+    font-size: 50px;
   }
-    .card-info{
-      margin: 0 10px;
+  .card-info {
+    margin: 0 10px;
   }
-    footer h1 {
+  footer h1 {
     display: none;
   }
 }
