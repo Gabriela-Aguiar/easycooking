@@ -45,7 +45,8 @@
                 }
             </style>
             <h1>{{this.title}}</h1>
-            <button onclick="document.getElementById('id01').style.display='block'" type="hidden"><i class="fas fa-pencil-alt" id="edit-summary"></i></button>
+            <button onclick="document.getElementById('id01').style.display='block'" type="hidden"><i
+                    class="fas fa-pencil-alt" id="edit-summary"></i></button>
         </div>
     </div>
     <div id="id01" class="w3-modal">
@@ -64,21 +65,21 @@
 
             <div id="London" class="w3-container city">
                 <form action="/edit-recipes?id={{id}}" method="POST">
-                <input type="hidden" value="{{id}}">
-                <textarea cols="140" rows="10" name="summary">{{summary}}</textarea>
+                    <input type="hidden" value="{{id}}">
+                    <textarea cols="140" rows="10" name="summary">{{summary}}</textarea>
             </div>
-            <div id="Paris" class="w3-container city">
+            <div id="Paris" class="w3-container city ingredients-input">
                 {{#each extendedIngredients}}
-                <input type="text" value="{{amount}}" name="amount">
-                <input type="text" value="{{unit}}" name="unit">
-                <input type="text" value="{{name}}" name="name">
+                <input class="input-amount" type="text" value="{{amount}}" name="amount">
+                <input class="input-amount" type="text" value="{{unit}}" name="unit">
+                <input class="input-amount" type="text" value="{{name}}" name="name">
                 <br>
                 {{/each}}
             </div>
 
             <div id="Tokyo" class="w3-container city">
                 <br>
-                 <textarea cols="140" rows="10" name="instructions">{{instructions}}</textarea>
+                <textarea cols="140" rows="10" name="instructions">{{instructions}}</textarea>
                 <br>
             </div>
             <div class="w3-container w3-light-grey w3-padding">
@@ -139,8 +140,10 @@
                 </div>
                 <div class="pedro">
                     <p>Pedro</p>
-                    <a href="https://www.linkedin.com/in/pedrovsiqueira/"><i class="fa fa-linkedin socialMedia" class="footer-a"></i></a>
-                    <a href="https://github.com/pedrovsiqueira/easycooking" class="footer-a"><i class="fa fa-github socialMedia"></i></a>
+                    <a href="https://www.linkedin.com/in/pedrovsiqueira/"><i class="fa fa-linkedin socialMedia"
+                            class="footer-a"></i></a>
+                    <a href="https://github.com/pedrovsiqueira/easycooking" class="footer-a"><i
+                            class="fa fa-github socialMedia"></i></a>
                 </div>
             </div>
         </div>
@@ -148,7 +151,7 @@
             <h2>Links</h2>
             <p><a href="/" class="footer-a">Easy Cooking</a></p>
             <p><a href="/about" class="footer-a">About Us</a></p>
-            <p><a href="/allrecipes" class="footer-a"Explore recipes</a></p>
+            <p><a href="/allrecipes" class="footer-a" Explore recipes</a></p>
             <p><a href="/login" class="footer-a">Sign up</a></p>
         </div>
     </footer>
