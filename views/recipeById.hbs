@@ -35,7 +35,7 @@
     {{#with recipeObjectFromAPI}}
     <div class="recipe-copy">
         <form action="/recipes-copy" method="GET">
-        <input type="hidden" value="{{id}}" name="id">
+            <input type="hidden" value="{{id}}" name="id">
             <button class="recipeCopy-btn">Copy recipe</button>
         </form>
     </div>
@@ -71,35 +71,41 @@
             {{#if instructions}}
             <p class="instr-text">{{{instructions}}}</p>
             {{else}}
-            <p class="instructions-default">Unfortunately we do not have instructions on how to prepare the recipe above in our database. If you have any idea on how to prepare the recipe please contact us. You can also copy the recipe and add your own instructions.</p>
+            <p class="instructions-default">Unfortunately we do not have instructions on how to prepare the recipe above
+                in our database. If you have any idea on how to prepare the recipe please contact us. You can also copy
+                the recipe and add your own instructions.</p>
             {{/if}}
         </div>
         {{/with}}
     </div>
     <footer>
-        <h1>Easy Cooking</h1>
         <div>
             <h2>Contact</h2>
             <div class="contact">
                 <style>
                     @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css');
+
                     .socialMedia {
                         font-size: 20px
                     }
                 </style>
                 <div class="gabriela">
                     <p>Gabriela</p>
-                    <a href="https://www.linkedin.com/in/gabyaguiar/" class="footer-a"><i class="fa fa-linkedin socialMedia"></i></a>
+                    <a href="https://www.linkedin.com/in/gabyaguiar/" class="footer-a"><i
+                            class="fa fa-linkedin socialMedia"></i></a>
                     <a href="https://github.com/Gabriela-Aguiar/easycooking" class="footer-a"><i
                             class="fa fa-github socialMedia"></i></a>
                 </div>
                 <div class="pedro">
                     <p>Pedro</p>
-                    <a href="https://www.linkedin.com/in/pedrovsiqueira/" class="footer-a"><i class="fa fa-linkedin socialMedia"></i></a>
-                    <a href="https://github.com/pedrovsiqueira/easycooking" class="footer-a"><i class="fa fa-github socialMedia"></i></a>
+                    <a href="https://www.linkedin.com/in/pedrovsiqueira/" class="footer-a"><i
+                            class="fa fa-linkedin socialMedia"></i></a>
+                    <a href="https://github.com/pedrovsiqueira/easycooking" class="footer-a"><i
+                            class="fa fa-github socialMedia"></i></a>
                 </div>
             </div>
         </div>
+        <h1>Easy Cooking</h1>
         <div class="links">
             <h2>Links</h2>
             <p><a href="/" class="footer-a">Easy Cooking</a></p>

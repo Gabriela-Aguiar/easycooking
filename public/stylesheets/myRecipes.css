@@ -1,24 +1,25 @@
-@import url('https://fonts.googleapis.com/css?family=Baloo+Paaji+2|Pacifico&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,600,700|Work+Sans:100,200,300,400,500,600');
+@import url("https://fonts.googleapis.com/css?family=Baloo+Paaji+2|Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,600,700|Work+Sans:100,200,300,400,500,600");
 @import url("https://fonts.googleapis.com/css?family=Hind:400,700");
+@import url("https://fonts.googleapis.com/css2?family=Patua+One&display=swap");
 
-:root{
-  --primaryColor: #F1935C;
+:root {
+  --primaryColor: #f1935c;
 }
 
 * {
   margin: 0;
 }
 
-body{
+body {
   font-size: 10px;
 }
 
 .div-photo {
-  background-image: url('/images/book.webp');
-  background-repeat:no-repeat;
-  background-size:cover;
+  background-image: url("/images/book.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
   background-position: center;
   height: 70vh;
 }
@@ -28,12 +29,12 @@ body{
   height: 70vh;
   width: 100vw;
   display: flex;
-	flex-direction: column;
-	justify-content: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .title {
-  font-family: 'Pacifico', cursive;
+  font-family: "Pacifico", cursive;
   font-size: 7rem;
   text-shadow: 5px 5px 5px var(--primaryColor);
   text-align: center;
@@ -43,40 +44,41 @@ body{
 
 .myRecipes-title {
   text-align: center;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 3rem;
+  font-family: "Patua One", cursive;
+  font-size: 4rem;
   color: var(--primaryColor);
-  margin-top: 20px
+  margin-top: 20px;
 }
 
 .myRecipes-title::after {
-  content: '';
-  height: 2px;
-  width: 20%;
+  content: "";
+  height: 4px;
+  width: 510px;
   background: var(--primaryColor);
   display: block;
   margin: 10px auto;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
 }
-  
+
 img {
   max-width: 100%;
   height: auto;
   display: block;
 }
-  
+
 h3 {
   text-align: center;
   font-size: 1.2rem;
   margin-bottom: 10px;
   color: var(--primaryColor);
-  font-family: 'Pacifico', cursive;
+  font-family: "Pacifico", cursive;
 }
 
 a {
@@ -99,7 +101,7 @@ a {
 
 .carousel-wrapper .carousel .carousel-cell {
   padding: 10px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   width: 20%;
   height: 350px;
   min-width: 120px;
@@ -107,7 +109,7 @@ a {
   transition: transform 500ms ease;
   border-radius: 18px;
   background: white;
-  box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
 }
 .carousel-wrapper .carousel .carousel-cell .more {
   display: block;
@@ -115,12 +117,15 @@ a {
   margin: 5px 0 15px 0;
   text-align: center;
   font-size: 10px;
-  color: #CFCFCF;
+  color: #cfcfcf;
   text-decoration: none;
   transition: opacity 300ms ease;
 }
-.carousel-wrapper .carousel .carousel-cell .more:hover, .carousel-wrapper .carousel .carousel-cell .more:active, .carousel-wrapper .carousel .carousel-cell .more:visited, .carousel-wrapper .carousel .carousel-cell .more:focus {
-  color: #CFCFCF;
+.carousel-wrapper .carousel .carousel-cell .more:hover,
+.carousel-wrapper .carousel .carousel-cell .more:active,
+.carousel-wrapper .carousel .carousel-cell .more:visited,
+.carousel-wrapper .carousel .carousel-cell .more:focus {
+  color: #cfcfcf;
   text-decoration: none;
 }
 .carousel-wrapper .carousel .carousel-cell .price sup {
@@ -135,7 +140,8 @@ a {
   display: none;
 }
 
-.carousel-wrapper .flickity-viewport, .carousel-wrapper .flickity-slider {
+.carousel-wrapper .flickity-viewport,
+.carousel-wrapper .flickity-slider {
   overflow: visible;
 }
 
@@ -147,7 +153,7 @@ a {
   left: 30%;
 }
 
-.edit-recipe-btn{
+.edit-recipe-btn {
   margin-top: 10px;
   margin-left: 10px;
   background: var(--primaryColor);
@@ -156,8 +162,8 @@ a {
   text-transform: uppercase;
   border-radius: 4px;
   color: #fff;
-  cursor: pointer; 
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.1);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
   border: 0;
   outline: 0;
 }
@@ -188,7 +194,6 @@ a {
     height: 250px;
   }
 }
-
 
 @media (min-width: 576px) and (max-width: 630px) {
   .button {

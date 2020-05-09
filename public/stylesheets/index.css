@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Baloo+Paaji+2|Pacifico&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Patua+One&display=swap");
 
 * {
   margin: 0;
@@ -78,16 +79,17 @@ body {
   width: 100%;
 }
 
-.div-all a{
+.div-all a {
   margin-bottom: 80px;
 }
 
 .title-how {
   text-align: center;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Patua One", cursive;
   margin-top: 10px;
   font-size: 4rem;
   margin-bottom: 120px;
+  color: #222;
 }
 
 .works {
@@ -155,18 +157,18 @@ body {
 .find-btn {
   background-color: var(--primaryColor);
   color: white;
-  /* border: 2.0px solid var(--primaryColor); */
   padding: 13px 20px;
   width: auto;
   text-transform: uppercase;
   font-size: 18px;
   border-radius: 7px;
+  transition: 0.3s linear;
+  border: none;
 }
 
 .find-btn:hover {
   background-color: var(--primaryColor);
-  /* color: black; */
-  transition: 0.1s linear;
+  transition: 0.3s linear;
   transform: scale(1.1);
   cursor: pointer;
 }
@@ -191,7 +193,7 @@ body {
     animation: none;
   }
   .title-how {
-    font-size: 50px;
+    font-size: 60px;
     margin: 50px 0;
   }
   .works {
@@ -216,17 +218,15 @@ body {
   }
 
   .div-all a {
-      margin-bottom: 53px;
+    margin-bottom: 53px;
   }
   footer h1 {
     display: none;
   }
 }
 
-
 @media (max-width: 375px) {
-    .div-all a{
-        margin-bottom: 25px;
-    }
-
+  .div-all a {
+    margin-bottom: 25px;
+  }
 }
