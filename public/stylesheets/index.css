@@ -156,18 +156,18 @@ body {
 .find-btn {
   background-color: var(--primaryColor);
   color: white;
-  /* border: 2.0px solid var(--primaryColor); */
   padding: 13px 20px;
   width: auto;
   text-transform: uppercase;
   font-size: 18px;
   border-radius: 7px;
+  transition: 0.3s linear;
+  border: none;
 }
 
 .find-btn:hover {
   background-color: var(--primaryColor);
-  /* color: black; */
-  transition: 0.1s linear;
+  transition: 0.3s linear;
   transform: scale(1.1);
   cursor: pointer;
 }

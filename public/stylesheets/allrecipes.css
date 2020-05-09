@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Baloo+Paaji+2|Pacifico&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,600,700|Work+Sans:100,200,300,400,500,600");
-@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Patua+One&display=swap");
 :root {
   --primaryColor: #f1935c;
 }
@@ -128,8 +128,8 @@
 
 .search-results {
   text-align: center;
-  font-family: "Open Sans", sans-serif;
-  font-size: 2.6rem;
+  font-family: "Patua One", cursive;
+  font-size: 4rem;
   color: var(--primaryColor);
   margin-top: 20px;
 }
@@ -137,7 +137,7 @@
 .search-results::after {
   content: "";
   height: 4px;
-  width: 20%;
+  width: 470px;
   background: var(--primaryColor);
   display: block;
   margin: 10px auto;
@@ -149,7 +149,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
   margin-bottom: 50px;
-  max-width: 80%;
+  /* max-width: 80%; */
 }
 
 .card {
@@ -262,7 +262,7 @@ figure:hover img {
   }
 
   .categories {
-      display: none;
+    display: none;
   }
 
   .recipes-body {
@@ -276,5 +276,11 @@ figure:hover img {
   .card {
     grid-template-columns: 320px;
     grid-template-rows: 216px 130px 80px;
+  }
+  .search-results{
+    font-size: 60px;
+  }
+  .search-results::after{
+    display: none;
   }
 }
