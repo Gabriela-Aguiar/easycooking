@@ -335,4 +335,8 @@ body {
   .a-btn{
     padding: 0;
   }
+
+  .content h2{
+    margin-top: 20px;
+  }
 }
