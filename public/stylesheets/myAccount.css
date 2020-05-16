@@ -229,3 +229,9 @@ select {
     display: none;
   }
 }
+
+@media (max-width: 375px) {
+  .user-information p{
+    font-size: 1.3rem;
+  }
+}
