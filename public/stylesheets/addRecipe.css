@@ -191,3 +191,10 @@ a:hover {
         height: 1200px;
     }
 }
+
+@media (max-width: 375px) {
+    .ingredient{
+        width: 110px;
+    }
+
+}

@@ -213,3 +213,9 @@ a {
     display: none;
   }
 }
+
+@media (max-width: 375px) {
+  .title{
+    font-size: 6.5rem
+  }
+}
