@@ -179,6 +179,7 @@ nav {
     height: 50px;
     background-color: transparent;
     justify-content: flex-end;
+    z-index: 1000;
   }
   .menu {
     position: relative;
