@@ -224,9 +224,14 @@
     max-width: 90%;
   }
 
+  footer {
+    position: relative;
+  }
+
   footer h1 {
     display: none;
   }
+  
   .search-group {
     width: 100%;
   }
