@@ -154,12 +154,12 @@
 }
 
 .search-btn {
-  background: var(--primaryColor);
+  background: #fff;
   padding: 10px 16px;
   width: auto;
   font-weight: 600;
   font-size: 20px;
-  color: #fff;
+  color: var(--primaryColor);
   cursor: pointer;
   line-height: 16px;
   letter-spacing: 0.5px;
