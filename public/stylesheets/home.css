@@ -179,11 +179,6 @@
   display: none;
 }
 
-footer {
-  position: fixed;
-  bottom: 0;
-}
-
 @media (max-width: 414px) {
   html,
   body {

@@ -173,7 +173,7 @@ nav {
     display: none;
   }
   nav {
-    position: relative;
+    position: absolute;
     box-shadow: none;
     position: fixed;
     height: 50px;
@@ -181,7 +181,7 @@ nav {
     justify-content: flex-end;
   }
   .menu {
-    position: relative;
+    position: absolute;
     height: 100%;
     display: flex;
     flex-direction: column;
