@@ -41,8 +41,8 @@ body {
 
 .recipe-results {
 	text-align: center;
-	font-family: 'Open Sans', sans-serif;
-	font-size: 2.6rem;
+	font-family: "Patua One", cursive;
+	font-size: 4rem;
 	color: var(--primaryColor);
 	margin-top: 20px
 }
@@ -202,6 +202,10 @@ figure:hover img {
 @media (max-width: 414px) {
 	.title{
 		font-size: 100px;
+	}
+
+	.recipe-results{
+		font-size: 60px;
 	}
 
 	.recipe-results::after{
