@@ -222,11 +222,11 @@ footer {
   }
 
   footer {
-    position: relative;
+    display: none !important;
   }
 
-  footer h1 {
-    display: none;
+  .copy{
+    display: none !important;
   }
 
   .search-group {
