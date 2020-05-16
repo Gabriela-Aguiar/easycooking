@@ -241,4 +241,8 @@
   .inpt-search{
     width: 265px;
   }
+
+  .search h1{
+    margin-top: 20px;
+  }
 }
