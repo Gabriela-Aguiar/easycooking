@@ -179,12 +179,9 @@
   display: none;
 }
 
-.footer{
-  position: absolute;
-  left: 0;
+footer {
+  position: fixed;
   bottom: 0;
-  width: 100%;
-  height: 100%;
 }
 
 @media (max-width: 414px) {
@@ -224,9 +221,14 @@
     max-width: 90%;
   }
 
+  footer {
+    position: relative;
+  }
+
   footer h1 {
     display: none;
   }
+
   .search-group {
     width: 100%;
   }
