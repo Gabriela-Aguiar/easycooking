@@ -236,3 +236,9 @@
     margin: 0 5px;
   }
 }
+
+@media (max-width: 375px){
+  .inpt-search{
+    width: 265px;
+  }
+}
