@@ -40,13 +40,12 @@ body {
     background-position: center;
     overflow: auto;
     height: 100vh;
-    overflow-y: hidden;
 }
 
 .card {
     background-color: rgba(0, 0, 0, 0.7);
     box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
-    height: 100vh;
+    height: 100%;
     width: 100vw;
 }
 
@@ -155,4 +154,39 @@ a {
 
 a:hover {
     transform: scale(1.1);
+}
+
+@media (max-width: 1366px) {
+    .titles{
+        margin-top: 0;
+    }   
+}
+
+@media (max-width: 414px){
+    .summary-instructions{
+        flex-direction: column;
+    }
+
+    .titles{
+        margin-top: 15px;
+    }
+
+    .ingredients-all{
+        display: flex;
+        flex-direction: column;
+    }
+
+    label{
+        display: none;
+    }
+
+    .ingredient{
+        font-size: 11px;
+        width: 120px;
+        margin-right: 0px;
+    }
+
+    .card{
+        height: 1200px;
+    }
 }
