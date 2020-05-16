@@ -102,7 +102,7 @@ a {
 .carousel-wrapper .carousel .carousel-cell {
   padding: 10px;
   background-color: #ffffff;
-  width: 20%;
+  width: 255px;
   height: 350px;
   min-width: 120px;
   margin: 0 20px;
@@ -204,8 +204,12 @@ a {
   }
 }
 
-@media (max-width: 414px){
-  .myRecipes-title::after{
+@media (max-width: 414px) {
+  .myRecipes-title::after {
+    display: none;
+  }
+
+  footer h1 {
     display: none;
   }
 }
