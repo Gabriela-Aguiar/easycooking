@@ -57,7 +57,7 @@
   background-color: var(--primaryColor);
   color: #fff;
   font-size: 20px;
-  padding: 10px 15px;
+  padding: 10px 18px;
   border: none;
   border-radius: 50%;
   display: flex;
@@ -163,7 +163,7 @@
   cursor: pointer;
   line-height: 16px;
   letter-spacing: 0.5px;
-  border-radius: 10px;
+  border-radius: 25px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
   border: 0;
   outline: 0;
